@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(24341083, 'init', { webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/24341083" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <meta name="robots" content="noindex, follow">
+    <title>Спасибо за заявку — СК «Русский Север»</title>
+    <meta name="description" content="Ваша заявка принята. Мы свяжемся с вами в ближайшее время.">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="preload" href="fonts/Montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/OpenSans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thankyou-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-dark);
+            padding: 40px 20px;
+        }
+
+        .thankyou-card {
+            max-width: 600px;
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thankyou-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .thankyou-icon svg {
+            width: 45px;
+            height: 45px;
+            stroke: #fff;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .thankyou-card h1 {
+            color: var(--text-dark);
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+
+        .thankyou-card p {
+            color: #555;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0 0 30px;
+        }
+
+        .thankyou-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .thankyou-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border: 1px solid rgba(232, 167, 116, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .thankyou-links a:hover {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            border-color: var(--accent-color);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--accent-color);
+            color: #fff;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(232, 167, 116, 0.4);
+        }
+
+        .btn-back svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @media (max-width: 600px) {
+            .thankyou-card {
+                padding: 40px 24px;
+            }
+
+            .thankyou-card h1 {
+                font-size: 1.5rem;
+            }
+
+            .thankyou-card p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <!-- Top.Mail.Ru counter -->
+    <script type="text/javascript">
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "3769884", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+      if (d.getElementById(id)) return;
+      var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+      ts.src = "https://top-fwz1.mail.ru/js/code.js";
+      var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+      if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "tmr-code");
+    </script>
+    <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3769884;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+    <!-- /Top.Mail.Ru counter -->
+
+</head>
+
+<body>
+    <div class="thankyou-page">
+        <div class="thankyou-card">
+            <div class="thankyou-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+            <h1>Спасибо за заявку!</h1>
+            <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время для уточнения деталей.</p>
+            <div class="thankyou-links">
+                <a href="/#projects">Проекты домов</a>
+                <a href="/#mortgage">Ипотека</a>
+                <a href="/#contacts">Контакты</a>
+            </div>
+            <a href="/" class="btn-back">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Вернуться на главную
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof ym === 'function') {
+                ym(24341083, 'reachGoal', 'thank_you_page', {
+                    timestamp: new Date().toISOString(),
+                    url: window.location.href
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

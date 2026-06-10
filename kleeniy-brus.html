@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Каталог проектов домов — СК «Русский Север»</title>
+    <meta name="description" content="Каталог проектов домов из клееного бруса с фильтрами по площади, цене, этажности и планировке.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://runorth.ru/kleeniy-brus">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://runorth.ru/kleeniy-brus">
+    <meta property="og:title" content="Каталог проектов домов — СК «Русский Север»">
+    <meta property="og:image" content="https://runorth.ru/images/hero_bg.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+    <meta name="theme-color" content="#31434E">
+    <link rel="preload" href="fonts/Montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/OpenSans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="header.css?v=20260515">
+    <link rel="stylesheet" href="style.css?v=20260608-lightbox-pan-smooth">
+    <link rel="stylesheet" href="catalog.css?v=38">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(24341083, 'init', { webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/24341083" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Top.Mail.Ru counter -->
+    <script type="text/javascript">
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "3769884", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+      if (d.getElementById(id)) return;
+      var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+      ts.src = "https://top-fwz1.mail.ru/js/code.js";
+      var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+      if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "tmr-code");
+    </script>
+    <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3769884;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+    <!-- /Top.Mail.Ru counter -->
+
+</head>
+
+<body class="catalog-page">
+    <!-- 0. Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="/">
+                    <picture>
+                        <source srcset="images/logo.webp" type="image/webp">
+                        <img src="images/logo.png" alt="Русский Север" class="logo-img" width="150" height="45"
+                            fetchpriority="high">
+                    </picture>
+                </a>
+            </div>
+            <nav class="nav" id="nav">
+                <a href="/kleeniy-brus">Каталог</a>
+                <a href="/#mortgage">Ипотека</a>
+                <a href="/excursion">Экскурсии</a>
+                <a href="/#process">Этапы работ</a>
+                <a href="/#supervision">Технадзор</a>
+                <a href="/blog">Блог</a>
+            </nav>
+            <div class="header-center">
+                <a href="tel:+78124072537" class="header-phone">8 (812) 407-25-37</a>
+                <div class="header-socials">
+                    <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        title="Написать в Telegram">
+                        <img src="images/telegram.svg" alt="Telegram" width="22" height="22" loading="lazy">
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
+                        target="_blank" rel="noopener noreferrer" class="social-icon" title="Написать в MAX">
+                        <img src="images/max.svg" alt="MAX" width="22" height="22" loading="lazy">
+                    </a>
+                </div>
+                <button class="btn-header" onclick="openModal('Заказать звонок')">Заказать звонок</button>
+            </div>
+            <button class="burger-menu" id="burgerMenu" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <nav class="mobile-nav">
+                <a href="/kleeniy-brus" class="mobile-nav-link">Каталог</a>
+                <a href="/#mortgage" class="mobile-nav-link">Ипотека</a>
+                <a href="/excursion" class="mobile-nav-link">Экскурсии</a>
+                <a href="/#process" class="mobile-nav-link">Этапы работ</a>
+                <a href="/#supervision" class="mobile-nav-link">Технадзор</a>
+                <a href="/blog" class="mobile-nav-link">Блог</a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <a href="tel:+78124072537" class="mobile-phone">8 (812) 407-25-37</a>
+                <div class="mobile-socials">
+                    <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer"
+                        class="mobile-social-icon" title="Telegram">
+                        <img src="images/telegram.svg" alt="Telegram" width="24" height="24" loading="lazy">
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
+                        target="_blank" rel="noopener noreferrer" class="mobile-social-icon" title="MAX">
+                        <img src="images/max.svg" alt="MAX" width="24" height="24" loading="lazy">
+                    </a>
+                </div>
+                <button class="btn btn-primary btn-mobile-callback" onclick="openModal('Заказать звонок')">Заказать
+                    звонок</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="catalog-top">
+            <div class="container">
+                <nav class="catalog-breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">Проекты домов</span>
+                </nav>
+                <h1>Проекты домов из клееного бруса</h1>
+            </div>
+        </section>
+
+        <section class="catalog-filterbar">
+            <div class="container">
+                <div class="catalog-dropdowns" id="catalogFilters">
+                    <div class="catalog-filters-head">
+                        <h2>Фильтры</h2>
+                        <button class="catalog-filter-close" type="button" id="catalogFilterClose" aria-label="Закрыть">×</button>
+                    </div>
+
+                    <div class="catalog-dd" data-dd="floors">
+                        <button class="catalog-dd-btn" type="button" aria-expanded="false">
+                            <span class="catalog-dd-label" data-dd-label="floors">Этажность</span>
+                            <svg class="catalog-dd-chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div class="catalog-dd-panel">
+                            <div class="catalog-dd-list">
+                                <label class="catalog-dd-radio"><input type="radio" name="floors" value="all" checked>Все</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="floors" value="1">1 этаж</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="floors" value="2">2 этажа</label>
+                            </div>
+                            <div class="catalog-segment" hidden>
+                                <button class="catalog-chip is-active" type="button" data-floor="all">Все</button>
+                                <button class="catalog-chip" type="button" data-floor="1">1 этаж</button>
+                                <button class="catalog-chip" type="button" data-floor="2">2 этажа</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-dd" data-dd="area">
+                        <button class="catalog-dd-btn" type="button" aria-expanded="false">
+                            <span class="catalog-dd-label" data-dd-label="area">Площадь</span>
+                            <svg class="catalog-dd-chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div class="catalog-dd-panel catalog-dd-panel-wide">
+                            <div class="catalog-range-values">
+                                <output id="areaMinValue">от</output>
+                                <output id="areaMaxValue">до</output>
+                            </div>
+                            <div class="catalog-slider" data-slider="area">
+                                <div class="catalog-slider-track"></div>
+                                <input id="areaMin" type="range" min="0" max="0" step="1" aria-label="Минимальная площадь">
+                                <input id="areaMax" type="range" min="0" max="0" step="1" aria-label="Максимальная площадь">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-dd" data-dd="bedrooms">
+                        <button class="catalog-dd-btn" type="button" aria-expanded="false">
+                            <span class="catalog-dd-label" data-dd-label="bedrooms">Спальни</span>
+                            <svg class="catalog-dd-chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div class="catalog-dd-panel">
+                            <div class="catalog-dd-list">
+                                <label class="catalog-dd-radio"><input type="radio" name="bedrooms" value="0" checked>Любое</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="bedrooms" value="2">От 2</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="bedrooms" value="3">От 3</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="bedrooms" value="4">От 4</label>
+                                <label class="catalog-dd-radio"><input type="radio" name="bedrooms" value="5">От 5</label>
+                            </div>
+                            <select id="bedroomsMin" class="catalog-dd-hidden-select" aria-hidden="true" tabindex="-1">
+                                <option value="0">Любое</option>
+                                <option value="2">От 2</option>
+                                <option value="3">От 3</option>
+                                <option value="4">От 4</option>
+                                <option value="5">От 5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="catalog-dd" data-dd="price">
+                        <button class="catalog-dd-btn" type="button" aria-expanded="false">
+                            <span class="catalog-dd-label" data-dd-label="price">Цена</span>
+                            <svg class="catalog-dd-chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div class="catalog-dd-panel catalog-dd-panel-wide">
+                            <div class="catalog-range-values">
+                                <output id="priceMinValue">от</output>
+                                <output id="priceMaxValue">до</output>
+                            </div>
+                            <div class="catalog-slider" data-slider="price">
+                                <div class="catalog-slider-track"></div>
+                                <input id="priceMin" type="range" min="0" max="0" step="0.1" aria-label="Минимальная цена">
+                                <input id="priceMax" type="range" min="0" max="0" step="0.1" aria-label="Максимальная цена">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-dd" data-dd="options">
+                        <button class="catalog-dd-btn" type="button" aria-expanded="false">
+                            <span class="catalog-dd-label" data-dd-label="options">Опции</span>
+                            <svg class="catalog-dd-chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div class="catalog-dd-panel">
+                            <div class="catalog-dd-list">
+                                <label class="catalog-dd-check"><input type="checkbox" value="terrace" data-option>Терраса</label>
+                                <label class="catalog-dd-check"><input type="checkbox" value="sauna" data-option>Сауна</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="catalog-sort catalog-sort-desktop" data-catalog-sort>
+                        <button class="catalog-sort-toggle" type="button" aria-expanded="false" aria-haspopup="listbox">
+                            <svg class="catalog-sort-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 3v14"></path>
+                                <path d="M3 6l3-3 3 3"></path>
+                                <path d="M14 17V3"></path>
+                                <path d="M11 14l3 3 3-3"></path>
+                            </svg>
+                            <span class="catalog-sort-label" data-catalog-sort-label>По умолчанию</span>
+                        </button>
+                        <div class="catalog-sort-menu" role="listbox" aria-label="Сортировка проектов" aria-hidden="true">
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="price-asc" aria-selected="false">
+                                <span>по возрастанию цены</span>
+                                <span aria-hidden="true">↑</span>
+                            </button>
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="price-desc" aria-selected="false">
+                                <span>по убыванию цены</span>
+                                <span aria-hidden="true">↓</span>
+                            </button>
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="default" aria-selected="true">по умолчанию</button>
+                        </div>
+                    </div>
+
+                    <div class="catalog-search">
+                        <input id="catalogSearch" type="search" placeholder="Найти проект" autocomplete="off">
+                        <svg class="catalog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="20" y1="20" x2="16.5" y2="16.5"></line>
+                        </svg>
+                    </div>
+                    <button class="catalog-apply-link" type="button" id="catalogApply">Применить</button>
+                    <button class="catalog-reset-link" type="button" id="catalogReset">Сбросить</button>
+                </div>
+                <div class="catalog-toolbar">
+                    <div class="catalog-sort" data-catalog-sort>
+                        <button class="catalog-sort-toggle" type="button" aria-expanded="false" aria-haspopup="listbox">
+                            <svg class="catalog-sort-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 3v14"></path>
+                                <path d="M3 6l3-3 3 3"></path>
+                                <path d="M14 17V3"></path>
+                                <path d="M11 14l3 3 3-3"></path>
+                            </svg>
+                            <span class="catalog-sort-label" data-catalog-sort-label>По умолчанию</span>
+                        </button>
+                        <div class="catalog-sort-menu" role="listbox" aria-label="Сортировка проектов" aria-hidden="true">
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="price-asc" aria-selected="false">
+                                <span>по возрастанию цены</span>
+                                <span aria-hidden="true">↑</span>
+                            </button>
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="price-desc" aria-selected="false">
+                                <span>по убыванию цены</span>
+                                <span aria-hidden="true">↓</span>
+                            </button>
+                            <button class="catalog-sort-option" type="button" role="option" data-sort-value="default" aria-selected="true">по умолчанию</button>
+                        </div>
+                    </div>
+                    <button class="catalog-filter-open" type="button" id="catalogFilterOpen" aria-label="Открыть фильтры">Фильтры</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="container">
+                <div class="catalog-results" id="projects">
+                    <div class="catalog-empty" id="catalogEmpty">
+                        <div>Ничего не найдено. Измените фильтры или оставьте заявку на индивидуальный проект.</div>
+                        <button class="catalog-empty-reset" type="button" id="catalogEmptyReset">Сбросить фильтры</button>
+                    </div>
+                    <div class="catalog-grid grid-2" id="catalogGrid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Excursion -->
+        <section class="excursion-full-bg reveal" id="excursion">
+            <div class="container">
+                <div class="excursion-premium-content">
+                    <h2>Нам не стыдно показать свои объекты вживую</h2>
+                    <p>Красивые картинки могут рисовать все, но настоящее качество видно только на
+                        стройплощадке. Мы готовы
+                        поехать и показать вам наши объекты в любой удобный для вас день. Это абсолютно
+                        бесплатно.</p>
+
+                    <ul class="excursion-benefits">
+                        <li><span class="check-icon">✓</span> Оцените культуру и качество строительства</li>
+                        <li><span class="check-icon">✓</span> Сравните рендеры и модели с реальными объектами</li>
+                        <li><span class="check-icon">✓</span> Зададите любые вопросы нашим специалистам</li>
+                    </ul>
+
+                    <div class="excursion-cta-row">
+                        <button class="btn btn-primary btn-excursion-glow"
+                            onclick="openModal('Бесплатная экскурсия на объект')">Бесплатная экскурсия на
+                            объект</button>
+                        <a href="/excursion" class="btn btn-outline btn-excursion-more">
+                            <span>Узнать больше</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Final CTA -->
+        <section class="final-cta section reveal" id="contacts">
+            <div class="container">
+                <div class="final-cta-wrapper">
+                    <div class="final-cta-content">
+                        <h2>Сделайте первый шаг к дому, которым будет гордиться ваша семья</h2>
+                        <p class="subtitle">Запишитесь на первичную консультацию и бесплатный расчет сметы в
+                            нашем офисе или
+                            онлайн.</p>
+
+                        <div class="bonus-card">
+                            <div class="bonus-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                                    <rect x="2" y="7" width="20" height="5"></rect>
+                                    <line x1="12" y1="22" x2="12" y2="7"></line>
+                                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                                </svg>
+                            </div>
+                            <div class="bonus-text">
+                                <strong>Бонус за встречу</strong>
+                                <p>Детальный предварительный расчет стоимости и каталог надежных домов в
+                                    подарок!</p>
+                            </div>
+                        </div>
+
+                        <form class="cta-form-enhanced" onsubmit="submitForm(event)">
+                            <!-- Hidden fields for Bitrix24 integration -->
+                            <input type="hidden" name="form_source" id="formSourceCta"
+                                value="&#1050;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; &#8212; &#1041;&#1086;&#1085;&#1091;&#1089; &#1079;&#1072; &#1074;&#1089;&#1090;&#1088;&#1077;&#1095;&#1091;">
+                            <input type="hidden" name="utm_source" id="utmSourceCta">
+                            <input type="hidden" name="utm_medium" id="utmMediumCta">
+                            <input type="hidden" name="utm_campaign" id="utmCampaignCta">
+                            <input type="hidden" name="utm_content" id="utmContentCta">
+                            <input type="hidden" name="utm_term" id="utmTermCta">
+                            <input type="hidden" name="referrer" id="referrerCta">
+                            <div class="form-field-group">
+                                <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="text" placeholder="Ваше имя" name="name" required>
+                            </div>
+                            <div class="form-field-group">
+                                <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                <input type="tel" placeholder="Ваш телефон" name="phone" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-cta-glow">
+                                <span>Получить консультацию</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                            <div class="form-checkbox-row">
+                                <label class="form-checkbox-label">
+                                    <input type="checkbox" required checked>
+                                    <span class="form-checkbox-custom"></span>
+                                    <span class="form-checkbox-text">Я согласен с <a href="/privacy-policy"
+                                            class="policy-link" target="_blank" rel="noopener noreferrer">Политикой
+                                            конфиденциальности</a> и <a href="/user-agreement" class="policy-link"
+                                            target="_blank" rel="noopener noreferrer">Пользовательским
+                                            соглашением</a></span>
+                                </label>
+                            </div>
+                        </form>
+
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Гарантия конфиденциальности</span>
+                            </div>
+                            <div class="trust-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Ответим в течение 15 минут</span>
+                            </div>
+                            <div class="trust-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Бесплатная консультация</span>
+                            </div>
+                        </div>
+
+                        <p class="policy-enhanced">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Нажимая кнопку, вы соглашаетесь с <a href="/privacy-policy" class="policy-link"
+                                target="_blank" rel="noopener noreferrer">Политикой
+                                конфиденциальности</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="catalog-backdrop" id="catalogBackdrop"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <picture>
+                            <source srcset="images/logo.webp" type="image/webp">
+                            <img src="images/logo.png" alt="Русский Север" class="footer-logo-img" width="120"
+                                height="36" loading="lazy">
+                        </picture>
+                        <div class="footer-company-info">
+                            <h4>Русский Север</h4>
+                            <p>Дома из клееного бруса в Санкт-Петербурге</p>
+                        </div>
+                    </div>
+                    <div class="footer-messengers-top">
+                        <h5>Написать в мессенджер</h5>
+                        <div class="footer-messengers-row">
+                            <div class="footer-messengers-icons-top">
+                                <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer"
+                                    class="footer-messenger-icon-top" title="Telegram">
+                                    <img src="images/telegram.svg" alt="Telegram" width="32" height="32" loading="lazy">
+                                </a>
+                                <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
+                                    target="_blank" rel="noopener noreferrer" class="footer-messenger-icon-top"
+                                    title="MAX">
+                                    <img src="images/max.svg" alt="MAX" width="32" height="32" loading="lazy">
+                                </a>
+                            </div>
+                            <button class="btn btn-primary footer-cta-btn"
+                                onclick="openModal('Оставить заявку')">Оставить заявку</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-middle">
+                    <div class="footer-contacts">
+                        <h5>Контакты</h5>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+78124072537">8 (812) 407-25-37</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:info@nordsrub.ru">info@nordsrub.ru</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>г. Санкт-Петербург, Литейный проспект 46</span>
+                        </div>
+                    </div>
+                    <div class="footer-nav">
+                        <div class="footer-nav-column">
+                            <h5>Навигация</h5>
+                            <a href="/kleeniy-brus">Каталог</a>
+                            <a href="/#mortgage">Ипотека</a>
+                            <a href="/excursion">Экскурсии</a>
+                            <a href="/#process">Этапы работ</a>
+                        </div>
+                        <div class="footer-nav-column">
+                            <h5>Информация</h5>
+                            <a href="/#supervision">Технадзор</a>
+                            <a href="/blog">Блог</a>
+                            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политика
+                                конфиденциальности</a>
+                            <a href="/user-agreement" target="_blank" rel="noopener noreferrer">Пользовательское
+                                соглашение</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-socials-bottom">
+                        <h5>Мы в социальных сетях</h5>
+                        <div class="footer-socials-grid-bottom">
+                            <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom" title="Telegram">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.492-1.302.484-.429-.008-1.252-.241-1.865-.44-.752-.245-1.349-.375-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.12.098.153.23.168.332.016.101.036.331.02.511z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/nordsrub" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom instagram-link-bottom" title="Instagram">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg>
+                                <span class="instagram-asterisk">*</span>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCcZm4Ix_0WS6aYR-ri46c0g" target="_blank"
+                                rel="noopener noreferrer" class="footer-social-link-bottom" title="YouTube">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </a>
+                            <a href="https://vk.com/nordsrub" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom" title="VK">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.456 2.27 4.607 2.862 4.607.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z" />
+                                </svg>
+                            </a>
+                            <a href="https://dzen.ru/nordsrub" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom" title="Дзен">
+                                <picture>
+                                    <source srcset="images/Yandex_Zen_logo_icon.svg.webp" type="image/webp">
+                                    <img src="images/Yandex_Zen_logo_icon.svg.png" alt="Дзен" width="28" height="28"
+                                        loading="lazy">
+                                </picture>
+                            </a>
+                            <a href="https://max.ru/id7811659615_biz" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom" title="MAX Messenger">
+                                <img src="images/max.svg" alt="MAX" width="28" height="28" loading="lazy">
+                            </a>
+                            <a href="https://rutube.ru" target="_blank" rel="noopener noreferrer"
+                                class="footer-social-link-bottom" title="Rutube">
+                                <img src="images/rutube-svgrepo-com.svg" alt="Rutube" width="28" height="28"
+                                    loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                    <p>© 2026 Компания «Русский Север». Все права защищены.</p>
+                    <p class="instagram-disclaimer">* Признан экстремистской организацией и запрещен на территории
+                        РФ.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal(); return false;">&times;</span>
+            <h3 id="modal-title">Оставьте заявку</h3>
+            <p class="modal-subtitle">Мы свяжемся с вами, уточним детали и подготовим смету по проекту</p>
+            <form class="modal-form" onsubmit="submitForm(event)" id="modalForm">
+                <input type="hidden" name="form_source" id="formSource" value="Каталог проектов">
+                <input type="hidden" name="utm_source" id="utmSource">
+                <input type="hidden" name="utm_medium" id="utmMedium">
+                <input type="hidden" name="utm_campaign" id="utmCampaign">
+                <input type="hidden" name="utm_content" id="utmContent">
+                <input type="hidden" name="utm_term" id="utmTerm">
+                <input type="hidden" name="referrer" id="referrer">
+                <div class="modal-input-group" id="messengerGroup" style="display:none;">
+                    <select name="messenger" aria-label="Куда направить проект">
+                        <option value="Telegram">Telegram</option>
+                        <option value="MAX">Макс (MAX)</option>
+                    </select>
+                </div>
+                <div class="modal-input-group"><input type="text" placeholder="Ваше имя" name="name" required></div>
+                <div class="modal-input-group"><input type="tel" placeholder="Ваш телефон" name="phone" required></div>
+                <button type="submit" class="btn btn-primary btn-modal-submit"><span>Отправить заявку</span></button>
+                <div class="form-status" id="formStatus"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Закрыть">×</button>
+        <button class="lightbox-arrow lightbox-prev" onclick="lightboxNav(-1)" aria-label="Назад">‹</button>
+        <div class="lightbox-content">
+            <div class="lightbox-zoom-wrapper">
+                <img class="lightbox-img" id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Изображение проекта">
+            </div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+        <button class="lightbox-arrow lightbox-next" onclick="lightboxNav(1)" aria-label="Вперёд">›</button>
+        <div class="lightbox-dots" id="lightboxDots"></div>
+    </div>
+
+    <script>let lightboxImages = [], lightboxIndex = 0;</script>
+    <script src="catalog.js?v=30"></script>
+    <script src="app.js?v=20260608-lightbox-pan-smooth"></script>
+
+    <!-- Roistat visibility hook -->
+    <script>
+        window.onRoistatModuleLoaded = function () {
+            if (window.roistat && window.roistat.multiwidget) {
+                window.roistat.multiwidget.isVisible = false;
+            }
+        };
+    </script>
+
+    <!-- Roistat Counter Start -->
+    <script>
+        (function (w, d, s, h, id) {
+            w.roistatProjectId = id;
+            w.roistatHost = h;
+            var loaded = false;
+            function loadRoistat() {
+                if (loaded || d.getElementById("roistat-script")) return;
+                loaded = true;
+                var p = d.location.protocol == "https:" ? "https://" : "http://";
+                var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie)
+                    ? "/dist/module.js"
+                    : "/api/site/1.0/" + id + "/init?referrer=" + encodeURIComponent(d.location.href);
+                var js = d.createElement(s);
+                js.id = "roistat-script";
+                js.charset = "UTF-8";
+                js.async = 1;
+                js.src = p + h + u;
+                var js2 = d.getElementsByTagName(s)[0];
+                js2.parentNode.insertBefore(js, js2);
+            }
+            ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (eventName) {
+                w.addEventListener(eventName, loadRoistat, { once: true, passive: true });
+            });
+            if (d.readyState === "complete") w.setTimeout(loadRoistat, 1500);
+            else w.addEventListener("load", function () { w.setTimeout(loadRoistat, 1500); }, { once: true });
+        })(window, document, 'script', 'cloud.roistat.com', '84dab9d1c42b435dbd50d377c79bd823');
+    </script>
+    <!-- Roistat Counter End -->
+</body>
+
+</html>
+

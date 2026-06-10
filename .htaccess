@@ -1,0 +1,236 @@
+# Оптимизация производительности для PageSpeed Insights
+# Apache Configuration
+
+# ==========================================
+# 0. Обработка ошибок
+# ==========================================
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 500 /404.html
+
+# ==========================================
+# 1.1. Автоматическая раздача WebP вместо JPG/PNG
+# ==========================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Clean URLs for static HTML pages
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+    RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
+
+    # Не трогаем файл подтверждения прав Яндекс.Вебмастер (нужен прямой 200 на .html)
+    RewriteCond %{REQUEST_URI} !^/yandex_[0-9a-f]+\.html$ [NC]
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+    RewriteRule ^(.+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L,NE]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+
+    # Если браузер поддерживает WebP
+    RewriteCond %{HTTP_ACCEPT} image/webp [NC]
+    # И существует .webp версия рядом с .jpg/.png
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME}\.webp -f
+    # Проверяем что запрошен jpg или png
+    RewriteCond %{REQUEST_URI} \.(jpe?g|png)$ [NC]
+    # Отдаём WebP версию
+    RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
+
+    # Добавляем Vary: Accept для корректного кэширования
+    <IfModule mod_headers.c>
+        Header append Vary Accept env=REDIRECT_STATUS
+    </IfModule>
+</IfModule>
+
+# ==========================================
+# 1. Включение сжатия GZIP/Brotli
+# ==========================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/xhtml+xml
+    AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+    AddOutputFilterByType DEFLATE font/otf font/ttf font/woff font/woff2
+    
+    # Максимальный уровень сжатия
+    # #DeflateCompressionLevel 9
+    
+    # Исключения для уже сжатых файлов
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|avif|ico|mp4|webm|ogg)$ no-gzip dont-vary
+</IfModule>
+
+# ==========================================
+# 2. Кэширование браузера
+# ==========================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Изображения - 1 год
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Видео - 1 год
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+    
+    # Шрифты - 1 год
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # CSS и JavaScript - 1 месяц
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    
+    # HTML - 1 час (для быстрых обновлений)
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType application/json "access plus 1 hour"
+    
+    # По умолчанию - 1 неделя
+    ExpiresDefault "access plus 1 week"
+</IfModule>
+
+# ==========================================
+# 3. Заголовки кэширования (альтернатива/дополнение к mod_expires)
+# ==========================================
+<IfModule mod_headers.c>
+    # Изображения
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Шрифты
+    <FilesMatch "\.(woff2?|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        # CORS: разрешаем загрузку шрифтов с поддоменов (msk.runorth.ru и т.п.)
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    
+    # CSS и JS
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000, must-revalidate"
+    </FilesMatch>
+    
+    # HTML
+    <FilesMatch "\.(html?|xml)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+    
+    # Удаление ETag для избежания дублирования заголовков
+    Header unset ETag
+</IfModule>
+
+# Отключение ETag
+FileETag None
+
+# ==========================================
+# 4. Предотвращение hotlinking для изображений (опционально)
+# ==========================================
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTP_REFERER} !^$
+#     RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yoursite\.ru [NC]
+#     RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC,L]
+# </IfModule>
+
+# ==========================================
+# 5. Безопасность и производительность
+# ==========================================
+# Determine if request comes from our own site or Yandex Metrika / Webvisor domains —
+# in that case the X-Frame-Options header is omitted so Webvisor can iframe the page.
+<IfModule mod_setenvif.c>
+    SetEnvIfNoCase Referer "^https?://([^/]+\.)?(runorth\.ru|webvisor\.com|(analytics|metr|metri[ck]a)\.yandex\.(com\.tr|com|ru|by|kz|uz)|metri[ck]a\.ya\.ru|metri[ck]a\.yandex)/" YANDEX_FRAME_OK=1
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Защита от XSS
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Предотвращение MIME-sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Frame protection — set only when referer is NOT Yandex Metrika / Webvisor
+    Header set X-Frame-Options "SAMEORIGIN" env=!YANDEX_FRAME_OK
+
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy (бывший Feature Policy)
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+    # Content Security Policy (CSP) — разрешения для Метрики, Вебвизора и iframe-просмотра
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org https://yastatic.net https://cloud.roistat.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org; media-src 'self' data: https:; connect-src 'self' https://nordsrub.bitrix24.ru https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org wss://mc.yandex.ru wss://mc.yandex.com wss://mc.webvisor.com wss://mc.webvisor.org https://cloud.roistat.com; child-src 'self' blob: https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org https://yandex.ru https://*.yandex.ru https://yastatic.net; frame-src 'self' blob: https://mc.yandex.ru https://mc.yandex.com https://mc.webvisor.com https://mc.webvisor.org https://yandex.ru https://*.yandex.ru https://yastatic.net; frame-ancestors 'self' https://*.yandex https://*.yandex.ru https://*.yandex.com https://*.yandex.by https://*.yandex.com.tr https://*.yandex.kz https://*.yandex.uz https://*.ya.ru https://webvisor.com https://*.webvisor.com; base-uri 'self'; form-action 'self'"
+</IfModule>
+
+# ==========================================
+# 5.1. Защита от ботов и автоматических запросов
+# ==========================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Блокировка пустых User-Agent
+    RewriteCond %{HTTP_USER_AGENT} ^$ [NC]
+    RewriteRule .* - [F,L]
+
+    # Блокировка известных ботов для скрейпинга
+    RewriteCond %{HTTP_USER_AGENT} (semalt|mj12bot|ahrefsbot|dotbot|rogerbot|linkbot|sitebot) [NC]
+    RewriteRule .* - [F,L]
+
+    # Блокировка автоматизированных инструментов
+    RewriteCond %{HTTP_USER_AGENT} (selenium|puppeteer|phantomjs|headless|nikto|sqlmap|nmap) [NC]
+    RewriteRule .* - [F,L]
+
+    # Запрет доступа к скрытым файлам (.git, .env, .htaccess и т.д.)
+    RewriteCond %{REQUEST_URI} (^\.|/\.) [NC]
+    RewriteRule .* - [F,L]
+
+    # Защита от SQL-инъекций в URL
+    RewriteCond %{QUERY_STRING} (\.\./|<script|javascript:|union.*select|concat\() [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ==========================================
+# 5.2. Rate Limiting через mod_rewrite (базовая защита)
+# ==========================================
+# Примечание: Для полноценного rate limiting рекомендуется использовать
+# mod_ratelimit или mod_evasive на уровне сервера
+<IfModule mod_rewrite.c>
+    # Ограничение частоты запросов к敏感ительным файлам
+    <IfModule mod_setenvif.c>
+        SetEnvIf Request_URI "\.(html|php)$" PAGE_REQUEST
+    </IfModule>
+</IfModule>
+
+# ==========================================
+# 6. Отключение серверных подписей
+# ==========================================
+ServerSignature Off
+
+# ==========================================
+# 7. Настройки кодировки
+# ==========================================
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .svg
+
+# ==========================================
+# 8. Сжатие для SVG
+# ==========================================
+<IfModule mod_mime.c>
+    AddType image/avif .avif
+    AddType image/webp .webp
+    AddEncoding gzip svgz
+</IfModule>
