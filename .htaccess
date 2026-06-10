@@ -1,5 +1,6 @@
 # Оптимизация производительности для PageSpeed Insights
 # Apache Configuration
+DirectoryIndex index.html index.php
 
 # ==========================================
 # 0. Обработка ошибок
