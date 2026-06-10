@@ -20,8 +20,8 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.BEGET_FTP_HOST || secrets.BEGET_HOST }}
-          username: ${{ secrets.BEGET_FTP_USERNAME || secrets.BEGET_USERNAME }}
-          password: ${{ secrets.BEGET_FTP_PASSWORD || secrets.BEGET_PASSWORD }}
+          username: ${{ secrets.BEGET_FTP_USERNAME || secrets.BEGET_USERNAME || secrets.FTP_USERNAME || secrets.FTP_USER || secrets.BEGET_FTP_LOGIN }}
+          password: ${{ secrets.BEGET_FTP_PASSWORD || secrets.BEGET_PASSWORD || secrets.FTP_PASSWORD || secrets.FTP_PASS }}
           server-dir: ${{ secrets.BEGET_FTP_PATH || './' }}
           local-dir: ./
           protocol: ftp
