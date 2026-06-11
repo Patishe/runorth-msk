@@ -1464,12 +1464,16 @@ async function sendToBitrix24(data) {
     try {
         applyRoistatUtmFallback(data);
         const yaClientId = getYandexClientId();
+        // Домен посадочной страницы: на msk.runorth.ru даёт реальный хост,
+        // чтобы лид с поддомена был отличим в Bitrix от заявок основного сайта.
+        const landingHost = (window.location && window.location.hostname) || 'msk.runorth.ru';
+        const landingUrl = (window.location && window.location.href) || landingHost;
         const customUtmFieldMap = await getBitrixCustomUtmFieldMap();
         const customUtmFields = buildBitrixCustomUtmFields(data, customUtmFieldMap);
 
         // Build URL-encoded params for Bitrix24 (fixes Cyrillic encoding issues)
         const leadFields = {
-            'fields[TITLE]': `\u041B\u0438\u0434 \u0441 runorth.ru - ${data.formSource || '\u0417\u0430\u044F\u0432\u043A\u0430'}`,
+            'fields[TITLE]': `\u041B\u0438\u0434 \u0441 ${landingHost} - ${data.formSource || '\u0417\u0430\u044F\u0432\u043A\u0430'}`,
             'fields[NAME]': data.name || '',
             'fields[PHONE][0][VALUE]': data.phone,
             'fields[PHONE][0][VALUE_TYPE]': 'WORK',
@@ -1486,6 +1490,7 @@ async function sendToBitrix24(data) {
                 data.quizAnswers ? `=== \u041E\u0442\u0432\u0435\u0442\u044B \u043A\u0432\u0438\u0437\u0430 ===\n${data.quizAnswers}\n===\n` : null,
                 data.name ? `\u0418\u043C\u044F: ${data.name}` : null,
                 data.messenger ? `\u041A\u0443\u0434\u0430 \u043D\u0430\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442: ${data.messenger}` : null,
+                `\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430: ${landingUrl}`,
                 `\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: ${data.referrer || 'direct'}`,
                 `Roistat visit: ${data.roistat_visit || '—'}`,
                 `Roistat marker: ${data.roistat_marker || '—'}`,
