@@ -4506,6 +4506,22 @@ h3 {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     animation: modalFadeIn 0.3s ease;
+    /* Вертикальное центрирование без зависимости от высоты экрана.
+       Работает даже когда модалка показывается через display:block.
+       Если форма выше экрана — появляется прокрутка, верх не обрезается. */
+    overflow-y: auto;
+    text-align: center;
+    white-space: nowrap;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Якорь для выравнивания .modal-content по центру по вертикали */
+.modal::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 
 @keyframes modalFadeIn {
@@ -4520,7 +4536,11 @@ h3 {
 
 .modal-content {
     background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-    margin: 10% auto;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    white-space: normal;
+    margin: 0;
     padding: 45px 40px;
     border-radius: 20px;
     width: 90%;
@@ -4609,7 +4629,7 @@ h3 {
     }
 
     .modal-content {
-        margin: 5% auto;
+        margin: 0;
         padding: 35px 25px;
     }
 }
@@ -4624,7 +4644,7 @@ h3 {
     }
 
     .modal-content {
-        margin: 3% auto;
+        margin: 0;
         padding: 30px 20px;
         width: 95%;
     }
@@ -4863,7 +4883,7 @@ h3 {
 /* Mobile modal */
 @media (max-width: 600px) {
     .modal-content {
-        margin: 20% auto;
+        margin: 0;
         padding: 35px 25px;
         max-width: 95%;
     }
