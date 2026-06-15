@@ -16,10 +16,15 @@
                 ? new URL('.', window.location.href).href.replace(/\/$/, '')
                 : window.location.origin + (isMskPath ? '/msk' : '');
 
+            // Предзагружаем и кириллицу, и латиницу (цифры телефона/латинские символы нужны на первом экране).
+            // fonts.css грузим НЕблокирующе (media=print → onload), чтобы он не задерживал отрисовку (LCP).
+            // CLS при этом не страдает: до приезда шрифтов работает метрик-совместимый fallback (см. critical CSS).
             document.write(
                 '<link rel="preload" href="' + fontBase + '/fonts/Montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
+                '<link rel="preload" href="' + fontBase + '/fonts/Montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>' +
                 '<link rel="preload" href="' + fontBase + '/fonts/OpenSans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
-                '<link rel="stylesheet" href="' + fontBase + '/fonts.css?v=20260610-msk-fonts-locked">'
+                '<link rel="preload" href="' + fontBase + '/fonts/OpenSans-latin.woff2" as="font" type="font/woff2" crossorigin>' +
+                '<link rel="stylesheet" href="' + fontBase + '/fonts.css?v=20260610-msk-fonts-locked" media="print" onload="this.media=\'all\'">'
             );
         })();
     </script>
@@ -137,8 +142,28 @@
             --accent-hover: #c99064;
             --text-light: #666;
             --text-dark: #333;
-            --font-body: 'Runorth Open Sans', 'Open Sans', sans-serif;
-            --font-heading: 'Runorth Montserrat', 'Montserrat', sans-serif
+            --font-body: 'Runorth Open Sans', 'Open Sans', 'Open Sans Fallback', sans-serif;
+            --font-heading: 'Runorth Montserrat', 'Montserrat', 'Montserrat Fallback', sans-serif
+        }
+
+        /* Метрик-совместимые fallback-шрифты: пока грузятся веб-шрифты, текст рисуется
+           Arial с подогнанными метриками (size-adjust/ascent/descent рассчитаны по @capsizecss/metrics),
+           поэтому своп на Montserrat/Open Sans НЕ сдвигает вёрстку (борьба с CLS). */
+        @font-face {
+            font-family: 'Montserrat Fallback';
+            src: local('Arial');
+            size-adjust: 112.83%;
+            ascent-override: 85.79%;
+            descent-override: 22.25%;
+            line-gap-override: 0%;
+        }
+        @font-face {
+            font-family: 'Open Sans Fallback';
+            src: local('Arial');
+            size-adjust: 105.15%;
+            ascent-override: 101.65%;
+            descent-override: 27.86%;
+            line-gap-override: 0%;
         }
 
         * {
@@ -410,8 +435,8 @@ body{padding-top:70px}
     </noscript>
     <style>
         :root {
-            --font-body: 'Runorth Open Sans', 'Open Sans', sans-serif;
-            --font-heading: 'Runorth Montserrat', 'Montserrat', sans-serif;
+            --font-body: 'Runorth Open Sans', 'Open Sans', 'Open Sans Fallback', sans-serif;
+            --font-heading: 'Runorth Montserrat', 'Montserrat', 'Montserrat Fallback', sans-serif;
         }
 
         body,

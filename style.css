@@ -12,8 +12,28 @@
     /* Lighter text for subtitles */
     --text-dark: #333333;
     /* Dark text (main body) */
-    --font-body: 'Open Sans', sans-serif;
-    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', 'Open Sans Fallback', sans-serif;
+    --font-heading: 'Montserrat', 'Montserrat Fallback', sans-serif;
+}
+
+/* Метрик-совместимые fallback-шрифты (Arial с подогнанными метриками по @capsizecss/metrics).
+   Дублируют определения из inline critical CSS в index.html — нужны для элементов,
+   которые стилизуются после асинхронной загрузки style.css. Своп на веб-шрифт не двигает вёрстку (CLS). */
+@font-face {
+    font-family: 'Montserrat Fallback';
+    src: local('Arial');
+    size-adjust: 112.83%;
+    ascent-override: 85.79%;
+    descent-override: 22.25%;
+    line-gap-override: 0%;
+}
+@font-face {
+    font-family: 'Open Sans Fallback';
+    src: local('Arial');
+    size-adjust: 105.15%;
+    ascent-override: 101.65%;
+    descent-override: 27.86%;
+    line-gap-override: 0%;
 }
 
 /* Smooth scrolling for the whole page */
