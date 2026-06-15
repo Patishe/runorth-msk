@@ -251,11 +251,13 @@ function triggerHeroAnimations() {
 
     // Проверяем prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (prefersReducedMotion.matches) {
+    const isMobileHero = window.matchMedia('(max-width: 768px)');
+    if (prefersReducedMotion.matches || isMobileHero.matches) {
         // Если пользователь предпочитает reduced motion, сразу показываем элементы
         heroElements.forEach(function (el) {
             el.style.opacity = '1';
             el.style.transform = 'none';
+            el.style.animation = 'none';
         });
         return;
     }
