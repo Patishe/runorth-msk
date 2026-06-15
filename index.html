@@ -71,7 +71,7 @@
     <meta name="theme-color" content="#31434E">
 
     <!-- Preload Critical Images (адаптивно: лёгкий hero для мобильных, полный для десктопа) -->
-    <link rel="preload" as="image" href="images/hero-render%203%209%D1%8516.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="images/hero-render-3-mobile-720.avif" type="image/avif" fetchpriority="high" media="(max-width: 768px)" imagesrcset="images/hero-render-3-mobile-480.avif 480w, images/hero-render-3-mobile-720.avif 720w, images/hero-render-3-mobile-941.avif 941w" imagesizes="100vw">
     <link rel="preload" as="image" href="images/hero-render-wide-1920.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
     <link rel="preload" as="image" href="images/logo.webp" imagesrcset="images/logo.webp">
 
@@ -280,20 +280,42 @@
         @media (max-width: 768px) {
             .hero-left h1 {
                 font-size: 2rem;
+                font-weight: 600;
+                order: 1;
             }
             .hero-bg-picture img {
                 object-position: center top;
+            }
+            .hero {
+                align-items: stretch;
+            }
+            .hero-content-single {
+                padding-top: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .hero-left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                flex: 1 1 auto;
+                width: 100%;
             }
             .hero-cta-row {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 10px;
                 margin-top: auto;
+                order: 2;
             }
             .hero-left p {
                 font-size: clamp(0.86rem, 3.3vw, 0.95rem);
+                font-weight: 600;
                 line-height: 1.45;
                 max-width: 100%;
+                margin-bottom: 0;
+                display: block;
             }
             .hero-animate {
                 opacity: 1 !important;
@@ -723,7 +745,8 @@ body{padding-top:70px}
     <main>
         <section class="hero" id="hero">
             <picture class="hero-bg-picture" aria-hidden="true">
-                <source srcset="images/hero-render%203%209%D1%8516.webp" type="image/webp" media="(max-width: 768px)">
+                <source srcset="images/hero-render-3-mobile-480.avif 480w, images/hero-render-3-mobile-720.avif 720w, images/hero-render-3-mobile-941.avif 941w" sizes="100vw" type="image/avif" media="(max-width: 768px)">
+                <source srcset="images/hero-render-3-mobile-480.webp 480w, images/hero-render-3-mobile-720.webp 720w, images/hero-render-3-mobile-941.webp 941w" sizes="100vw" type="image/webp" media="(max-width: 768px)">
                 <source srcset="images/hero-render%203%209%D1%8516.png" type="image/png" media="(max-width: 768px)">
                 <source srcset="images/hero-render-wide-1920.webp" type="image/webp">
                 <source srcset="images/hero-render-wide-1920.png" type="image/png">
