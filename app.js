@@ -1199,7 +1199,24 @@ function resolveBitrixSourceId(data) {
     if (utmSource && (utmMedium === 'cpc' || utmMedium === 'ppc' || utmMedium === 'paid')) {
         return 'UC_RRCXS8'; // прочий платный — кладём в Директ-основной по умолчанию
     }
-    return '10'; // Органический трафик
+    // UTM нет: пробуем определить источник по реферреру.
+    // Органический заход из поисковика (Яндекс/Google/Bing/Mail/Rambler и т.п.) -> SEO.
+    if (isSearchEngineReferrer(data.referrer)) {
+        return '9'; // SEO (поисковый трафик)
+    }
+    return '10'; // Органический трафик (прямые заходы и переходы с других сайтов)
+}
+
+// true, если реферрер — страница поисковой системы (органический поиск без меток).
+function isSearchEngineReferrer(referrer) {
+    if (!referrer) return false;
+    let host = '';
+    try {
+        host = new URL(referrer).hostname.toLowerCase();
+    } catch (e) {
+        return false; // 'Прямой заход' или не-URL
+    }
+    return /(?:^|\.)(?:yandex\.|ya\.ru|google\.|bing\.|mail\.ru|go\.mail\.ru|rambler\.|duckduckgo\.|yahoo\.|search\.)/.test(host);
 }
 
 // Yandex.Metrika Client ID -> Bitrix24
@@ -1431,7 +1448,7 @@ function populateUTMFields() {
         utmCampaign: utm.utm_campaign,
         utmContent: utm.utm_content,
         utmTerm: utm.utm_term,
-        referrer: document.referrer || 'direct'
+        referrer: document.referrer || 'Прямой заход'
     };
 
     // Populate modal form fields
@@ -1493,7 +1510,7 @@ async function sendToBitrix24(data) {
                 data.name ? `\u0418\u043C\u044F: ${data.name}` : null,
                 data.messenger ? `\u041A\u0443\u0434\u0430 \u043D\u0430\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442: ${data.messenger}` : null,
                 `\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430: ${landingUrl}`,
-                `\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: ${data.referrer || 'direct'}`,
+                `\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A: ${data.referrer || '\u041F\u0440\u044F\u043C\u043E\u0439 \u0437\u0430\u0445\u043E\u0434'}`,
                 `Roistat visit: ${data.roistat_visit || '—'}`,
                 `Roistat marker: ${data.roistat_marker || '—'}`,
                 `Roistat referrer: ${data.roistat_referrer || '—'}`,
@@ -1632,7 +1649,7 @@ function submitForm(event) {
         roistat_pos: roistatParams.roistat_pos,
         yclid: urlParams.get('yclid') || '',
         gclid: urlParams.get('gclid') || '',
-        referrer: referrer ? referrer.value : (document.referrer || 'direct')
+        referrer: referrer ? referrer.value : (document.referrer || 'Прямой заход')
     };
 
     // Show loading state

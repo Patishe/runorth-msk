@@ -302,7 +302,7 @@
             roistat_pos: roistatParams.roistat_pos || '',
             yclid: urlParams.get('yclid') || '',
             gclid: urlParams.get('gclid') || '',
-            referrer: document.referrer || 'direct'
+            referrer: document.referrer || 'Прямой заход'
         };
 
         try {
