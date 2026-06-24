@@ -230,7 +230,7 @@ $imgBaseUrl = $case['imageBase'] !== '' ? '/' . trim($case['imageBase'], '/') . 
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="/admin/shared/sortable.min.js"></script>
 <script>
 var SPEC_LABELS = <?= json_encode($KNOWN_SPEC_KEYS, JSON_UNESCAPED_UNICODE) ?>;
 

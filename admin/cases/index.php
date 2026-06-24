@@ -141,7 +141,7 @@ $defaultCase = $data['settings']['defaultCase'] ?? '';
     <?php endif; ?>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="/admin/shared/sortable.min.js"></script>
 <script>
 (function(){
     var list = document.getElementById('caseList');

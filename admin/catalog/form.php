@@ -162,7 +162,7 @@ $priceMonth = $item['price'] !== '' ? catalog_price_month($item['price']) : 0;
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="/admin/shared/sortable.min.js"></script>
 <script>
 // Предпросмотр единиц (площадь/этажность)
 (function(){
