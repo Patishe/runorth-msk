@@ -21,3 +21,11 @@ Thumbs.db
 
 .claude/
 .qwen/
+
+# Блок «Объекты»: живые данные/фото/секреты — только на сервере
+data/cases.json
+data/catalog.json
+data/*.json.tmp
+data/backups/
+uploads/
+admin/shared/config.php

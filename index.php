@@ -966,24 +966,7 @@ body{padding-top:70px}
                 </div>
                 <script>
                     (function () {
-                        var mskProjects = [
-                            { name: 'Давос', floors: 1, area: 130, price: 10339000, priceMonth: 49590, bedrooms: 3, bathrooms: 2, description: 'Компактный одноэтажный дом с сауной и широкой террасой для тихих вечеров у леса.', images: ['images/1/Davos/1.jpg', 'images/1/Davos/2.jpg', 'images/1/Davos/3.jpg', 'images/1/Davos/4.png'] },
-                            { name: 'Фрибур', floors: 1, area: 115, price: 9284251, priceMonth: 44531, bedrooms: 3, bathrooms: 1, description: 'Лаконичный дом для постоянной жизни с удобной террасой и рациональной планировкой без лишних коридоров.', images: ['images/1/Fribur/1.jpg', 'images/1/Fribur/2.jpg', 'images/1/Fribur/3.png', 'images/1/Fribur/4.png'] },
-                            { name: 'Аркенстон', floors: 1, area: 139, price: 11989000, priceMonth: 57504, bedrooms: 3, bathrooms: 2, description: 'Одноэтажный проект с выразительной архитектурой и террасой для завтраков на свежем воздухе.', images: ['images/1/Arcenston/1.jpg', 'images/1/Arcenston/2.jpg', 'images/1/Arcenston/3.jpg', 'images/1/Arcenston/4.jpg'] },
-                            { name: 'Бруклин', floors: 1, area: 172, price: 11198842, priceMonth: 53714, bedrooms: 3, bathrooms: 2, description: 'Просторный одноэтажный дом с большой террасой, созданный для отдыха и встреч с близкими.', images: ['images/1/Bruklin/1.jpg', 'images/1/Bruklin/2.jpg', 'images/1/Bruklin/3.png', 'images/1/Bruklin/4.png'] },
-                            { name: 'Бостон', floors: 2, area: 170, price: 10324500, priceMonth: 49520, bedrooms: 4, bathrooms: 2, description: 'Двухэтажный проект для большой семьи: приватные спальни наверху и просторная общая зона внизу.', images: ['images/2/Boston/1.webp', 'images/2/Boston/2.webp', 'images/2/Boston/3.webp', 'images/2/Boston/4.webp', 'images/2/Boston/5.webp'] },
-                            { name: 'Цюрих', floors: 2, area: 135, price: 10235000, priceMonth: 49091, bedrooms: 4, bathrooms: 3, description: 'Современный двухэтажный дом с четырьмя спальнями, где легко разместить семью и гостей.', images: ['images/2/Curih/1.jpg', 'images/2/Curih/2.jpg', 'images/2/Curih/3.png', 'images/2/Curih/4.png', 'images/2/Curih/5.png'] },
-                            { name: 'Хедаль', floors: 2, area: 153, price: 11660000, priceMonth: 55926, bedrooms: 3, bathrooms: 2, description: 'Сбалансированный двухэтажный дом с тремя спальнями и спокойным семейным сценарием жизни.', images: ['images/2/Hedal/1.jpg', 'images/2/Hedal/2.jpg', 'images/2/Hedal/3.jpg', 'images/2/Hedal/4.jpg', 'images/2/Hedal/5.png'] },
-                            { name: 'Мюнхен', floors: 2, area: 208, price: 13308568, priceMonth: 63834, bedrooms: 4, bathrooms: 3, description: 'Вместительный двухэтажный проект из клееного бруса с четырьмя спальнями, террасой и выразительной премиальной архитектурой.', images: ['images/2/Munhen/1.jpg', 'images/2/Munhen/2.jpg', 'images/2/Munhen/3.png', 'images/2/Munhen/4.png', 'images/2/Munhen/5.png'] },
-                            { name: 'Милан', floors: 1, area: 113, price: 8063616, priceMonth: 38677, bedrooms: 3, bathrooms: 1, description: 'Небольшой и аккуратный дом с тремя спальнями для комфортной загородной жизни без переплаты за метры.', images: ['images/1/Milan/1.jpg', 'images/1/Milan/2.jpg', 'images/1/Milan/3.png', 'images/1/Milan/4.png'] },
-                            { name: 'Чикаго', floors: 1, area: 198, price: 13450000, priceMonth: 64512, bedrooms: 3, bathrooms: 2, description: 'Одноэтажный дом увеличенной площади с тремя спальнями и щедрой террасой для летней кухни.', images: ['images/1/Chicago/1.jpg', 'images/1/Chicago/2.jpg', 'images/1/Chicago/3.png', 'images/1/Chicago/4.png'] },
-                            { name: 'Гренобль', floors: 1, area: 140, price: 11250000, priceMonth: 53960, bedrooms: 2, bathrooms: 2, description: 'Уютный проект с двумя спальнями, двумя санузлами и террасой для неспешного загородного ритма.', images: ['images/1/Grenobl/1.jpg', 'images/1/Grenobl/2.jpg', 'images/1/Grenobl/3.png'] },
-                            { name: 'Афины', floors: 1, area: 205, price: 14750000, priceMonth: 70747, bedrooms: 4, bathrooms: 3, description: 'Светлый одноэтажный дом для большой семьи с четырьмя спальнями и просторной террасой.', images: ['images/1/Afini/1.png', 'images/1/Afini/2.png', 'images/1/Afini/3.jpg', 'images/1/Afini/4.jpg', 'images/1/Afini/5.jpg'] },
-                            { name: 'Спарта', floors: 2, area: 144, price: 10890000, priceMonth: 52233, bedrooms: 3, bathrooms: 2, description: 'Динамичный двухэтажный проект с террасой, где общая зона и приватные комнаты разведены по уровням.', images: ['images/2/Sparta/1.png', 'images/2/Sparta/2.png', 'images/2/Sparta/3.jpg', 'images/2/Sparta/4.jpg'] },
-                            { name: 'Берген', floors: 2, area: 200, price: 13250000, priceMonth: 63552, bedrooms: 4, bathrooms: 4, description: 'Солидный двухэтажный дом с четырьмя спальнями и санузлами для каждого ежедневного сценария.', images: ['images/2/Bergen/1.jpg', 'images/2/Bergen/2.jpg', 'images/2/Bergen/3.png', 'images/2/Bergen/4.png', 'images/2/Bergen/5.png'] },
-                            { name: 'Амстердам', floors: 2, area: 285, price: 18950000, priceMonth: 90892, bedrooms: 4, bathrooms: 3, description: 'Представительный дом с большой площадью, четырьмя спальнями и террасой для приёма гостей.', images: ['images/2/Amsterdam/1.jpg', 'images/2/Amsterdam/2.jpg', 'images/2/Amsterdam/3.jpg', 'images/2/Amsterdam/4.png', 'images/2/Amsterdam/5.png'] },
-                            { name: 'Детройт', floors: 2, area: 174, price: 12450000, priceMonth: 59715, bedrooms: 4, bathrooms: 2, description: 'Современный двухэтажный проект с четырьмя спальнями и большой террасой для активной семьи.', images: ['images/2/Detroit/2.jpg', 'images/2/Detroit/1.jpg', 'images/2/Detroit/3.png', 'images/2/Detroit/4.png', 'images/2/Detroit/5.png'] }
-                        ];
+                        var mskProjects = [];
 
                         var INITIAL_VISIBLE = 8;
 
@@ -1047,25 +1030,47 @@ body{padding-top:70px}
                                 '</div>';
                         }
 
-                        var grid = document.getElementById('mskProjectsGrid');
-                        if (grid) {
-                            grid.innerHTML = mskProjects.map(function (p, i) {
-                                return cardHtml(p, i >= INITIAL_VISIBLE);
-                            }).join('');
+                        function renderMskCatalog() {
+                            var grid = document.getElementById('mskProjectsGrid');
+                            if (grid) {
+                                grid.innerHTML = mskProjects.map(function (p, i) {
+                                    return cardHtml(p, i >= INITIAL_VISIBLE);
+                                }).join('');
+                            }
+                            var moreBtn = document.getElementById('mskShowMoreProjects');
+                            if (moreBtn) {
+                                moreBtn.addEventListener('click', function () {
+                                    document.querySelectorAll('#mskProjectsGrid [data-msk-extra]').forEach(function (card) {
+                                        card.classList.remove('msk-extra-hidden');
+                                        card.style.display = '';
+                                        card.removeAttribute('data-msk-extra');
+                                    });
+                                    var wrap = moreBtn.closest('.msk-projects-more');
+                                    if (wrap) wrap.style.display = 'none';
+                                });
+                            }
                         }
 
-                        var moreBtn = document.getElementById('mskShowMoreProjects');
-                        if (moreBtn) {
-                            moreBtn.addEventListener('click', function () {
-                                document.querySelectorAll('#mskProjectsGrid [data-msk-extra]').forEach(function (card) {
-                                    card.classList.remove('msk-extra-hidden');
-                                    card.style.display = '';
-                                    card.removeAttribute('data-msk-extra');
+                        // Данные каталога грузятся из data/catalog.json (управляется через /admin/catalog)
+                        (function loadMskCatalog() {
+                            var rate = 0.0047964;
+                            function apply(list) {
+                                mskProjects = (Array.isArray(list) ? list : [])
+                                    .filter(function (p) { return !p.hidden; })
+                                    .map(function (p) { p.priceMonth = Math.round((Number(p.price) || 0) * rate); return p; });
+                                renderMskCatalog();
+                            }
+                            var bust = '?t=' + Date.now(); // анти-кэш: данные всегда свежие
+                            fetch('/data/catalog.json' + bust, { cache: 'no-store' })
+                                .then(function (r) { return r.ok ? r : fetch('/data/catalog.example.json' + bust, { cache: 'no-store' }); })
+                                .then(function (r) { return r.json(); })
+                                .then(function (d) { apply(d.items || d.catalog || []); })
+                                .catch(function () {
+                                    fetch('/data/catalog.example.json' + bust, { cache: 'no-store' }).then(function (r) { return r.json(); })
+                                        .then(function (d) { apply(d.items || []); })
+                                        .catch(function (e) { console.error('[msk-catalog] load failed', e); });
                                 });
-                                var wrap = moreBtn.closest('.msk-projects-more');
-                                if (wrap) wrap.style.display = 'none';
-                            });
-                        }
+                        })();
                     })();
                 </script>
             </div>
@@ -1563,392 +1568,7 @@ body{padding-top:70px}
                     </div>
                     <div class="projects-home-wrapper" id="casesCarouselTrack">
                         <div class="grid-2 projects-home-grid">
-                        <!-- Кейс: Бруклин -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/bruklin/1.jpg", "images/cases/bruklin/2.jpg", "images/cases/bruklin/3.jpg", "images/cases/bruklin/4.jpg", "images/cases/bruklin/5.jpg", "images/cases/bruklin/6.jpg", "images/cases/bruklin/7.jpg", "images/cases/bruklin/8.jpg", "images/cases/bruklin/9.jpg", "images/cases/bruklin/10.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/bruklin/1-480.webp 480w, images/cases/bruklin/1-768.webp 768w, images/cases/bruklin/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/bruklin/1.jpg" alt="Дом Бруклин — Уют у залива, СПб"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Бруклин</h3>
-                                        <p class="case-location">Уют у залива, СПб</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">172 м²</div>
-                                    <div class="project-badge project-badge-floors">1 этаж</div>
-                                    <div class="project-badge project-badge-time">3 месяца</div>
-                                </div>
-                                <p class="project-description">Одноэтажный дом из клееного бруса с 3 спальнями, в т.ч. мастер-спальней, большой кухней-столовой со 2 светом, кладовой и техническим помещением с отдельным входом. Проект реализован без изменений в комплектации теплый контур + наружная отделка.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Бруклин, Уют у залива, СПб')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>ЦПЧ, утепление 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Лессирующая покраска</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Бостон -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/boston/1.jpg", "images/cases/boston/2.jpg", "images/cases/boston/3.jpg", "images/cases/boston/4.jpg", "images/cases/boston/5.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/boston/1-480.webp 480w, images/cases/boston/1-768.webp 768w, images/cases/boston/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/boston/1.jpg" alt="Дом Бостон — Отрадная бухта 2.0, СПб"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Бостон</h3>
-                                        <p class="case-location">Отрадная бухта 2.0, СПб</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">170 м²</div>
-                                    <div class="project-badge project-badge-floors">2 этажа</div>
-                                    <div class="project-badge project-badge-time">4 месяца</div>
-                                </div>
-                                <p class="project-description">Двухэтажный дом с 4 изолированными спальнями и комбинированной террасой. Проект адаптирован под клиента: увеличена высота потолков на 1 и 2 этажах, изменена конфигурация окон. Комплектация в ипотеку: теплый контур.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Бостон, Отрадная бухта 2.0, СПб')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>ЦПЧ, утепление 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Берген -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/bergen/1.jpg", "images/cases/bergen/2.jpg", "images/cases/bergen/3.jpg", "images/cases/bergen/4.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/bergen/1-480.webp 480w, images/cases/bergen/1-768.webp 768w, images/cases/bergen/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/bergen/1.jpg" alt="Дом Берген — Королёв, Москва"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Берген</h3>
-                                        <p class="case-location">Королёв, Москва</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">200 м²</div>
-                                    <div class="project-badge project-badge-floors">2 этажа</div>
-                                    <div class="project-badge project-badge-time">5 месяцев</div>
-                                    <div class="project-badge project-badge-mortgage">Рыночная ипотека</div>
-                                </div>
-                                <p class="project-description">Двухэтажный дом из клееного бруса по индивидуальному проекту. Внутри 4 спальни, панорамные окна по периметру и гостиная с видом на зелёный внутренний двор. Комплектация в ипотеку: теплый контур + инженерные сети.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Берген, Королёв, Москва')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>Металлочерепица, 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Чикаго -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/chikago/1.jpg", "images/cases/chikago/2.jpg", "images/cases/chikago/3.jpg", "images/cases/chikago/4.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/chikago/1-480.webp 480w, images/cases/chikago/1-768.webp 768w, images/cases/chikago/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/chikago/1.jpg" alt="Дом Чикаго — Дубки +, Москва"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Чикаго</h3>
-                                        <p class="case-location">Дубки +, Москва</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">194 м²</div>
-                                    <div class="project-badge project-badge-floors">1 этаж</div>
-                                    <div class="project-badge project-badge-time">4 месяца</div>
-                                    <div class="project-badge project-badge-mortgage">Семейная ипотека</div>
-                                </div>
-                                <p class="project-description">Одноэтажный дом с 3 спальнями и отдельным кабинетом. В основе — типовой проект, который полностью адаптирован под клиента: изменена терраса и внутренняя планировка дома. Комплектация в ипотеку: теплый контур.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Чикаго, Дубки +, Москва')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>Металлочерепица, 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Лессирующая покраска</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Давос -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/davos/1.jpg", "images/cases/davos/2.jpg", "images/cases/davos/3.jpg", "images/cases/davos/4.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/davos/1-480.webp 480w, images/cases/davos/1-768.webp 768w, images/cases/davos/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/davos/1.jpg" alt="Дом Давос — Можайск, Москва"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Давос</h3>
-                                        <p class="case-location">Можайск, Москва</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">130 м²</div>
-                                    <div class="project-badge project-badge-floors">1 этаж</div>
-                                    <div class="project-badge project-badge-time">4 месяца</div>
-                                    <div class="project-badge project-badge-mortgage">Семейная ипотека</div>
-                                </div>
-                                <p class="project-description">Одноэтажный дом с односкатной кровлей и крытой террасой, основные помещения в котором выходят во внутренний двор. Проект типовой, построен без изменений. Комплектация в ипотеку: теплый контур.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Давос, Можайск, Москва')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>Металлочерепица, 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Укрывная покраска Tikkurila</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Мальмё -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/malme/1.jpg", "images/cases/malme/2.jpg", "images/cases/malme/3.jpg", "images/cases/malme/4.jpg", "images/cases/malme/5.jpg", "images/cases/malme/6.jpg", "images/cases/malme/7.jpg", "images/cases/malme/8.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/malme/1-480.webp 480w, images/cases/malme/1-768.webp 768w, images/cases/malme/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/malme/1.jpg" alt="Дом Мальмё — Петергофские дачи, СПб"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Мальмё</h3>
-                                        <p class="case-location">Петергофские дачи, СПб</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-floors">2 этажа</div>
-                                    <div class="project-badge project-badge-time">5 месяцев</div>
-                                </div>
-                                <p class="project-description">Двухэтажный дом по комбинированной технологии: клееный брус + керамический блок. В проекте предусмотрены 3 спальни, каждая со своим балконом, кухня-гостиная с отдельным выходом на террасу. Комплектация: теплый контур + наружная отделка.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Мальмё, Петергофские дачи, СПб')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм, обратный ростверк</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-walls"><span>Блок</span><strong>Porotherm 38 thermo</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>ЦПЧ, утепление 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Покраска и клинкер</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Мюнхен -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/munhen/1.jpg", "images/cases/munhen/2.jpg", "images/cases/munhen/3.jpg", "images/cases/munhen/4.jpg", "images/cases/munhen/5.jpg", "images/cases/munhen/6.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/munhen/1-480.webp 480w, images/cases/munhen/1-768.webp 768w, images/cases/munhen/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/munhen/1.jpg" alt="Дом Мюнхен — Алые паруса, СПб"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Мюнхен</h3>
-                                        <p class="case-location">Алые паруса, СПб</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">204 м²</div>
-                                    <div class="project-badge project-badge-floors">2 этажа</div>
-                                    <div class="project-badge project-badge-time">4 месяца</div>
-                                    <div class="project-badge project-badge-mortgage">Льготная ипотека</div>
-                                </div>
-                                <p class="project-description">Двухэтажный дом из клееного бруса с 4 отдельными спальнями, одна из которых мастер и ещё одна в формате кабинета. Проект адаптирован под заказчика: увеличена терраса, крыльцо на центральном фасаде заведено под общую кровлю. Комплектация: теплый контур + наружная отделка.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Мюнхен, Алые паруса, СПб')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>ЦПЧ, утепление 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Лессирующая покраска</strong></div>
-                                </div>
-                        </article>
-
-                        <!-- Кейс: Фрибур -->
-                        <article class="project-card case-card"
-                            data-images='["images/cases/fribur/1.jpg", "images/cases/fribur/2.jpg", "images/cases/fribur/3.jpg"]'>
-                            <div class="project-gallery">
-                                <div class="project-gallery-viewport">
-                                    <picture>
-                                        <source
-                                            srcset="images/cases/fribur/1-480.webp 480w, images/cases/fribur/1-768.webp 768w, images/cases/fribur/1.webp 1200w"
-                                            sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px"
-                                            type="image/webp">
-                                        <img class="project-gallery-img" src="images/cases/fribur/1.jpg" alt="Дом Фрибур — Ladoga Village"
-                                            width="600" height="400" loading="lazy" decoding="async">
-                                    </picture>
-                                </div>
-                                <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                                <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                                <div class="project-gallery-dots"></div>
-                            </div>
-                            <div class="project-info">
-                                <div class="project-title-row">
-                                    <div class="project-title-left">
-                                        <h3>Фрибур</h3>
-                                        <p class="case-location">Ladoga Village</p>
-                                    </div>
-                                </div>
-                                <div class="project-badges project-metrics">
-                                    <div class="project-badge project-badge-area">115 м²</div>
-                                    <div class="project-badge project-badge-floors">1 этаж</div>
-                                    <div class="project-badge project-badge-time">3 месяца</div>
-                                    <div class="project-badge project-badge-mortgage">Семейная ипотека</div>
-                                </div>
-                                <p class="project-description">Одноэтажный дом из клееного бруса с 3 отдельными спальнями, кухней-гостиной со вторым светом и крытой террасой. Проект адаптирован под клиента — увеличена терраса, планировка скорректирована с учётом расположения на участке. Комплектация в ипотеку: теплый контур + наружная отделка + инженерные сети.</p>
-                                <div class="case-cta">
-                                    <button class="btn-project-request" onclick="openModal('Экскурсия в дом Фрибур, Ladoga Village')">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        <span>Записаться на экскурсию</span>
-                                    </button>
-                                    <p class="case-cta-note">Покажем этот дом вживую и ответим на вопросы</p>
-                                </div>
-                            </div>
-                            <div class="case-specs" aria-label="Детали объекта">
-                                    <div class="case-spec case-spec-foundation"><span>Фундамент</span><strong>Плита 250 мм</strong></div>
-                                    <div class="case-spec case-spec-timber"><span>Брус</span><strong>205×230 мм</strong></div>
-                                    <div class="case-spec case-spec-roof"><span>Кровля</span><strong>Металлочерепица, 250 мм</strong></div>
-                                    <div class="case-spec case-spec-windows"><span>Окна</span><strong>Veka Softline, ламинация</strong></div>
-                                    <div class="case-spec case-spec-finish"><span>Отделка</span><strong>Лессирующая покраска</strong></div>
-                                </div>
-                        </article>
+                        <?php include __DIR__ . "/partials/cases-render.php"; ?>
                         </div>
                     </div>
                     <div class="cases-carousel-progress" aria-hidden="true">

@@ -1,0 +1,300 @@
+{
+    "settings": {},
+    "items": [
+        {
+            "id": "davos",
+            "hidden": false,
+            "name": "Давос",
+            "floors": 1,
+            "area": 130,
+            "price": 10339000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Компактный одноэтажный дом с сауной и широкой террасой для тихих вечеров у леса.",
+            "imageBase": "",
+            "images": [
+                "images/1/Davos/1.jpg",
+                "images/1/Davos/2.jpg",
+                "images/1/Davos/3.jpg",
+                "images/1/Davos/4.png"
+            ]
+        },
+        {
+            "id": "fribur",
+            "hidden": false,
+            "name": "Фрибур",
+            "floors": 1,
+            "area": 115,
+            "price": 9284251,
+            "bedrooms": 3,
+            "bathrooms": 1,
+            "description": "Лаконичный дом для постоянной жизни с удобной террасой и рациональной планировкой без лишних коридоров.",
+            "imageBase": "",
+            "images": [
+                "images/1/Fribur/1.jpg",
+                "images/1/Fribur/2.jpg",
+                "images/1/Fribur/3.png",
+                "images/1/Fribur/4.png"
+            ]
+        },
+        {
+            "id": "arkenston",
+            "hidden": false,
+            "name": "Аркенстон",
+            "floors": 1,
+            "area": 139,
+            "price": 11989000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Одноэтажный проект с выразительной архитектурой и террасой для завтраков на свежем воздухе.",
+            "imageBase": "",
+            "images": [
+                "images/1/Arcenston/1.jpg",
+                "images/1/Arcenston/2.jpg",
+                "images/1/Arcenston/3.jpg",
+                "images/1/Arcenston/4.jpg"
+            ]
+        },
+        {
+            "id": "bruklin",
+            "hidden": false,
+            "name": "Бруклин",
+            "floors": 1,
+            "area": 172,
+            "price": 11198842,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Просторный одноэтажный дом с большой террасой, созданный для отдыха и встреч с близкими.",
+            "imageBase": "",
+            "images": [
+                "images/1/Bruklin/1.jpg",
+                "images/1/Bruklin/2.jpg",
+                "images/1/Bruklin/3.png",
+                "images/1/Bruklin/4.png"
+            ]
+        },
+        {
+            "id": "boston",
+            "hidden": false,
+            "name": "Бостон",
+            "floors": 2,
+            "area": 170,
+            "price": 10324500,
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "description": "Двухэтажный проект для большой семьи: приватные спальни наверху и просторная общая зона внизу.",
+            "imageBase": "",
+            "images": [
+                "images/2/Boston/1.webp",
+                "images/2/Boston/2.webp",
+                "images/2/Boston/3.webp",
+                "images/2/Boston/4.webp",
+                "images/2/Boston/5.webp"
+            ]
+        },
+        {
+            "id": "cyurih",
+            "hidden": false,
+            "name": "Цюрих",
+            "floors": 2,
+            "area": 135,
+            "price": 10235000,
+            "bedrooms": 4,
+            "bathrooms": 3,
+            "description": "Современный двухэтажный дом с четырьмя спальнями, где легко разместить семью и гостей.",
+            "imageBase": "",
+            "images": [
+                "images/2/Curih/1.jpg",
+                "images/2/Curih/2.jpg",
+                "images/2/Curih/3.png",
+                "images/2/Curih/4.png",
+                "images/2/Curih/5.png"
+            ]
+        },
+        {
+            "id": "hedal",
+            "hidden": false,
+            "name": "Хедаль",
+            "floors": 2,
+            "area": 153,
+            "price": 11660000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Сбалансированный двухэтажный дом с тремя спальнями и спокойным семейным сценарием жизни.",
+            "imageBase": "",
+            "images": [
+                "images/2/Hedal/1.jpg",
+                "images/2/Hedal/2.jpg",
+                "images/2/Hedal/3.jpg",
+                "images/2/Hedal/4.jpg",
+                "images/2/Hedal/5.png"
+            ]
+        },
+        {
+            "id": "myunhen",
+            "hidden": false,
+            "name": "Мюнхен",
+            "floors": 2,
+            "area": 208,
+            "price": 13308568,
+            "bedrooms": 4,
+            "bathrooms": 3,
+            "description": "Вместительный двухэтажный проект из клееного бруса с четырьмя спальнями, террасой и выразительной премиальной архитектурой.",
+            "imageBase": "",
+            "images": [
+                "images/2/Munhen/1.jpg",
+                "images/2/Munhen/2.jpg",
+                "images/2/Munhen/3.png",
+                "images/2/Munhen/4.png",
+                "images/2/Munhen/5.png"
+            ]
+        },
+        {
+            "id": "milan",
+            "hidden": false,
+            "name": "Милан",
+            "floors": 1,
+            "area": 113,
+            "price": 8063616,
+            "bedrooms": 3,
+            "bathrooms": 1,
+            "description": "Небольшой и аккуратный дом с тремя спальнями для комфортной загородной жизни без переплаты за метры.",
+            "imageBase": "",
+            "images": [
+                "images/1/Milan/1.jpg",
+                "images/1/Milan/2.jpg",
+                "images/1/Milan/3.png",
+                "images/1/Milan/4.png"
+            ]
+        },
+        {
+            "id": "chikago",
+            "hidden": false,
+            "name": "Чикаго",
+            "floors": 1,
+            "area": 198,
+            "price": 13450000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Одноэтажный дом увеличенной площади с тремя спальнями и щедрой террасой для летней кухни.",
+            "imageBase": "",
+            "images": [
+                "images/1/Chicago/1.jpg",
+                "images/1/Chicago/2.jpg",
+                "images/1/Chicago/3.png",
+                "images/1/Chicago/4.png"
+            ]
+        },
+        {
+            "id": "grenobl",
+            "hidden": false,
+            "name": "Гренобль",
+            "floors": 1,
+            "area": 140,
+            "price": 11250000,
+            "bedrooms": 2,
+            "bathrooms": 2,
+            "description": "Уютный проект с двумя спальнями, двумя санузлами и террасой для неспешного загородного ритма.",
+            "imageBase": "",
+            "images": [
+                "images/1/Grenobl/1.jpg",
+                "images/1/Grenobl/2.jpg",
+                "images/1/Grenobl/3.png"
+            ]
+        },
+        {
+            "id": "afiny",
+            "hidden": false,
+            "name": "Афины",
+            "floors": 1,
+            "area": 205,
+            "price": 14750000,
+            "bedrooms": 4,
+            "bathrooms": 3,
+            "description": "Светлый одноэтажный дом для большой семьи с четырьмя спальнями и просторной террасой.",
+            "imageBase": "",
+            "images": [
+                "images/1/Afini/1.png",
+                "images/1/Afini/2.png",
+                "images/1/Afini/3.jpg",
+                "images/1/Afini/4.jpg",
+                "images/1/Afini/5.jpg"
+            ]
+        },
+        {
+            "id": "sparta",
+            "hidden": false,
+            "name": "Спарта",
+            "floors": 2,
+            "area": 144,
+            "price": 10890000,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "description": "Динамичный двухэтажный проект с террасой, где общая зона и приватные комнаты разведены по уровням.",
+            "imageBase": "",
+            "images": [
+                "images/2/Sparta/1.png",
+                "images/2/Sparta/2.png",
+                "images/2/Sparta/3.jpg",
+                "images/2/Sparta/4.jpg"
+            ]
+        },
+        {
+            "id": "bergen",
+            "hidden": false,
+            "name": "Берген",
+            "floors": 2,
+            "area": 200,
+            "price": 13250000,
+            "bedrooms": 4,
+            "bathrooms": 4,
+            "description": "Солидный двухэтажный дом с четырьмя спальнями и санузлами для каждого ежедневного сценария.",
+            "imageBase": "",
+            "images": [
+                "images/2/Bergen/1.jpg",
+                "images/2/Bergen/2.jpg",
+                "images/2/Bergen/3.png",
+                "images/2/Bergen/4.png",
+                "images/2/Bergen/5.png"
+            ]
+        },
+        {
+            "id": "amsterdam",
+            "hidden": false,
+            "name": "Амстердам",
+            "floors": 2,
+            "area": 285,
+            "price": 18950000,
+            "bedrooms": 4,
+            "bathrooms": 3,
+            "description": "Представительный дом с большой площадью, четырьмя спальнями и террасой для приёма гостей.",
+            "imageBase": "",
+            "images": [
+                "images/2/Amsterdam/1.jpg",
+                "images/2/Amsterdam/2.jpg",
+                "images/2/Amsterdam/3.jpg",
+                "images/2/Amsterdam/4.png",
+                "images/2/Amsterdam/5.png"
+            ]
+        },
+        {
+            "id": "detroyt",
+            "hidden": false,
+            "name": "Детройт",
+            "floors": 2,
+            "area": 174,
+            "price": 12450000,
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "description": "Современный двухэтажный проект с четырьмя спальнями и большой террасой для активной семьи.",
+            "imageBase": "",
+            "images": [
+                "images/2/Detroit/2.jpg",
+                "images/2/Detroit/1.jpg",
+                "images/2/Detroit/3.png",
+                "images/2/Detroit/4.png",
+                "images/2/Detroit/5.png"
+            ]
+        }
+    ]
+}

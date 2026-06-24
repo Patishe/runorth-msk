@@ -32,10 +32,18 @@ jobs:
             **/.git*/**
             **/.github/**
             **/node_modules/**
+            **/.claude/**
+            **/.qwen/**
             backend/**
             *.md
             *.ps1
             *.py
+            router.php
+            data/cases.json
+            data/catalog.json
+            data/backups/**
+            uploads/**
+            admin/shared/config.php
             .htaccess_bak
             package.json
             package-lock.json
