@@ -56,8 +56,8 @@
     <link rel="stylesheet" href="fonts.css?v=20260528">
 
     <!-- Preload Critical Images -->
-    <link rel="preload" as="image" href="images/exc/back-1280.avif" type="image/avif"
-        imagesrcset="images/exc/back-768.avif 768w, images/exc/back-1280.avif 1280w" imagesizes="100vw"
+    <link rel="preload" as="image" href="images/exc/dscf2286-1280.avif" type="image/avif"
+        imagesrcset="images/exc/dscf2286-768.avif 768w, images/exc/dscf2286-1280.avif 1280w" imagesizes="100vw"
         fetchpriority="high">
     <link rel="preload" as="image" href="images/logo.webp" type="image/webp">
 
@@ -70,8 +70,8 @@
             --accent-hover: #c99064;
             --text-light: #666;
             --text-dark: #333;
-            --font-body: 'Runorth Open Sans', Arial, Helvetica, sans-serif;
-            --font-heading: 'Runorth Montserrat', Arial, Helvetica, sans-serif
+            --font-body: 'Open Sans', Arial, Helvetica, sans-serif;
+            --font-heading: 'Montserrat', Arial, Helvetica, sans-serif
         }
 
         * {
@@ -154,7 +154,7 @@
     </style>
 
     <link rel="stylesheet" href="header.css?v=20260515">
-    <link rel="stylesheet" href="excursion.css?v=20260625-objects-modal-form">
+    <link rel="stylesheet" href="excursion.css?v=20260624-hero-text-white">
 
     <script type="application/ld+json">
         {
@@ -232,6 +232,7 @@
                 <a href="#scenarios">Варианты</a>
                 <a href="#results">Что дадим</a>
                 <a href="#objects">Объекты</a>
+                <a href="/blog">Блог</a>
             </nav>
             <div class="header-center">
                 <a href="tel:+74951824667" class="header-phone">+7 (495) 182-46-67</a>
@@ -269,6 +270,7 @@
                 <a href="#scenarios" class="mobile-nav-link">Варианты</a>
                 <a href="#results" class="mobile-nav-link">Что дадим</a>
                 <a href="#objects" class="mobile-nav-link">Объекты</a>
+                <a href="/blog" class="mobile-nav-link">Блог</a>
             </nav>
             <div class="mobile-menu-footer">
                 <a href="tel:+74951824667" class="mobile-phone">+7 (495) 182-46-67</a>
@@ -292,24 +294,23 @@
         <!-- 1. Hero Section -->
         <section class="excursion-hero">
             <picture class="excursion-hero-bg" aria-hidden="true">
-                <source srcset="images/exc/back-768.avif" media="(max-width: 900px)" type="image/avif">
-                <source srcset="images/exc/back-768.webp" media="(max-width: 900px)" type="image/webp">
-                <source srcset="images/exc/back-1280.avif" type="image/avif">
-                <source srcset="images/exc/back-1280.webp" type="image/webp">
-                <img src="images/exc/back.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+                <source srcset="images/exc/dscf2286-768.avif" media="(max-width: 900px)" type="image/avif">
+                <source srcset="images/exc/dscf2286-768.webp" media="(max-width: 900px)" type="image/webp">
+                <source srcset="images/exc/dscf2286-1280.avif" type="image/avif">
+                <source srcset="images/exc/dscf2286-1280.webp" type="image/webp">
+                <img src="images/exc/dscf2286-1280.jpg" alt="" width="1280" height="853" fetchpriority="high" decoding="async">
             </picture>
             <div class="container">
                 <div class="excursion-hero-grid">
                     <div class="excursion-hero-text">
                         <h1 class="hero-animate hero-animate-delay-1">
-                            Экскурсия по <span class="accent">готовым</span><br>
-                            <span class="accent">и строящимся домам</span><br>
-                            компании «Русский Север»
+                            Приглашаем познакомиться<br>
+                            с <span class="accent">технологией строительства</span><br>
+                            загородных домов
                         </h1>
                         <p class="hero-subtitle hero-animate hero-animate-delay-2">
-                            Оцените наше качество и культуру строительства
-                            и примерьте на себя образ загородной жизни
-                            в Москве и Московской области
+                            Персональная экскурсия на готовые и строящиеся объекты в Московской области.
+                            Оцените качество и культуру стройки вживую, а не по фото и видео.
                         </p>
                         <ul class="hero-checks hero-animate hero-animate-delay-3">
                             <li>
@@ -337,9 +338,22 @@
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                 </span>
-                                <span>В любое удобное время</span>
+                                <span>Бесплатно и ни к чему не обязывает</span>
                             </li>
                         </ul>
+                        <div class="hero-dates hero-animate hero-animate-delay-3" id="heroDates">
+                            <span class="hero-dates-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Свободные даты:
+                            </span>
+                            <span class="hero-dates-list" id="heroDatesList"></span>
+                        </div>
                         <div class="hero-cta-wrap hero-animate hero-animate-delay-4">
                             <a href="#cta" class="btn btn-primary">
                                 <span>Записаться на экскурсию</span>
@@ -349,7 +363,48 @@
                 </div>
         </section>
 
-        <!-- 2. Three pillars — Что это такое -->
+        <!-- 2. Показатели компании -->
+        <section class="hero-stats" id="about-short" aria-label="Показатели компании">
+            <div class="container">
+                <div class="hero-stats-layout">
+                    <article class="hero-stats-primary">
+                        <div class="hero-stats-primary-value">
+                            <span class="hero-stats-primary-number">600</span>
+                            <span class="hero-stats-primary-unit">домов</span>
+                        </div>
+                        <p>мы уже построили, и на этом мы не останавливаемся</p>
+                    </article>
+                    <div class="hero-stats-content">
+                        <h2 class="hero-stats-title">Сотни довольных клиентов и успешных проектов подтверждают наш профессионализм</h2>
+                        <div class="hero-stats-metrics">
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">
+                                    <span class="hero-stat-number">25</span>
+                                    <span class="hero-stat-unit">лет</span>
+                                </div>
+                                <p>гарантии на<br>наши работы</p>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">
+                                    <span class="hero-stat-number">3-5</span>
+                                    <span class="hero-stat-unit">месяцев</span>
+                                </div>
+                                <p>срок возведения<br>дома</p>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">
+                                    <span class="hero-stat-number">15</span>
+                                    <span class="hero-stat-unit">лет</span>
+                                </div>
+                                <p>опыт в<br>строительстве</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Three pillars — Что это такое -->
         <section class="pillars-section" id="advantages">
             <div class="container">
                 <div class="section-title reveal-up">
@@ -583,6 +638,18 @@
             </div>
         </section>
 
+        <!-- Объекты для экскурсии — данные из data/cases.json через /api/excursion-objects.php -->
+        <section class="exc-objects-section" id="objects">
+            <div class="container">
+                <div class="section-title reveal-up">
+                    <h2>Выбирайте наиболее интересный вам проект</h2>
+                    <p>Покажем понравившийся дом вживую на&nbsp;экскурсии&nbsp;— оцените планировку, качество и локацию своими глазами.</p>
+                </div>
+                <div class="exc-objects reveal-up" id="excObjects" aria-live="polite" hidden></div>
+                <p class="exc-objects-status" id="excObjectsStatus">Загружаем объекты…</p>
+            </div>
+        </section>
+
         <!-- 4. Scenarios — три ситуации -->
         <section class="scenarios-section" id="scenarios">
             <div class="container">
@@ -732,8 +799,7 @@
                             <div class="phone-notch"></div>
                             <div class="phone-screen">
                                 <video class="phone-video" autoplay muted loop playsinline preload="metadata">
-                                    <source src="images/exc/scrin.MOV" type="video/mp4">
-                                    <source src="images/exc/scrin.MOV" type="video/quicktime">
+                                    <source src="images/exc/scrin.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -742,17 +808,6 @@
             </div>
         </section>
 
-        <!-- Объекты для экскурсии — данные из data/cases.json через /api/excursion-objects.php -->
-        <section class="exc-objects-section" id="objects">
-            <div class="container">
-                <div class="section-title reveal-up">
-                    <h2>Выбирайте наиболее интересный вам проект</h2>
-                    <p>Покажем понравившийся дом вживую на&nbsp;экскурсии&nbsp;— оцените планировку, качество и локацию своими глазами.</p>
-                </div>
-                <div class="exc-objects reveal-up" id="excObjects" aria-live="polite" hidden></div>
-                <p class="exc-objects-status" id="excObjectsStatus">Загружаем объекты…</p>
-            </div>
-        </section>
 
         <!-- About company -->
         <section class="company-section" id="company">
@@ -786,26 +841,119 @@
                         </div>
                     </div>
                 </div>
-                <div class="company-stats">
-                    <article class="company-stat reveal-up delay-1">
-                        <strong>14 лет</strong>
-                        <span>на рынке домостроения</span>
-                    </article>
-                    <article class="company-stat reveal-up delay-2">
-                        <strong>600+</strong>
-                        <span>построенных объектов</span>
-                    </article>
-                    <article class="company-stat reveal-up delay-3">
-                        <strong>4,9 / 5</strong>
-                        <span>средняя оценка клиентов</span>
-                    </article>
-                    <article class="company-stat reveal-up delay-4">
-                        <strong>25 лет</strong>
-                        <span>гарантия на несущие конструкции</span>
-                    </article>
+            </div>
+        </section>
+
+        <!-- 6.5 FAQ — снятие возражений -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-title reveal-up">
+                    <h2>Частые вопросы об экскурсии</h2>
+                    <p>Собрали то, что чаще всего спрашивают перед поездкой.</p>
+                </div>
+                <div class="faq-list reveal-up">
+                    <details class="faq-item">
+                        <summary>
+                            <span>Экскурсия бесплатная?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Да, экскурсия бесплатная и ни к чему вас не обязывает. Это возможность вживую оценить
+                                качество и культуру строительства, задать вопросы специалисту и спокойно принять решение
+                                без спешки.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Я ещё только присматриваюсь и не готов строить. Есть смысл ехать?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Именно для этого экскурсия и нужна. Вы увидите разные технологии и проекты вживую, поймёте,
+                                какой дом подходит вам по площади и бюджету, и какие вопросы важно задавать подрядчику.
+                                Многие после поездки впервые формулируют, чего действительно хотят.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>У меня пока нет участка — стоит записываться?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Да. Покажем объекты в посёлках-партнёрах, расскажем про особенности локаций, инфраструктуру
+                                и цены. Поможем подобрать участок под ваши задачи и бюджет, подскажем по документам.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Сколько длится экскурсия и что взять с собой?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>В среднем 1–2 часа. Возьмите удобную обувь по погоде. Если у вас уже есть проект или
+                                документы на участок — захватите их, обсудим прямо на месте.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Будет ли давление и навязывание договора?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Нет. Задача экскурсии — показать, как мы работаем, и ответить на ваши вопросы. Никаких
+                                «подпишите сегодня». Решение вы принимаете в спокойном темпе.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Можно приехать с супругом или семьёй?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Конечно. Решение о доме обычно принимают вместе, поэтому приезжайте с супругом или всей
+                                семьёй — так проще обсудить детали на месте.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Как добраться до объекта? Есть ли трансфер?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Подберём объект в удобной для вас локации и поможем с маршрутом. При необходимости
+                                организуем трансфер — привезём на объект и отвезём обратно.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>
+                            <span>Сколько стоит построить дом?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Стоимость зависит от площади, технологии и комплектации. Работаем с фиксированной сметой в
+                                договоре — без сюрпризов по бюджету. На экскурсии и в подборке после неё дадим конкретные
+                                цифры по понравившимся проектам.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": "Экскурсия бесплатная?", "acceptedAnswer": {"@type": "Answer", "text": "Да, экскурсия бесплатная и ни к чему вас не обязывает. Это возможность вживую оценить качество и культуру строительства, задать вопросы специалисту и спокойно принять решение без спешки."}},
+                {"@type": "Question", "name": "Я ещё только присматриваюсь и не готов строить. Есть смысл ехать?", "acceptedAnswer": {"@type": "Answer", "text": "Именно для этого экскурсия и нужна. Вы увидите разные технологии и проекты вживую, поймёте, какой дом подходит вам по площади и бюджету, и какие вопросы важно задавать подрядчику."}},
+                {"@type": "Question", "name": "У меня пока нет участка — стоит записываться?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Покажем объекты в посёлках-партнёрах, расскажем про особенности локаций, инфраструктуру и цены. Поможем подобрать участок под ваши задачи и бюджет."}},
+                {"@type": "Question", "name": "Сколько длится экскурсия и что взять с собой?", "acceptedAnswer": {"@type": "Answer", "text": "В среднем 1–2 часа. Возьмите удобную обувь по погоде. Если у вас уже есть проект или документы на участок — захватите их."}},
+                {"@type": "Question", "name": "Будет ли давление и навязывание договора?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Задача экскурсии — показать, как мы работаем, и ответить на ваши вопросы. Решение вы принимаете в спокойном темпе."}},
+                {"@type": "Question", "name": "Можно приехать с супругом или семьёй?", "acceptedAnswer": {"@type": "Answer", "text": "Конечно. Приезжайте с супругом или всей семьёй — так проще обсудить детали на месте."}},
+                {"@type": "Question", "name": "Как добраться до объекта? Есть ли трансфер?", "acceptedAnswer": {"@type": "Answer", "text": "Подберём объект в удобной локации и поможем с маршрутом. При необходимости организуем трансфер — привезём на объект и отвезём обратно."}},
+                {"@type": "Question", "name": "Сколько стоит построить дом?", "acceptedAnswer": {"@type": "Answer", "text": "Стоимость зависит от площади, технологии и комплектации. Работаем с фиксированной сметой в договоре. На экскурсии и в подборке после неё дадим конкретные цифры по проектам."}}
+            ]
+        }
+        </script>
 
         <!-- 7. Final CTA -->
         <section class="excursion-cta-section" id="cta">
@@ -1044,6 +1192,7 @@
                         <div class="footer-nav-column">
                             <h5>Информация</h5>
                             <a href="/#supervision">Технадзор</a>
+                            <a href="/blog">Блог</a>
                             <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Политика
                                 конфиденциальности</a>
                             <a href="/user-agreement" target="_blank" rel="noopener noreferrer">Пользовательское
@@ -1146,6 +1295,98 @@
             });
         });
 
+
+        // Excursion popup form
+        (function () {
+            const modal = document.getElementById('excursionModal');
+            const closeBtn = document.getElementById('excursionModalClose');
+            const form = document.getElementById('ctaForm');
+            const success = document.getElementById('ctaFormSuccess');
+            let lastFocused = null;
+
+            if (modal && modal.parentElement !== document.body) {
+                document.body.appendChild(modal);
+            }
+
+            function openExcursionModal(event, opener) {
+                if (event) event.preventDefault();
+                if (!modal) return;
+                const requestedDate = opener?.dataset?.date || '';
+                // Если модалку открыли кнопкой конкретного объекта — запоминаем его
+                const requestedObject = opener?.dataset?.object || '';
+                const objField = document.getElementById('selectedObjectField');
+                const objLabel = document.getElementById('excursionModalObject');
+                if (objField) objField.value = requestedObject;
+                if (objLabel) {
+                    if (requestedObject) {
+                        objLabel.textContent = 'Вы выбрали: ' + requestedObject;
+                        objLabel.hidden = false;
+                    } else {
+                        objLabel.textContent = '';
+                        objLabel.hidden = true;
+                    }
+                }
+                lastFocused = document.activeElement;
+                if (form) form.style.display = '';
+                if (success) {
+                    success.classList.remove('active');
+                    success.style.display = '';
+                }
+                const submitBtn = form?.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '';
+                    const label = submitBtn.querySelector('span');
+                    if (label) label.textContent = 'Записаться на экскурсию';
+                }
+                if (requestedDate) {
+                    const dateInput = document.getElementById('excursionDate');
+                    const matchingChip = modal.querySelector(`.date-chip[data-value="${requestedDate}"]`);
+                    modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
+                    if (matchingChip) matchingChip.classList.add('active');
+                    if (dateInput) dateInput.value = requestedDate;
+                    const customWrap = document.getElementById('dateCustomWrap');
+                    if (customWrap) customWrap.hidden = true;
+                } else {
+                    const dateInput = document.getElementById('excursionDate');
+                    if (dateInput && !dateInput.value) {
+                        const fallbackChip = modal.querySelector('#dateChips .date-chip.active[data-value]')
+                            || modal.querySelector('#dateChips .date-chip[data-value]');
+                        if (fallbackChip) {
+                            modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
+                            fallbackChip.classList.add('active');
+                            dateInput.value = fallbackChip.dataset.value || '';
+                        }
+                    }
+                }
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('excursion-modal-open');
+                const firstInput = modal.querySelector('input[name="name"]');
+                setTimeout(() => (firstInput || closeBtn)?.focus(), 30);
+            }
+
+            function closeExcursionModal() {
+                if (!modal) return;
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('excursion-modal-open');
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }
+
+            document.addEventListener('click', event => {
+                const opener = event.target.closest('a[href="#cta"], .hero-date-pill');
+                if (!opener) return;
+                openExcursionModal(event, opener);
+            });
+            closeBtn?.addEventListener('click', closeExcursionModal);
+            modal?.querySelectorAll('[data-excursion-modal-close]').forEach(node => {
+                node.addEventListener('click', closeExcursionModal);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeExcursionModal();
+            });
+        })();
         const METRIKA_ID = 24341083;
         const BITRIX24_WEBHOOK = 'https://nordsrub.bitrix24.ru/rest/7966/gn3p7yo8dut3jydw/';
 
@@ -1382,10 +1623,10 @@
                 formSource: formData.get('form_source') || 'Экскурсия',
                 name: String(formData.get('name') || '').trim(),
                 phone: String(formData.get('phone') || '').trim(),
-                excursionDate: String(formData.get('excursion_date') || ''),
                 selectedObject: String(formData.get('selected_object') || '').trim(),
+                excursionDate: String(formData.get('excursion_date') || ''),
                 source_page: window.location.href,
-                referrer: document.referrer || 'direct',
+                referrer: document.referrer || 'Прямой заход',
                 roistat_visit: getRoistatVisit(),
                 roistat_marker: roistatParams.roistat,
                 roistat_referrer: roistatParams.roistat_referrer,
@@ -1425,7 +1666,7 @@
                 'fields[PHONE][0][VALUE]': data.phone,
                 'fields[PHONE][0][VALUE_TYPE]': 'WORK',
                 'fields[SOURCE_ID]': 'WEB',
-                'fields[SOURCE_DESCRIPTION]': `Экскурсия | ${data.utm_source || 'direct'}`,
+                'fields[SOURCE_DESCRIPTION]': `Экскурсия | ${data.utm_source || 'без меток'}`,
                 'fields[UTM_SOURCE]': data.utm_source,
                 'fields[UTM_MEDIUM]': data.utm_medium,
                 'fields[UTM_CAMPAIGN]': data.utm_campaign,
@@ -1513,12 +1754,16 @@
                 });
             });
 
-            const ctaForm = document.getElementById('ctaForm');
-            if (ctaForm) {
-                ctaForm.addEventListener('focusin', () => {
+            let formStartFired = false;
+            ['ctaForm', 'ctaInlineForm'].forEach(id => {
+                const f = document.getElementById(id);
+                if (!f) return;
+                f.addEventListener('focusin', () => {
+                    if (formStartFired) return;
+                    formStartFired = true;
                     reachMetrikaGoal('excursion_form_start');
                 }, { once: true });
-            }
+            });
         }
 
         initExcursionAnalyticsGoals();
@@ -1572,14 +1817,18 @@
 
         function showFormSuccess(formId) {
             const map = {
-                'cta': ['ctaForm', 'ctaFormSuccess'],
-                'cta_inline': ['ctaInlineForm', 'ctaInlineFormSuccess']
+                cta: ['ctaForm', 'ctaFormSuccess'],
+                cta_inline: ['ctaInlineForm', 'ctaInlineFormSuccess'],
             };
-            const ids = map[formId] || map['cta'];
+            const ids = map[formId];
+            if (!ids) return;
             const form = document.getElementById(ids[0]);
             const success = document.getElementById(ids[1]);
             if (form) form.style.display = 'none';
-            if (success) success.classList.add('active');
+            if (success) {
+                success.classList.add('active');
+                success.style.display = 'block';
+            }
         }
 
         // Phone Input Mask - формат: +7 (XXX) XXX-XX-XX
@@ -1618,101 +1867,6 @@
                 }
             });
         });
-
-
-        /* ===== Перенос с runorth: модалка записи + дата-чипы + блок объектов ===== */
-
-        // Excursion popup form
-        (function () {
-            const modal = document.getElementById('excursionModal');
-            const closeBtn = document.getElementById('excursionModalClose');
-            const form = document.getElementById('ctaForm');
-            const success = document.getElementById('ctaFormSuccess');
-            let lastFocused = null;
-
-            if (modal && modal.parentElement !== document.body) {
-                document.body.appendChild(modal);
-            }
-
-            function openExcursionModal(event, opener) {
-                if (event) event.preventDefault();
-                if (!modal) return;
-                const requestedDate = opener?.dataset?.date || '';
-                // Если модалку открыли кнопкой конкретного объекта — запоминаем его
-                const requestedObject = opener?.dataset?.object || '';
-                const objField = document.getElementById('selectedObjectField');
-                const objLabel = document.getElementById('excursionModalObject');
-                if (objField) objField.value = requestedObject;
-                if (objLabel) {
-                    if (requestedObject) {
-                        objLabel.textContent = 'Вы выбрали: ' + requestedObject;
-                        objLabel.hidden = false;
-                    } else {
-                        objLabel.textContent = '';
-                        objLabel.hidden = true;
-                    }
-                }
-                lastFocused = document.activeElement;
-                if (form) form.style.display = '';
-                if (success) {
-                    success.classList.remove('active');
-                    success.style.display = '';
-                }
-                const submitBtn = form?.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '';
-                    const label = submitBtn.querySelector('span');
-                    if (label) label.textContent = 'Записаться на экскурсию';
-                }
-                if (requestedDate) {
-                    const dateInput = document.getElementById('excursionDate');
-                    const matchingChip = modal.querySelector(`.date-chip[data-value="${requestedDate}"]`);
-                    modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
-                    if (matchingChip) matchingChip.classList.add('active');
-                    if (dateInput) dateInput.value = requestedDate;
-                    const customWrap = document.getElementById('dateCustomWrap');
-                    if (customWrap) customWrap.hidden = true;
-                } else {
-                    const dateInput = document.getElementById('excursionDate');
-                    if (dateInput && !dateInput.value) {
-                        const fallbackChip = modal.querySelector('#dateChips .date-chip.active[data-value]')
-                            || modal.querySelector('#dateChips .date-chip[data-value]');
-                        if (fallbackChip) {
-                            modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
-                            fallbackChip.classList.add('active');
-                            dateInput.value = fallbackChip.dataset.value || '';
-                        }
-                    }
-                }
-                modal.classList.add('is-open');
-                modal.setAttribute('aria-hidden', 'false');
-                document.body.classList.add('excursion-modal-open');
-                const firstInput = modal.querySelector('input[name="name"]');
-                setTimeout(() => (firstInput || closeBtn)?.focus(), 30);
-            }
-
-            function closeExcursionModal() {
-                if (!modal) return;
-                modal.classList.remove('is-open');
-                modal.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('excursion-modal-open');
-                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-            }
-
-            document.addEventListener('click', event => {
-                const opener = event.target.closest('a[href="#cta"], .hero-date-pill');
-                if (!opener) return;
-                openExcursionModal(event, opener);
-            });
-            closeBtn?.addEventListener('click', closeExcursionModal);
-            modal?.querySelectorAll('[data-excursion-modal-close]').forEach(node => {
-                node.addEventListener('click', closeExcursionModal);
-            });
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeExcursionModal();
-            });
-        })();
 
         const RU_MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
         const RU_WEEKDAYS_SHORT = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
@@ -1853,7 +2007,6 @@
                 placeholder: 'datePlaceholder'
             });
         })();
-
         // Блок «Объекты» на странице экскурсии: табы + карточка с галереей.
         // Данные приходят из data/cases.json через /api/excursion-objects.php
         // (только объекты с включённым тумблером «Показывать на странице экскурсии»).
@@ -2340,6 +2493,7 @@
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/24341083" style="position:absolute; left:-9999px;" alt=""></div>
     </noscript>
+
 
 </body>
 

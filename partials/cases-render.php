@@ -77,6 +77,9 @@ foreach ($__casesList as $case):
                                 </div>
                                 <button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
                                 <button class="project-gallery-arrow arrow-right" onclick="projectGalleryNav(this, 1)" aria-label="Вперёд"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+<?php if (count($imgPaths) > 1): ?>
+                                <div class="project-gallery-counter"><span>1</span> / <?= count($imgPaths) ?></div>
+<?php endif; ?>
                                 <div class="project-gallery-dots"></div>
                             </div>
                             <div class="project-info">

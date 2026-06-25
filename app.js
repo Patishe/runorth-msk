@@ -427,6 +427,9 @@ function setProjectGalleryImage(card, targetIndex) {
         dot.classList.toggle('active', i === nextIndex)
     );
 
+    const counter = gallery.querySelector('.project-gallery-counter span');
+    if (counter) counter.textContent = String(nextIndex + 1);
+
     const thumbs = card.querySelectorAll('.case-gallery-thumb');
     thumbs.forEach((thumb, i) => {
         const isActive = i === nextIndex;
