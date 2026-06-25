@@ -154,7 +154,7 @@
     </style>
 
     <link rel="stylesheet" href="header.css?v=20260515">
-    <link rel="stylesheet" href="excursion.css?v=20260606-mobile-lightbox-zoom">
+    <link rel="stylesheet" href="excursion.css?v=20260625-objects-modal-form">
 
     <script type="application/ld+json">
         {
@@ -742,179 +742,15 @@
             </div>
         </section>
 
-        <!-- 6. Gallery strip -->
-        <section class="gallery-section" id="objects">
+        <!-- Объекты для экскурсии — данные из data/cases.json через /api/excursion-objects.php -->
+        <section class="exc-objects-section" id="objects">
             <div class="container">
                 <div class="section-title reveal-up">
-                    <h2>Наши объекты</h2>
-                    <p>На экскурсии покажем один из таких — выбирайте, что ближе по духу.</p>
+                    <h2>Выбирайте наиболее интересный вам проект</h2>
+                    <p>Покажем понравившийся дом вживую на&nbsp;экскурсии&nbsp;— оцените планировку, качество и локацию своими глазами.</p>
                 </div>
-                <div class="gallery-slider reveal-up" id="gallerySlider">
-                    <div class="gallery-main">
-                        <div class="gallery-track" id="galleryTrack">
-                            <div class="gallery-slide active" data-index="0">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/1-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/1-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/1-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/1-1024.webp" type="image/webp">
-                                    <img src="images/fotos/1.jpg" alt="Построенный дом — объект 1" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="1">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/3-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/3-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/3-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/3-1024.webp" type="image/webp">
-                                    <img src="images/fotos/3.jpg" alt="Построенный дом — объект 2" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="2">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/5-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/5-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/5-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/5-1024.webp" type="image/webp">
-                                    <img src="images/fotos/5.jpg" alt="Построенный дом — объект 3" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="3">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/7-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/7-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/7-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/7-1024.webp" type="image/webp">
-                                    <img src="images/fotos/7.jpg" alt="Построенный дом — объект 4" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="4">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/2-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/2-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/2-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/2-1024.webp" type="image/webp">
-                                    <img src="images/fotos/2.jpg" alt="Построенный дом — объект 5" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="5">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/4-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/4-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/4-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/4-1024.webp" type="image/webp">
-                                    <img src="images/fotos/4.jpg" alt="Построенный дом — объект 6" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="6">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/6-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/6-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/6-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/6-1024.webp" type="image/webp">
-                                    <img src="images/fotos/6.jpg" alt="Построенный дом — объект 7" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                            <div class="gallery-slide" data-index="7">
-                                <picture>
-                                    <source media="(max-width: 600px)" srcset="images/fotos/8-480.webp" type="image/webp">
-                                    <source media="(max-width: 900px)" srcset="images/fotos/8-768.webp" type="image/webp">
-                                    <source srcset="images/fotos/8-1024.avif" type="image/avif">
-                                    <source srcset="images/fotos/8-1024.webp" type="image/webp">
-                                    <img src="images/fotos/8.jpg" alt="Построенный дом — объект 8" width="1024"
-                                        height="648" loading="lazy" decoding="async">
-                                </picture>
-                            </div>
-                        </div>
-                        <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Предыдущее фото">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
-                        <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Следующее фото">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                        <div class="gallery-counter" id="galleryCounter">1 / 8</div>
-                        <button class="gallery-zoom" id="galleryZoom" aria-label="Увеличить фото">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="gallery-thumbs" id="galleryThumbs">
-                        <button class="gallery-thumb active" data-index="0" aria-label="Фото 1">
-                            <img src="images/fotos/1-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="1" aria-label="Фото 2">
-                            <img src="images/fotos/3-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="2" aria-label="Фото 3">
-                            <img src="images/fotos/5-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="3" aria-label="Фото 4">
-                            <img src="images/fotos/7-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="4" aria-label="Фото 5">
-                            <img src="images/fotos/2-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="5" aria-label="Фото 6">
-                            <img src="images/fotos/4-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="6" aria-label="Фото 7">
-                            <img src="images/fotos/6-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                        <button class="gallery-thumb" data-index="7" aria-label="Фото 8">
-                            <img src="images/fotos/8-160.webp" alt="" width="160" height="101" loading="lazy"
-                                decoding="async">
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Lightbox Overlay -->
-                <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
-                    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Предыдущее">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Следующее">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                    <div class="lightbox-content">
-                        <img id="lightboxImage" src="" alt="">
-                    </div>
-                    <div class="lightbox-counter" id="lightboxCounter">1 / 8</div>
-                </div>
+                <div class="exc-objects reveal-up" id="excObjects" aria-live="polite" hidden></div>
+                <p class="exc-objects-status" id="excObjectsStatus">Загружаем объекты…</p>
             </div>
         </section>
 
@@ -979,9 +815,31 @@
                     </h2>
                     <p class="reveal-up delay-1">Оставляйте заявку - поможем подобрать удобное время и объекты для
                         просмотра.</p>
-                    <form class="cta-form-enhanced" id="ctaForm" onsubmit="submitExcursionForm(event, 'cta')">
+                    <!-- Инлайн-форма финального блока (дизайн как у попапа) -->
+                    <div class="excursion-inline-card">
+                    <form class="cta-form-enhanced" id="ctaInlineForm" onsubmit="submitExcursionForm(event, 'cta_inline')">
                         <input type="hidden" name="form_source" value="Экскурсия — CTA">
                         <input type="hidden" name="form_type" value="excursion">
+                        <div class="form-row-full">
+                            <span class="form-row-label">Когда вам удобно?</span>
+                            <div class="date-chips" id="dateChipsInline" role="group" aria-label="Выберите дату экскурсии">
+                                <!-- chips injected by JS -->
+                            </div>
+                            <input type="hidden" name="excursion_date" id="excursionDateInline" value="">
+                            <div class="form-field-group form-field-date form-date-custom" id="dateCustomWrapInline"
+                                hidden>
+                                <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <input type="date" id="excursionDateCustomInline">
+                                <span class="form-date-placeholder" id="datePlaceholderInline">Выберите свою дату</span>
+                            </div>
+                        </div>
                         <div class="form-field-group">
                             <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -999,17 +857,6 @@
                             </svg>
                             <input type="tel" name="phone" placeholder="Ваш телефон" required>
                         </div>
-                        <div class="form-field-group form-field-date">
-                            <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            <input type="date" name="excursion_date" id="excursionDate" required>
-                            <span class="form-date-placeholder" id="datePlaceholder">Удобная дата экскурсии</span>
-                        </div>
                         <div class="form-checkbox-row">
                             <label class="form-checkbox-label">
                                 <input type="checkbox" required checked>
@@ -1025,7 +872,7 @@
                             <span>Записаться на экскурсию</span>
                         </button>
                     </form>
-                    <div class="form-success-state" id="ctaFormSuccess"
+                    <div class="form-success-state" id="ctaInlineFormSuccess"
                         style="max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-color: #52c41a;">
                         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1034,6 +881,86 @@
                         </svg>
                         <h4>Заявка принята!</h4>
                         <p>Перезвоним в течение часа и согласуем удобное время экскурсии.</p>
+                    </div>
+                    </div>
+
+                    <!-- Модальное окно (открывается кнопками «Записаться» по всему лендингу) -->
+                    <div class="excursion-modal" id="excursionModal" aria-hidden="true">
+                        <div class="excursion-modal-backdrop" data-excursion-modal-close></div>
+                        <div class="excursion-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="excursionModalTitle">
+                            <button type="button" class="excursion-modal-close" id="excursionModalClose" aria-label="Закрыть">
+                                <span></span><span></span>
+                            </button>
+                            <h2 id="excursionModalTitle">Запишитесь на экскурсию</h2>
+                            <p class="excursion-modal-subtitle">Осмотрите реальные объекты и получите ответы на вопросы по строительству</p>
+                            <form class="cta-form-enhanced" id="ctaForm" onsubmit="submitExcursionForm(event, 'cta')">
+                                <input type="hidden" name="form_source" value="Экскурсия — CTA">
+                                <input type="hidden" name="form_type" value="excursion">
+                                <input type="hidden" name="selected_object" id="selectedObjectField" value="">
+                                <p class="excursion-modal-object" id="excursionModalObject" hidden></p>
+                                <div class="form-row-full">
+                                    <span class="form-row-label">Когда вам удобно?</span>
+                                    <div class="date-chips" id="dateChips" role="group" aria-label="Выберите дату экскурсии">
+                                        <!-- chips injected by JS -->
+                                    </div>
+                                    <input type="hidden" name="excursion_date" id="excursionDate" value="">
+                                    <div class="form-field-group form-field-date form-date-custom" id="dateCustomWrap"
+                                        hidden>
+                                        <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                        </svg>
+                                        <input type="date" id="excursionDateCustom">
+                                        <span class="form-date-placeholder" id="datePlaceholder">Выберите свою дату</span>
+                                    </div>
+                                </div>
+                                <div class="form-field-group">
+                                    <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <input type="text" name="name" placeholder="Ваше имя" required>
+                                </div>
+                                <div class="form-field-group">
+                                    <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                                </div>
+                                <div class="form-checkbox-row">
+                                    <label class="form-checkbox-label">
+                                        <input type="checkbox" required checked>
+                                        <span class="form-checkbox-custom"></span>
+                                        <span class="form-checkbox-text">Я согласен с <a href="/privacy-policy"
+                                                class="policy-link" target="_blank" rel="noopener noreferrer">Политикой
+                                                конфиденциальности</a> и <a href="/user-agreement" class="policy-link"
+                                                target="_blank" rel="noopener noreferrer">Пользовательским
+                                                соглашением</a></span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-cta-glow">
+                                    <span>Записаться на экскурсию</span>
+                                </button>
+                            </form>
+                            <div class="form-success-state" id="ctaFormSuccess"
+                                style="max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-color: #52c41a;">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <h4>Заявка принята!</h4>
+                                <p>Перезвоним в течение часа и согласуем удобное время экскурсии.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1208,7 +1135,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href === '#' || href.length < 2) return;
+                if (href === '#' || href === '#cta' || href.length < 2) return;
                 const target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
@@ -1456,6 +1383,7 @@
                 name: String(formData.get('name') || '').trim(),
                 phone: String(formData.get('phone') || '').trim(),
                 excursionDate: String(formData.get('excursion_date') || ''),
+                selectedObject: String(formData.get('selected_object') || '').trim(),
                 source_page: window.location.href,
                 referrer: document.referrer || 'direct',
                 roistat_visit: getRoistatVisit(),
@@ -1475,6 +1403,7 @@
                 `Тип заявки: Экскурсия`,
                 `Имя: ${data.name || 'не указано'}`,
                 `Форма: ${data.formSource}`,
+                `Выбранный объект: ${data.selectedObject || 'не выбран'}`,
                 `Удобная дата экскурсии: ${data.excursionDate || 'не указана'}`,
                 `Страница: ${data.source_page}`,
                 `Источник перехода: ${data.referrer}`,
@@ -1491,7 +1420,7 @@
             ].join('\n');
 
             const leadFields = {
-                'fields[TITLE]': `Лид с msk.runorth.ru - Экскурсия`,
+                'fields[TITLE]': `Лид с msk.runorth.ru - Экскурсия${data.selectedObject ? ' (дом ' + data.selectedObject + ')' : ''}`,
                 'fields[NAME]': data.name || '',
                 'fields[PHONE][0][VALUE]': data.phone,
                 'fields[PHONE][0][VALUE_TYPE]': 'WORK',
@@ -1535,7 +1464,7 @@
             const payload = {
                 form_type: 'excursion',
                 phone: data.phone,
-                message: `Удобная дата экскурсии: ${data.excursionDate || 'не указана'}\nRoistat visit: ${data.roistat_visit || '—'}\nYandex Client ID: ${data.ya_client_id || '—'}`,
+                message: `Выбранный объект: ${data.selectedObject || 'не выбран'}\nУдобная дата экскурсии: ${data.excursionDate || 'не указана'}\nRoistat visit: ${data.roistat_visit || '—'}\nYandex Client ID: ${data.ya_client_id || '—'}`,
                 source_page: data.source_page,
                 referrer: data.referrer,
                 utm_source: data.utm_source,
@@ -1642,12 +1571,15 @@
         }
 
         function showFormSuccess(formId) {
-            if (formId === 'cta') {
-                const form = document.getElementById('ctaForm');
-                const success = document.getElementById('ctaFormSuccess');
-                if (form) form.style.display = 'none';
-                if (success) success.classList.add('active');
-            }
+            const map = {
+                'cta': ['ctaForm', 'ctaFormSuccess'],
+                'cta_inline': ['ctaInlineForm', 'ctaInlineFormSuccess']
+            };
+            const ids = map[formId] || map['cta'];
+            const form = document.getElementById(ids[0]);
+            const success = document.getElementById(ids[1]);
+            if (form) form.style.display = 'none';
+            if (success) success.classList.add('active');
         }
 
         // Phone Input Mask - формат: +7 (XXX) XXX-XX-XX
@@ -1687,35 +1619,396 @@
             });
         });
 
-        // Date field — set min to today, render selected date inside the placeholder span
+
+        /* ===== Перенос с runorth: модалка записи + дата-чипы + блок объектов ===== */
+
+        // Excursion popup form
         (function () {
-            const dateInput = document.getElementById('excursionDate');
-            const placeholder = document.getElementById('datePlaceholder');
-            if (!dateInput || !placeholder) return;
+            const modal = document.getElementById('excursionModal');
+            const closeBtn = document.getElementById('excursionModalClose');
+            const form = document.getElementById('ctaForm');
+            const success = document.getElementById('ctaFormSuccess');
+            let lastFocused = null;
+
+            if (modal && modal.parentElement !== document.body) {
+                document.body.appendChild(modal);
+            }
+
+            function openExcursionModal(event, opener) {
+                if (event) event.preventDefault();
+                if (!modal) return;
+                const requestedDate = opener?.dataset?.date || '';
+                // Если модалку открыли кнопкой конкретного объекта — запоминаем его
+                const requestedObject = opener?.dataset?.object || '';
+                const objField = document.getElementById('selectedObjectField');
+                const objLabel = document.getElementById('excursionModalObject');
+                if (objField) objField.value = requestedObject;
+                if (objLabel) {
+                    if (requestedObject) {
+                        objLabel.textContent = 'Вы выбрали: ' + requestedObject;
+                        objLabel.hidden = false;
+                    } else {
+                        objLabel.textContent = '';
+                        objLabel.hidden = true;
+                    }
+                }
+                lastFocused = document.activeElement;
+                if (form) form.style.display = '';
+                if (success) {
+                    success.classList.remove('active');
+                    success.style.display = '';
+                }
+                const submitBtn = form?.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '';
+                    const label = submitBtn.querySelector('span');
+                    if (label) label.textContent = 'Записаться на экскурсию';
+                }
+                if (requestedDate) {
+                    const dateInput = document.getElementById('excursionDate');
+                    const matchingChip = modal.querySelector(`.date-chip[data-value="${requestedDate}"]`);
+                    modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
+                    if (matchingChip) matchingChip.classList.add('active');
+                    if (dateInput) dateInput.value = requestedDate;
+                    const customWrap = document.getElementById('dateCustomWrap');
+                    if (customWrap) customWrap.hidden = true;
+                } else {
+                    const dateInput = document.getElementById('excursionDate');
+                    if (dateInput && !dateInput.value) {
+                        const fallbackChip = modal.querySelector('#dateChips .date-chip.active[data-value]')
+                            || modal.querySelector('#dateChips .date-chip[data-value]');
+                        if (fallbackChip) {
+                            modal.querySelectorAll('.date-chip').forEach(chip => chip.classList.remove('active'));
+                            fallbackChip.classList.add('active');
+                            dateInput.value = fallbackChip.dataset.value || '';
+                        }
+                    }
+                }
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('excursion-modal-open');
+                const firstInput = modal.querySelector('input[name="name"]');
+                setTimeout(() => (firstInput || closeBtn)?.focus(), 30);
+            }
+
+            function closeExcursionModal() {
+                if (!modal) return;
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('excursion-modal-open');
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }
+
+            document.addEventListener('click', event => {
+                const opener = event.target.closest('a[href="#cta"], .hero-date-pill');
+                if (!opener) return;
+                openExcursionModal(event, opener);
+            });
+            closeBtn?.addEventListener('click', closeExcursionModal);
+            modal?.querySelectorAll('[data-excursion-modal-close]').forEach(node => {
+                node.addEventListener('click', closeExcursionModal);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeExcursionModal();
+            });
+        })();
+
+        const RU_MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+        const RU_WEEKDAYS_SHORT = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+        const formatChipDate = (date) => {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            return `${RU_WEEKDAYS_SHORT[date.getDay()]}, ${day}.${month}`;
+        };
+
+        function isoDate(d) {
+            const yyyy = d.getFullYear();
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            const dd = String(d.getDate()).padStart(2, '0');
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        // Ближайшие N выходных дней (суббота и воскресенье), начиная с завтрашнего дня
+        function getNextWeekendDays(count) {
+            const result = [];
+            const d = new Date();
+            d.setHours(0, 0, 0, 0);
+            d.setDate(d.getDate() + 1);
+            while (result.length < count) {
+                const day = d.getDay();
+                if (day === 6 || day === 0) {
+                    result.push(new Date(d));
+                }
+                d.setDate(d.getDate() + 1);
+            }
+            return result;
+        }
+
+        // Date chips (CTA form) + срочность
+        (function () {
+            const weekendDays = getNextWeekendDays(4);
+
+            // Hero — ближайшие даты пилюлями, ведут к форме
+            const heroDatesList = document.getElementById('heroDatesList');
+            if (heroDatesList) {
+                heroDatesList.innerHTML = '';
+                weekendDays.forEach(date => {
+                    const pill = document.createElement('a');
+                    pill.href = '#cta';
+                    pill.className = 'hero-date-pill';
+                    pill.dataset.date = isoDate(date);
+                    pill.innerHTML = `<span class="hero-pill-dot"></span>${RU_WEEKDAYS_SHORT[date.getDay()]}, ${date.getDate()} ${RU_MONTHS_GEN[date.getMonth()]}`;
+                    heroDatesList.appendChild(pill);
+                });
+            }
 
             const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const dd = String(today.getDate()).padStart(2, '0');
-            dateInput.min = `${yyyy}-${mm}-${dd}`;
 
-            const wrap = dateInput.closest('.form-field-date');
-            const defaultText = placeholder.textContent;
-            const months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+            // Инициализация набора чипов для одной формы (инлайн или модалки)
+            function initDateChips(ids) {
+                const chipsWrap = document.getElementById(ids.chips);
+                const hiddenInput = document.getElementById(ids.hidden);
+                const customWrap = document.getElementById(ids.customWrap);
+                const customInput = document.getElementById(ids.customInput);
+                const customPlaceholder = document.getElementById(ids.placeholder);
 
-            const sync = () => {
-                const value = dateInput.value;
-                if (value) {
-                    const [y, m, d] = value.split('-');
-                    placeholder.textContent = `${parseInt(d, 10)} ${months[parseInt(m, 10) - 1]} ${y}`;
-                    wrap && wrap.classList.add('has-value');
-                } else {
-                    placeholder.textContent = defaultText;
-                    wrap && wrap.classList.remove('has-value');
+                if (!chipsWrap || !hiddenInput) return;
+
+                if (customInput) customInput.min = isoDate(today);
+
+                function selectChip(btn, value) {
+                    chipsWrap.querySelectorAll('.date-chip').forEach(c => c.classList.remove('active'));
+                    btn.classList.add('active');
+                    hiddenInput.value = value;
                 }
+
+                weekendDays.forEach((date, i) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'date-chip' + (i === 0 ? ' active' : '');
+                    btn.dataset.value = isoDate(date);
+                    btn.innerHTML = `<strong>${formatChipDate(date)}</strong>`;
+                    btn.addEventListener('click', () => {
+                        if (customWrap) customWrap.hidden = true;
+                        selectChip(btn, isoDate(date));
+                    });
+                    chipsWrap.appendChild(btn);
+                });
+
+                // Default — ближайший выходной день
+                if (weekendDays[0]) hiddenInput.value = isoDate(weekendDays[0]);
+
+                // Чип «Другая дата»
+                const otherBtn = document.createElement('button');
+                otherBtn.type = 'button';
+                otherBtn.className = 'date-chip date-chip-other';
+                otherBtn.innerHTML = '<strong>Другая</strong>';
+                otherBtn.addEventListener('click', () => {
+                    chipsWrap.querySelectorAll('.date-chip').forEach(c => c.classList.remove('active'));
+                    otherBtn.classList.add('active');
+                    if (customWrap) {
+                        customWrap.hidden = false;
+                        if (customInput) customInput.focus();
+                    }
+                    hiddenInput.value = customInput && customInput.value ? customInput.value : '';
+                });
+                chipsWrap.appendChild(otherBtn);
+
+                if (customInput) {
+                    const syncCustom = () => {
+                        const value = customInput.value;
+                        hiddenInput.value = value;
+                        if (customPlaceholder) {
+                            if (value) {
+                                const [y, m, d] = value.split('-');
+                                customPlaceholder.textContent = `${parseInt(d, 10)} ${RU_MONTHS_GEN[parseInt(m, 10) - 1]} ${y}`;
+                                customWrap.classList.add('has-value');
+                            } else {
+                                customPlaceholder.textContent = 'Выберите свою дату';
+                                customWrap.classList.remove('has-value');
+                            }
+                        }
+                    };
+                    customInput.addEventListener('change', syncCustom);
+                    customInput.addEventListener('input', syncCustom);
+                }
+            }
+
+            // Инлайн-форма финального блока
+            initDateChips({
+                chips: 'dateChipsInline',
+                hidden: 'excursionDateInline',
+                customWrap: 'dateCustomWrapInline',
+                customInput: 'excursionDateCustomInline',
+                placeholder: 'datePlaceholderInline'
+            });
+
+            // Форма в модальном окне
+            initDateChips({
+                chips: 'dateChips',
+                hidden: 'excursionDate',
+                customWrap: 'dateCustomWrap',
+                customInput: 'excursionDateCustom',
+                placeholder: 'datePlaceholder'
+            });
+        })();
+
+        // Блок «Объекты» на странице экскурсии: табы + карточка с галереей.
+        // Данные приходят из data/cases.json через /api/excursion-objects.php
+        // (только объекты с включённым тумблером «Показывать на странице экскурсии»).
+        (function () {
+            const root = document.getElementById('excObjects');
+            const status = document.getElementById('excObjectsStatus');
+            if (!root) return;
+
+            const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+            const SVG = (inner) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+            const ICONS = {
+                pin: SVG('<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>'),
+                clock: SVG('<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>'),
+                area: SVG('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>'),
+                floors: SVG('<path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"></path>'),
+                term: SVG('<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>'),
+                mortgage: SVG('<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>'),
+                prev: SVG('<polyline points="15 18 9 12 15 6"></polyline>'),
+                next: SVG('<polyline points="9 18 15 12 9 6"></polyline>')
             };
-            dateInput.addEventListener('change', sync);
-            dateInput.addEventListener('input', sync);
+
+            let objects = [];
+            let active = 0;
+            let imgIdx = 0;
+            let tabsEl, cardEl, tabsPrev, tabsNext;
+
+            function tabsMarkup() {
+                return objects.map((o, i) =>
+                    `<button type="button" class="exc-tab${i === active ? ' is-active' : ''}" role="tab" data-i="${i}" aria-selected="${i === active}">`
+                    + `<strong>${esc(o.name)}</strong>${o.area ? ' <span>' + esc(o.area) + '</span>' : ''}</button>`
+                ).join('');
+            }
+
+            function renderCard() {
+                const o = objects[active];
+                const imgs = (o.images && o.images.length) ? o.images : [];
+                imgIdx = Math.min(imgIdx, Math.max(0, imgs.length - 1));
+                const total = imgs.length;
+                const mainSrc = imgs[imgIdx] || '';
+                const altText = o.name + (o.location ? ' — ' + o.location : '');
+
+                const nav = total > 1 ? `
+                    <button type="button" class="exc-object-arrow prev" aria-label="Предыдущее фото">${ICONS.prev}</button>
+                    <button type="button" class="exc-object-arrow next" aria-label="Следующее фото">${ICONS.next}</button>
+                    <div class="exc-object-counter">${imgIdx + 1} / ${total}</div>` : '';
+
+                const thumbs = total > 1 ? '<div class="exc-object-thumbs">' + imgs.map((src, i) =>
+                    `<button type="button" class="exc-object-thumb${i === imgIdx ? ' is-active' : ''}" data-img="${i}" aria-label="Фото ${i + 1}"><img src="${esc(src)}" alt="" loading="lazy" decoding="async"></button>`
+                ).join('') + '</div>' : '';
+
+                const timeHtml = o.excursionTime ? `<span class="exc-object-time">${ICONS.clock}${esc(o.excursionTime)}</span>` : '';
+                const locHtml = (o.location || timeHtml)
+                    ? `<p class="exc-object-loc">${o.location ? ICONS.pin + '<span>' + esc(o.location) + '</span>' : ''}${timeHtml}</p>` : '';
+
+                const metrics = (o.metrics || []).map(m => `<span class="exc-object-metric">${ICONS[m.type] || ''}${esc(m.value)}</span>`).join('')
+                    + (o.mortgage ? `<span class="exc-object-metric exc-object-metric-mortgage">${ICONS.mortgage}${esc(o.mortgage)}</span>` : '');
+
+                const specs = (o.specs || []).length ? '<div class="exc-object-specs">' + o.specs.map(s =>
+                    `<div class="exc-object-spec"><span>${esc(s.label)}</span><strong>${esc(s.value)}</strong></div>`).join('') + '</div>' : '';
+
+                const ctaObj = o.name + (o.location ? ' — ' + o.location : '');
+
+                return `<div class="exc-object-card">
+                    <div class="exc-object-gallery">
+                        <div class="exc-object-stage">
+                            ${mainSrc ? `<img class="exc-object-img" src="${esc(mainSrc)}" alt="${esc(altText)}" decoding="async">` : ''}
+                            ${nav}
+                        </div>
+                        ${thumbs}
+                    </div>
+                    <div class="exc-object-info">
+                        <h3 class="exc-object-name">${esc(o.name)}</h3>
+                        ${locHtml}
+                        ${metrics ? `<div class="exc-object-metrics">${metrics}</div>` : ''}
+                        ${o.description ? `<p class="exc-object-desc">${esc(o.description)}</p>` : ''}
+                        ${specs}
+                        <a href="#cta" class="btn btn-primary exc-object-cta" data-object="${esc(ctaObj)}"><span>Записаться на экскурсию</span></a>
+                    </div>
+                </div>`;
+            }
+
+            function showCard() {
+                if (cardEl) cardEl.innerHTML = renderCard();
+            }
+
+            function setActiveTab(i) {
+                active = i;
+                imgIdx = 0;
+                if (tabsEl) {
+                    tabsEl.querySelectorAll('.exc-tab').forEach(t => {
+                        const on = +t.dataset.i === active;
+                        t.classList.toggle('is-active', on);
+                        t.setAttribute('aria-selected', on);
+                        if (on) t.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+                    });
+                }
+                showCard();
+                updateTabsArrows();
+            }
+
+            // Стрелки переключают проект (пред./след.); блокируются на краях
+            function updateTabsArrows() {
+                if (!tabsPrev || !tabsNext) return;
+                const many = objects.length > 1;
+                tabsPrev.hidden = !many;
+                tabsNext.hidden = !many;
+                tabsPrev.disabled = active <= 0;
+                tabsNext.disabled = active >= objects.length - 1;
+            }
+
+            function buildShell() {
+                root.innerHTML =
+                    '<div class="exc-objects-tabsbar">'
+                    + `<button type="button" class="exc-tabs-arrow prev" aria-label="Предыдущие проекты">${ICONS.prev}</button>`
+                    + '<div class="exc-objects-tabs" role="tablist">' + tabsMarkup() + '</div>'
+                    + `<button type="button" class="exc-tabs-arrow next" aria-label="Следующие проекты">${ICONS.next}</button>`
+                    + '</div>'
+                    + `<div class="exc-objects-hint" aria-hidden="true">${ICONS.prev}<span>Проекты можно перелистывать</span>${ICONS.next}</div>`
+                    + '<div class="exc-object-cardwrap"></div>';
+
+                tabsEl = root.querySelector('.exc-objects-tabs');
+                cardEl = root.querySelector('.exc-object-cardwrap');
+                tabsPrev = root.querySelector('.exc-tabs-arrow.prev');
+                tabsNext = root.querySelector('.exc-tabs-arrow.next');
+
+                tabsPrev.addEventListener('click', () => { if (active > 0) setActiveTab(active - 1); });
+                tabsNext.addEventListener('click', () => { if (active < objects.length - 1) setActiveTab(active + 1); });
+
+                showCard();
+                updateTabsArrows();
+            }
+
+            root.addEventListener('click', (e) => {
+                const tab = e.target.closest('.exc-tab');
+                if (tab) { setActiveTab(+tab.dataset.i); return; }
+                const thumb = e.target.closest('.exc-object-thumb');
+                if (thumb) { imgIdx = +thumb.dataset.img; showCard(); return; }
+                const o = objects[active];
+                const total = (o && o.images) ? o.images.length : 0;
+                if (!total) return;
+                if (e.target.closest('.exc-object-arrow.prev')) { imgIdx = (imgIdx - 1 + total) % total; showCard(); }
+                else if (e.target.closest('.exc-object-arrow.next')) { imgIdx = (imgIdx + 1) % total; showCard(); }
+            });
+
+            fetch('/api/excursion-objects.php')
+                .then(r => r.ok ? r.json() : Promise.reject(r.status))
+                .then(data => {
+                    objects = (data && data.objects) || [];
+                    if (!objects.length) { if (status) status.remove(); root.hidden = true; return; }
+                    if (status) status.remove();
+                    root.hidden = false;
+                    buildShell();
+                })
+                .catch(() => { if (status) status.textContent = 'Не удалось загрузить объекты. Обновите страницу.'; });
         })();
 
         // Gallery slider + Lightbox

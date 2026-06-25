@@ -16,6 +16,7 @@ $case = $isNew ? [
     'id' => '', 'hidden' => false, 'name' => '', 'location' => '',
     'area' => '', 'floors' => '', 'term' => '', 'mortgage' => '',
     'description' => '', 'imageBase' => '', 'images' => [], 'specs' => [],
+    'excursionTime' => '', 'showOnExcursion' => true,
 ] : $data['cases'][$idx];
 
 $errors = [];
@@ -41,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $case['term']        = $numOnly($_POST['term'] ?? '');
     $case['mortgage']    = trim((string)($_POST['mortgage'] ?? ''));
     $case['description'] = trim((string)($_POST['description'] ?? ''));
+    // Время в пути — показывается ТОЛЬКО на странице экскурсии (excursion.html)
+    $case['excursionTime']   = trim((string)($_POST['excursion_time'] ?? ''));
+    // Тумблер: показывать ли объект в блоке «Объекты» на странице экскурсии
+    $case['showOnExcursion'] = isset($_POST['show_on_excursion']);
 
     // Спецификации
     $specs = [];
@@ -128,7 +133,21 @@ $imgBaseUrl = $case['imageBase'] !== '' ? '/' . trim($case['imageBase'], '/') . 
         <div class="admin-card admin-form">
             <div class="admin-grid-2">
                 <label>Название*<input type="text" name="name" value="<?= admin_e($case['name']) ?>" required></label>
-                <label>Локация<input type="text" name="location" value="<?= admin_e($case['location']) ?>" placeholder="Уют у залива, СПб"></label>
+                <label>Локация<input type="text" name="location" value="<?= admin_e($case['location']) ?>" placeholder="Уют у залива, МО"></label>
+            </div>
+            <?php $showOnExc = !array_key_exists('showOnExcursion', $case) || !empty($case['showOnExcursion']); ?>
+            <div class="admin-grid-2">
+                <label>Время в пути от Москвы
+                    <input type="text" name="excursion_time" value="<?= admin_e($case['excursionTime'] ?? '') ?>" placeholder="40 мин от МКАД">
+                    <small class="admin-muted">Показывается только на странице экскурсии, рядом с локацией.</small>
+                </label>
+                <label class="admin-toggle-field" style="align-self:end">
+                    <span class="admin-toggle-row">
+                        <input type="checkbox" name="show_on_excursion" value="1" <?= $showOnExc ? 'checked' : '' ?>>
+                        <span>Показывать на странице экскурсии</span>
+                    </span>
+                    <small class="admin-muted">Если выключить — объект не попадёт в блок «Объекты» на /excursion.</small>
+                </label>
             </div>
             <?php
             // Для поля показываем только число (на случай старых строковых данных)
