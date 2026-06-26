@@ -2171,7 +2171,7 @@
                 else if (e.target.closest('.exc-object-arrow.next')) { imgIdx = (imgIdx + 1) % total; showCard(); }
             });
 
-            fetch('/api/excursion-objects.php')
+            fetch('/api/excursion-objects.php?t=' + Date.now(), { cache: 'no-store' })
                 .then(r => r.ok ? r.json() : Promise.reject(r.status))
                 .then(data => {
                     objects = (data && data.objects) || [];

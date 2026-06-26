@@ -9,7 +9,12 @@
  */
 
 header('Content-Type: application/json; charset=UTF-8');
-header('Cache-Control: public, max-age=300');
+// Не кэшируем: данные меняются из админки (тумблер showOnExcursion) и должны
+// сразу отражаться на фронте. mod_expires (.htaccess, application/json = 1 час)
+// иначе навешивал бы max-age=3600 и фронт показывал устаревший список.
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0', true);
+header('Pragma: no-cache');
+header('Expires: 0', true);
 
 require_once __DIR__ . '/../partials/cases-lib.php';
 
