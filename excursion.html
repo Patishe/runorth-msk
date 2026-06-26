@@ -70,8 +70,27 @@
             --accent-hover: #c99064;
             --text-light: #666;
             --text-dark: #333;
-            --font-body: 'Open Sans', Arial, Helvetica, sans-serif;
-            --font-heading: 'Montserrat', Arial, Helvetica, sans-serif
+            --font-body: 'Runorth Open Sans', 'Open Sans', 'Open Sans Fallback', sans-serif;
+            --font-heading: 'Runorth Montserrat', 'Montserrat', 'Montserrat Fallback', sans-serif
+        }
+
+        /* Метрик-совместимые fallback-шрифты (как на главной): Arial с подогнанными
+           метриками, чтобы своп на веб-шрифты не сдвигал вёрстку (борьба с CLS). */
+        @font-face {
+            font-family: 'Montserrat Fallback';
+            src: local('Arial');
+            size-adjust: 112.83%;
+            ascent-override: 85.79%;
+            descent-override: 22.25%;
+            line-gap-override: 0%;
+        }
+        @font-face {
+            font-family: 'Open Sans Fallback';
+            src: local('Arial');
+            size-adjust: 105.15%;
+            ascent-override: 101.65%;
+            descent-override: 27.86%;
+            line-gap-override: 0%;
         }
 
         * {
