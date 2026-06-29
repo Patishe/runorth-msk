@@ -1774,16 +1774,6 @@
                 });
             });
 
-            let formStartFired = false;
-            ['ctaForm', 'ctaInlineForm'].forEach(id => {
-                const f = document.getElementById(id);
-                if (!f) return;
-                f.addEventListener('focusin', () => {
-                    if (formStartFired) return;
-                    formStartFired = true;
-                    reachMetrikaGoal('excursion_form_start');
-                }, { once: true });
-            });
         }
 
         initExcursionAnalyticsGoals();
