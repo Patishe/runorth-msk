@@ -233,6 +233,17 @@ window.runorthReachGoal = window.runorthReachGoal || function (goal, params) {
                 gclid: gclid || prev.gclid || ''
             }));
         }
+
+        // Roistat-маркер (direct16_context_..) несёт кампанию/ключевик Директа.
+        // В URL внутренних страниц его нет — сохраняем, как utm/click.
+        var roistat = params.get('roistat') || '';
+        if (roistat) {
+            localStorage.setItem('runorth_roistat', JSON.stringify({
+                roistat: roistat,
+                roistat_referrer: params.get('roistat_referrer') || '',
+                roistat_pos: params.get('roistat_pos') || ''
+            }));
+        }
     } catch (e) { /* localStorage недоступен — тихо игнорируем */ }
 })();
 
@@ -1358,10 +1369,12 @@ function getUTMParams() {
 }
 
 function getRoistatParams(params = new URLSearchParams(window.location.search)) {
+    let stored = {};
+    try { stored = JSON.parse(localStorage.getItem('runorth_roistat') || '{}'); } catch (e) { stored = {}; }
     return {
-        roistat: params.get('roistat') || '',
-        roistat_referrer: params.get('roistat_referrer') || '',
-        roistat_pos: params.get('roistat_pos') || ''
+        roistat: params.get('roistat') || stored.roistat || '',
+        roistat_referrer: params.get('roistat_referrer') || stored.roistat_referrer || '',
+        roistat_pos: params.get('roistat_pos') || stored.roistat_pos || ''
     };
 }
 
@@ -1426,6 +1439,18 @@ function getStoredUTM() {
         return stored ? JSON.parse(stored) : getUTMParams();
     } catch (e) {
         return getUTMParams();
+    }
+}
+
+// Get yclid/gclid from localStorage (persist across internal pages).
+// Метки кликов сохраняются captureMarketingParams() на странице входа,
+// но в URL внутренних страниц их уже нет — читаем из хранилища.
+function getStoredClickIds() {
+    try {
+        const stored = localStorage.getItem('runorth_click');
+        return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+        return {};
     }
 }
 
@@ -1650,8 +1675,8 @@ function submitForm(event) {
         roistat_marker: roistatParams.roistat,
         roistat_referrer: roistatParams.roistat_referrer,
         roistat_pos: roistatParams.roistat_pos,
-        yclid: urlParams.get('yclid') || '',
-        gclid: urlParams.get('gclid') || '',
+        yclid: urlParams.get('yclid') || getStoredClickIds().yclid || '',
+        gclid: urlParams.get('gclid') || getStoredClickIds().gclid || '',
         referrer: referrer ? referrer.value : (document.referrer || 'Прямой заход')
     };
 
