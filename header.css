@@ -240,15 +240,39 @@ body {
     }
 
     .header-phone {
-        font-size: 1.05rem;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        color: transparent;
+        font-size: 0;
+        text-indent: -9999px;
+        overflow: hidden;
         flex-shrink: 0;
-        order: 1;
+        position: relative;
+    }
+
+    .header-phone::after {
+        content: '';
+        position: absolute;
+        inset: 7px;
+        background: #fff;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .header-phone-wrap {
+        order: 2;
+    }
+
+    .header-phone-status {
+        display: none;
     }
 
     .header-socials {
         gap: 6px;
         flex-shrink: 0;
-        order: 2;
+        order: 1;
     }
 
     .social-icon {
@@ -284,40 +308,35 @@ body {
     }
 
     .logo-img {
-        height: 32px;
+        height: 28px;
+        width: auto;
     }
 
     .header .container.header-inner {
-        padding: 10px 4px 10px 0;
-        column-gap: 4px;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        padding: 10px 8px;
+        column-gap: 6px;
         max-width: calc(100% - 10px);
     }
 
     .logo {
-        margin-left: -14px;
+        margin-left: 0;
+        min-width: 0;
     }
 
     .header-center {
-        gap: 6px;
+        gap: 5px;
         margin-right: 0;
+        min-width: 0;
     }
 
     .header-phone {
-        font-size: 0.85rem;
+        width: 28px;
+        height: 28px;
     }
 
     .burger-menu {
-        margin-right: 6px;
-    }
-
-    .social-icon {
-        width: 26px;
-        height: 26px;
-    }
-
-    .social-icon img {
-        width: 26px;
-        height: 26px;
+        margin-right: 0;
     }
 
     .header-socials {
@@ -325,13 +344,13 @@ body {
     }
 
     .social-icon {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
     }
 
     .social-icon img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
     }
 
     .burger-menu {
