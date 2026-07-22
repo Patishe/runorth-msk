@@ -400,11 +400,8 @@ function initPhoneMasks() {
         input.addEventListener('input', () => phoneMask(input));
 
         // Р¤РѕСЂРјР°С‚РёСЂСѓРµРј РїСЂРё С„РѕРєСѓСЃРµ РµСЃР»Рё РїРѕР»Рµ РїСѓСЃС‚РѕРµ
-        input.addEventListener('focus', () => {
-            if (!input.value) {
-                input.value = '+7 (';
-            }
-        });
+        // Leave the field empty until typing starts, so an initial 8 is
+        // recognized as the domestic prefix and converted to +7.
 
         // РЈР±РёСЂР°РµРј РЅРµР·Р°РІРµСЂС€РµРЅРЅС‹Р№ С„РѕСЂРјР°С‚ РїСЂРё РїРѕС‚РµСЂРµ С„РѕРєСѓСЃР°
         input.addEventListener('blur', () => {

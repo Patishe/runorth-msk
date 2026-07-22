@@ -1871,11 +1871,6 @@
         // Initialize phone masks on all tel inputs
         document.querySelectorAll('input[type="tel"]').forEach(input => {
             input.addEventListener('input', () => phoneMask(input));
-            input.addEventListener('focus', () => {
-                if (!input.value) {
-                    input.value = '+7 (';
-                }
-            });
         });
 
         const RU_MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
