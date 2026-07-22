@@ -459,9 +459,9 @@ body{padding-top:70px}
     </style>
 
     <!-- Async CSS Loading -->
-    <link rel="stylesheet" href="style.css?v=20260625-cases-cta" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css?v=20260722-mobile-project-order" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="style.css?v=20260625-cases-cta">
+        <link rel="stylesheet" href="style.css?v=20260722-mobile-project-order">
     </noscript>
     <style>
         :root {

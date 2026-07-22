@@ -8052,6 +8052,44 @@ h3 {
     }
 }
 
+/* Mobile project cards: keep the specs directly below the price and show the full description. */
+@media (max-width: 768px) {
+    #mskProjectsGrid .project-description {
+        min-height: 0;
+        display: block;
+        -webkit-line-clamp: unset;
+        -webkit-box-orient: initial;
+        overflow: visible;
+        order: 2;
+    }
+
+    #mskProjectsGrid .project-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+        order: 1;
+        margin: 0 0 14px;
+    }
+
+    #mskProjectsGrid .project-badge {
+        width: 100%;
+        justify-content: center;
+        gap: 3px;
+        padding: 5px 4px;
+        font-size: 0.68rem;
+    }
+
+    #mskProjectsGrid .project-badge::before {
+        flex-basis: 12px;
+        width: 12px;
+        height: 12px;
+    }
+
+    #mskProjectsGrid .project-footer {
+        order: 3;
+    }
+}
+
 
 @media (max-width: 768px) {
     .hero-benefits,
