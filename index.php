@@ -699,12 +699,12 @@ body{padding-top:70px}
                     <span class="header-phone-status"><span class="header-phone-status-dot"></span>Звоните, мы онлайн</span>
                 </div>
                 <div class="header-socials">
-                    <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer" class="social-icon"
-                        title="Написать в Telegram">
+                    <a href="https://t.me/info_nordsrub_bot" target="_blank" rel="noopener noreferrer" class="social-icon"
+                        data-chat-bot="telegram" title="Написать в Telegram">
                         <img src="images/telegram.svg" alt="Telegram" width="22" height="22" loading="lazy">
                     </a>
-                    <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
-                        target="_blank" rel="noopener noreferrer" class="social-icon" title="Написать в MAX">
+                    <a href="https://max.ru/id7811659615_bot"
+                        target="_blank" rel="noopener noreferrer" class="social-icon" data-chat-bot="max" title="Написать в MAX">
                         <img src="images/max.webp" alt="MAX" width="22" height="22" loading="lazy">
                     </a>
                 </div>
@@ -738,12 +738,12 @@ body{padding-top:70px}
                 <a href="tel:+74951824667" class="mobile-phone">+7 (495) 182-46-67</a>
                 <span class="mobile-phone-status"><span class="header-phone-status-dot"></span>Звоните, мы онлайн</span>
                 <div class="mobile-socials">
-                    <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer"
-                        class="mobile-social-icon" title="Telegram">
+                    <a href="https://t.me/info_nordsrub_bot" target="_blank" rel="noopener noreferrer"
+                        class="mobile-social-icon" data-chat-bot="telegram" title="Telegram">
                         <img src="images/telegram.svg" alt="Telegram" width="24" height="24" loading="lazy">
                     </a>
-                    <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
-                        target="_blank" rel="noopener noreferrer" class="mobile-social-icon" title="MAX">
+                    <a href="https://max.ru/id7811659615_bot"
+                        target="_blank" rel="noopener noreferrer" class="mobile-social-icon" data-chat-bot="max" title="MAX">
                         <img src="images/max.webp" alt="MAX" width="24" height="24" loading="lazy">
                     </a>
                 </div>
@@ -2607,12 +2607,12 @@ body{padding-top:70px}
                         <h5>Написать в мессенджер</h5>
                         <div class="footer-messengers-row">
                             <div class="footer-messengers-icons-top">
-                                <a href="https://t.me/info_nordsrub" target="_blank" rel="noopener noreferrer"
-                                    class="footer-messenger-icon-top" title="Telegram">
+                                <a href="https://t.me/info_nordsrub_bot" target="_blank" rel="noopener noreferrer"
+                                    class="footer-messenger-icon-top" data-chat-bot="telegram" title="Telegram">
                                     <img src="images/telegram.svg" alt="Telegram" width="32" height="32" loading="lazy">
                                 </a>
-                                <a href="https://max.ru/u/f9LHodD0cOJoB38KUkLl9OBWHMXOUBeouSKtI0qraDoyNdkSCBVEi3Br7eI"
-                                    target="_blank" rel="noopener noreferrer" class="footer-messenger-icon-top"
+                                <a href="https://max.ru/id7811659615_bot"
+                                    target="_blank" rel="noopener noreferrer" class="footer-messenger-icon-top" data-chat-bot="max"
                                     title="MAX">
                                     <img src="images/max.webp" alt="MAX" width="32" height="32" loading="lazy">
                                 </a>
@@ -3221,6 +3221,7 @@ body{padding-top:70px}
     </script>
 
     <script src="app.js?v=20260722-phone-prefix" defer charset="utf-8"></script>
+    <script src="messenger-attribution.js?v=20260723" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->
     <script>
