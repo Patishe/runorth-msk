@@ -1232,6 +1232,8 @@ function isSearchEngineReferrer(referrer) {
 
 // Yandex.Metrika Client ID -> Bitrix24
 const YANDEX_METRIKA_COUNTER_ID = 24341083;
+const TRACKING_IDS_WAIT_TIMEOUT_MS = 2500;
+const TRACKING_IDS_POLL_INTERVAL_MS = 100;
 let yandexClientIdCache = '';
 
 function readYandexClientIdFromCookie() {
@@ -1239,8 +1241,7 @@ function readYandexClientIdFromCookie() {
     return match ? decodeURIComponent(match[1]) : '';
 }
 
-function initYandexClientId() {
-    yandexClientIdCache = readYandexClientIdFromCookie();
+function requestYandexClientId() {
     try {
         if (typeof ym === 'function') {
             ym(YANDEX_METRIKA_COUNTER_ID, 'getClientID', function (clientId) {
@@ -1250,6 +1251,11 @@ function initYandexClientId() {
     } catch (e) {
         // noop
     }
+}
+
+function initYandexClientId() {
+    yandexClientIdCache = readYandexClientIdFromCookie();
+    requestYandexClientId();
 }
 
 function getYandexClientId() {
@@ -1384,6 +1390,31 @@ function getRoistatVisit() {
     return match ? decodeURIComponent(match[1]) : '';
 }
 
+function waitForTrackingIds(initialValues = {}) {
+    const startedAt = Date.now();
+    let roistatVisit = String(initialValues.roistatVisit || '');
+    let yandexClientId = String(initialValues.yandexClientId || '');
+
+    requestYandexClientId();
+
+    return new Promise(resolve => {
+        function checkTrackingIds() {
+            roistatVisit = roistatVisit || String(getRoistatVisit() || '');
+            yandexClientId = yandexClientId || String(getYandexClientId() || '');
+
+            const timedOut = Date.now() - startedAt >= TRACKING_IDS_WAIT_TIMEOUT_MS;
+            if ((roistatVisit && yandexClientId) || timedOut) {
+                resolve({ roistatVisit, yandexClientId });
+                return;
+            }
+
+            window.setTimeout(checkTrackingIds, TRACKING_IDS_POLL_INTERVAL_MS);
+        }
+
+        checkTrackingIds();
+    });
+}
+
 // Из маркера Roistat (direct16_context_<id>_<term>) собираем utm для Яндекс.Директа.
 function parseRoistatMarkerToUtm(marker, referrer) {
     if (!marker) return null;
@@ -1506,8 +1537,13 @@ async function sendToBitrix24(data) {
     data.phone = formatRussianPhone(normalizedPhone);
 
     try {
+        const trackingIds = await waitForTrackingIds({
+            roistatVisit: data.roistat_visit,
+            yandexClientId: getYandexClientId()
+        });
+        data.roistat_visit = trackingIds.roistatVisit;
         applyRoistatUtmFallback(data);
-        const yaClientId = getYandexClientId();
+        const yaClientId = trackingIds.yandexClientId;
         // Домен посадочной страницы: на msk.runorth.ru даёт реальный хост,
         // чтобы лид с поддомена был отличим в Bitrix от заявок основного сайта.
         const landingHost = (window.location && window.location.hostname) || 'msk.runorth.ru';

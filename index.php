@@ -3220,7 +3220,7 @@ body{padding-top:70px}
         })();
     </script>
 
-    <script src="app.js?v=20260722-phone-prefix" defer charset="utf-8"></script>
+    <script src="app.js?v=20260729-tracking-id-wait" defer charset="utf-8"></script>
     <script src="messenger-attribution.js?v=20260723-full" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->

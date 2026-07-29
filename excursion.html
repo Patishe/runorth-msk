@@ -1509,6 +1509,46 @@
             return match ? decodeURIComponent(match[1]) : '';
         }
 
+        const TRACKING_IDS_WAIT_TIMEOUT_MS = 2500;
+        const TRACKING_IDS_POLL_INTERVAL_MS = 100;
+
+        function requestYandexClientId() {
+            try {
+                if (typeof ym === 'function') {
+                    ym(METRIKA_ID, 'getClientID', function (clientId) {
+                        if (clientId) yandexClientIdCache = String(clientId);
+                    });
+                }
+            } catch (e) {
+                // noop
+            }
+        }
+
+        function waitForTrackingIds(initialValues = {}) {
+            const startedAt = Date.now();
+            let roistatVisit = String(initialValues.roistatVisit || '');
+            let yandexClientId = String(initialValues.yandexClientId || '');
+
+            requestYandexClientId();
+
+            return new Promise(resolve => {
+                function checkTrackingIds() {
+                    roistatVisit = roistatVisit || String(getRoistatVisit() || '');
+                    yandexClientId = yandexClientId || String(getYandexClientId() || '');
+
+                    const timedOut = Date.now() - startedAt >= TRACKING_IDS_WAIT_TIMEOUT_MS;
+                    if ((roistatVisit && yandexClientId) || timedOut) {
+                        resolve({ roistatVisit, yandexClientId });
+                        return;
+                    }
+
+                    window.setTimeout(checkTrackingIds, TRACKING_IDS_POLL_INTERVAL_MS);
+                }
+
+                checkTrackingIds();
+            });
+        }
+
         // Из маркера Roistat (direct16_context_<id>_<term>) собираем utm для Яндекс.Директа.
         function parseRoistatMarkerToUtm(marker, referrer) {
             if (!marker) return null;
@@ -1620,15 +1660,7 @@
 
         (function initYandexClientId() {
             yandexClientIdCache = readYandexClientIdFromCookie();
-            try {
-                if (typeof ym === 'function') {
-                    ym(METRIKA_ID, 'getClientID', function (clientId) {
-                        if (clientId) yandexClientIdCache = String(clientId);
-                    });
-                }
-            } catch (e) {
-                // noop
-            }
+            requestYandexClientId();
         })();
 
         function buildLeadPayload(form) {
@@ -1659,6 +1691,12 @@
         }
 
         async function sendExcursionLeadToBitrix24(data) {
+            const trackingIds = await waitForTrackingIds({
+                roistatVisit: data.roistat_visit,
+                yandexClientId: data.ya_client_id
+            });
+            data.roistat_visit = trackingIds.roistatVisit;
+            data.ya_client_id = trackingIds.yandexClientId;
             applyRoistatUtmFallback(data);
             const comments = [
                 `Тип заявки: Экскурсия`,
