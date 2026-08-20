@@ -1055,7 +1055,7 @@ body{padding-top:70px}
                         }
 
                         // Данные каталога грузятся из data/catalog.json (управляется через /admin/catalog)
-                        (function loadMskCatalog() {
+                        function loadMskCatalog() {
                             var rate = 0.0047964;
                             function apply(list) {
                                 mskProjects = (Array.isArray(list) ? list : [])
@@ -1073,6 +1073,29 @@ body{padding-top:70px}
                                         .then(function (d) { apply(d.items || []); })
                                         .catch(function (e) { console.error('[msk-catalog] load failed', e); });
                                 });
+                        }
+
+                        (function scheduleMskCatalogLoad() {
+                            var section = document.getElementById('projects');
+                            var started = false;
+                            function start() {
+                                if (started) return;
+                                started = true;
+                                loadMskCatalog();
+                            }
+
+                            if ('IntersectionObserver' in window && section) {
+                                var observer = new IntersectionObserver(function (entries) {
+                                    if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+                                    observer.disconnect();
+                                    start();
+                                }, { rootMargin: '200px 0px' });
+                                observer.observe(section);
+                            } else {
+                                window.addEventListener('load', function () {
+                                    setTimeout(start, 1500);
+                                }, { once: true });
+                            }
                         })();
                     })();
                 </script>
