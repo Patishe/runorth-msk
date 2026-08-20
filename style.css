@@ -3223,10 +3223,15 @@ h3 {
 /* Process Section - Timeline Enhanced */
 .process {
     position: relative;
+    background-color: #31434e;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.process.lazy-asset-loaded {
+    background-image: linear-gradient(rgba(49, 67, 78, 0.85), rgba(49, 67, 78, 0.9)), url('images/dom.jpg');
 }
 
 .process-header {
@@ -5061,11 +5066,15 @@ h3 {
 /* Premium Excursion Block CTA */
 .excursion-full-bg {
     position: relative;
-    background-image: url('images/excurs.jpg');
+    background-color: #1e2832;
     background-size: cover;
     background-position: center;
     content-visibility: auto;
     contain-intrinsic-size: 0 500px;
+}
+
+.excursion-full-bg.lazy-asset-loaded {
+    background-image: url('images/excurs.jpg');
 }
 
 .excursion-full-bg::before {
@@ -5659,11 +5668,17 @@ h3 {
     right: 0;
     width: 50%;
     height: 100%;
-    background: url('images/dom.jpg') center/cover no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0.15;
     mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
     -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
     pointer-events: none;
+}
+
+.custom-project-bg.lazy-asset-loaded::before {
+    background-image: url('images/dom.jpg');
 }
 
 .custom-project-bg::after {

@@ -16,14 +16,31 @@
                 ? new URL('.', window.location.href).href.replace(/\/$/, '')
                 : window.location.origin + (isMskPath ? '/msk' : '');
 
-            // На первом экране нужен только кириллический сабсет; латиница загрузится через fonts.css при необходимости.
+            // На первом экране нужен только Montserrat: второй preload конкурировал
+            // с hero-изображением за узкий мобильный канал.
             // fonts.css грузим НЕблокирующе (media=print → onload), чтобы он не задерживал отрисовку (LCP).
             // CLS при этом не страдает: до приезда шрифтов работает метрик-совместимый fallback (см. critical CSS).
             document.write(
                 '<link rel="preload" href="' + fontBase + '/fonts/Montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
-                '<link rel="preload" href="' + fontBase + '/fonts/OpenSans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
-                '<link rel="stylesheet" href="' + fontBase + '/fonts.css?v=20260610-msk-fonts-locked" media="print" onload="this.media=\'all\'">'
+                '<link id="runorth-fonts" rel="stylesheet" href="' + fontBase + '/fonts.css?v=20260820-mobile-font-optional" media="print">'
             );
+
+            // Остальные начертания применяем после первого действия пользователя
+            // либо далеко за пределами измерения LCP. Сам CSS скачивается заранее,
+            // но шрифты из него не конкурируют с первым экраном.
+            var fontsEnabled = false;
+            function enableFonts() {
+                if (fontsEnabled) return;
+                fontsEnabled = true;
+                var fonts = document.getElementById('runorth-fonts');
+                if (fonts) fonts.media = 'all';
+            }
+            ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+                window.addEventListener(eventName, enableFonts, { once: true, passive: true });
+            });
+            window.addEventListener('load', function () {
+                window.setTimeout(enableFonts, 12000);
+            }, { once: true });
         })();
     </script>
 
@@ -62,14 +79,11 @@
     <meta name="twitter:image" content="https://runorth.ru/images/hero_bg.jpg">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="icon" type="image/webp" href="images/logo.webp">
     <meta name="theme-color" content="#31434E">
 
     <!-- Preload Critical Images (адаптивно: лёгкий hero для мобильных, полный для десктопа) -->
-    <link rel="preload" as="image" href="images/hero-render-3-mobile-720.avif" type="image/avif" fetchpriority="high" media="(max-width: 768px)" imagesrcset="images/hero-render-3-mobile-480.avif 480w, images/hero-render-3-mobile-720.avif 720w, images/hero-render-3-mobile-941.avif 941w" imagesizes="100vw">
+    <link rel="preload" as="image" href="images/hero-render-3-mobile-720-optimized.avif" type="image/avif" fetchpriority="high" media="(max-width: 768px)" imagesrcset="images/hero-render-3-mobile-480-optimized.avif 480w, images/hero-render-3-mobile-720-optimized.avif 720w, images/hero-render-3-mobile-941-optimized.avif 941w" imagesizes="99vw">
     <link rel="preload" as="image" href="images/hero-render-wide-1920.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
     <link rel="preload" as="image" href="images/logo.webp" imagesrcset="images/logo.webp">
 
@@ -159,7 +173,9 @@
             font-family: 'Runorth Montserrat';
             font-style: normal;
             font-weight: 600;
-            font-display: swap;
+            /* optional не допускает поздний swap заголовка, который повторно
+               назначал его LCP-элементом спустя несколько секунд. */
+            font-display: optional;
             src: url('fonts/Montserrat-cyrillic.woff2') format('woff2');
             unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
         }
@@ -457,9 +473,9 @@ body{padding-top:70px}
     </style>
 
     <!-- Async CSS Loading -->
-    <link rel="stylesheet" href="style.css?v=20260723-main-parity" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css?v=20260820-lazy-assets" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="style.css?v=20260723-main-parity">
+        <link rel="stylesheet" href="style.css?v=20260820-lazy-assets">
     </noscript>
     <style>
         :root {
@@ -580,8 +596,18 @@ body{padding-top:70px}
         (function (m, e, t, r, i, k, a) {
             m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
             m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            var loaded = false;
+            function loadMetrika() {
+                if (loaded) return;
+                loaded = true;
+                for (var j = 0; j < e.scripts.length; j++) { if (e.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+            }
+            ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+                m.addEventListener(eventName, loadMetrika, { once: true, passive: true });
+            });
+            if (e.readyState === 'complete') m.setTimeout(loadMetrika, 8000);
+            else m.addEventListener('load', function () { m.setTimeout(loadMetrika, 8000); }, { once: true });
         })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
         ym(24341083, 'init', { webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
@@ -755,8 +781,8 @@ body{padding-top:70px}
     <main>
         <section class="hero" id="hero">
             <picture class="hero-bg-picture" aria-hidden="true">
-                <source srcset="images/hero-render-3-mobile-480.avif 480w, images/hero-render-3-mobile-720.avif 720w, images/hero-render-3-mobile-941.avif 941w" sizes="100vw" type="image/avif" media="(max-width: 768px)">
-                <source srcset="images/hero-render-3-mobile-480.webp 480w, images/hero-render-3-mobile-720.webp 720w, images/hero-render-3-mobile-941.webp 941w" sizes="100vw" type="image/webp" media="(max-width: 768px)">
+                <source srcset="images/hero-render-3-mobile-480-optimized.avif 480w, images/hero-render-3-mobile-720-optimized.avif 720w, images/hero-render-3-mobile-941-optimized.avif 941w" sizes="99vw" type="image/avif" media="(max-width: 768px)">
+                <source srcset="images/hero-render-3-mobile-480.webp 480w, images/hero-render-3-mobile-720.webp 720w, images/hero-render-3-mobile-941.webp 941w" sizes="99vw" type="image/webp" media="(max-width: 768px)">
                 <source srcset="images/hero-render%203%209%D1%8516.png" type="image/png" media="(max-width: 768px)">
                 <source srcset="images/hero-render-wide-1920.webp" type="image/webp">
                 <source srcset="images/hero-render-wide-1920.png" type="image/png">
@@ -1299,7 +1325,7 @@ body{padding-top:70px}
                             </button>
                         </div>
                         <div class="msk-offer-media">
-                            <img src="images/catalog-cover-480.webp" alt="Каталог проектов домов из клееного бруса" loading="lazy" width="480" height="360"
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/catalog-cover-480.webp" data-lazy-asset alt="Каталог проектов домов из клееного бруса" loading="lazy" width="480" height="360"
                                 onerror="this.closest('.msk-offer-media').style.display='none'">
                         </div>
                     </div>
@@ -1313,7 +1339,7 @@ body{padding-top:70px}
                             </button>
                         </div>
                         <div class="msk-offer-media">
-                            <img src="images/plan-480.webp" alt="Индивидуальный проект дома" loading="lazy" width="480" height="805"
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="images/plan-480.webp" data-lazy-asset alt="Индивидуальный проект дома" loading="lazy" width="480" height="805"
                                 onerror="this.closest('.msk-offer-media').style.display='none'">
                         </div>
                     </div>
@@ -1825,7 +1851,7 @@ body{padding-top:70px}
 
 
         <!-- Excursion -->
-        <section class="excursion-full-bg reveal" id="excursion">
+        <section class="excursion-full-bg reveal" id="excursion" data-lazy-asset>
             <div class="container">
                 <div class="excursion-premium-content">
                     <h2>Нам не стыдно показать свои объекты вживую</h2>
@@ -2021,8 +2047,7 @@ body{padding-top:70px}
         </section>
 
         <!-- 6. How We Work (Enhanced Timeline) -->
-        <section class="process section parallax-bg reveal" id="process"
-            style="background-image: linear-gradient(rgba(49, 67, 78, 0.85), rgba(49, 67, 78, 0.9)), url('images/dom.jpg');">
+        <section class="process section parallax-bg reveal" id="process" data-lazy-asset>
             <div class="container">
                 <div class="process-header">
                     <h2 class="text-center">6 шагов к загородной жизни</h2>
@@ -2847,6 +2872,44 @@ body{padding-top:70px}
         <div class="lightbox-dots" id="lightboxDots"></div>
     </div>
 
+    <script>
+        // Тяжёлые изображения ниже первого экрана появляются только тогда,
+        // когда пользователь почти дошёл до соответствующего блока.
+        (function () {
+            function hydrate(target) {
+                if (target.dataset.lazySrc) {
+                    target.src = target.dataset.lazySrc;
+                    target.removeAttribute('data-lazy-src');
+                } else {
+                    target.classList.add('lazy-asset-loaded');
+                }
+                target.removeAttribute('data-lazy-asset');
+            }
+
+            function initLazyAssets() {
+                var targets = document.querySelectorAll('[data-lazy-asset]');
+                if (!('IntersectionObserver' in window)) {
+                    targets.forEach(hydrate);
+                    return;
+                }
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        hydrate(entry.target);
+                        observer.unobserve(entry.target);
+                    });
+                }, { rootMargin: '300px 0px' });
+                targets.forEach(function (target) { observer.observe(target); });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initLazyAssets, { once: true });
+            } else {
+                initLazyAssets();
+            }
+        })();
+    </script>
+
     <!-- Inline critical functions needed before app.js loads -->
     <script>
         // Глобальные переменные lightbox
@@ -3265,7 +3328,7 @@ body{padding-top:70px}
                 var js = d.createElement(s); js.charset = "UTF-8"; js.async = 1; js.src = p + h + u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
             }
             function scheduleRoistat() {
-                w.setTimeout(loadRoistat, 1500);
+                w.setTimeout(loadRoistat, 8000);
             }
             ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (eventName) {
                 w.addEventListener(eventName, loadRoistat, { once: true, passive: true });
