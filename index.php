@@ -16,14 +16,12 @@
                 ? new URL('.', window.location.href).href.replace(/\/$/, '')
                 : window.location.origin + (isMskPath ? '/msk' : '');
 
-            // Предзагружаем и кириллицу, и латиницу (цифры телефона/латинские символы нужны на первом экране).
+            // На первом экране нужен только кириллический сабсет; латиница загрузится через fonts.css при необходимости.
             // fonts.css грузим НЕблокирующе (media=print → onload), чтобы он не задерживал отрисовку (LCP).
             // CLS при этом не страдает: до приезда шрифтов работает метрик-совместимый fallback (см. critical CSS).
             document.write(
                 '<link rel="preload" href="' + fontBase + '/fonts/Montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
-                '<link rel="preload" href="' + fontBase + '/fonts/Montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>' +
                 '<link rel="preload" href="' + fontBase + '/fonts/OpenSans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>' +
-                '<link rel="preload" href="' + fontBase + '/fonts/OpenSans-latin.woff2" as="font" type="font/woff2" crossorigin>' +
                 '<link rel="stylesheet" href="' + fontBase + '/fonts.css?v=20260610-msk-fonts-locked" media="print" onload="this.media=\'all\'">'
             );
         })();
@@ -1003,8 +1001,9 @@ body{padding-top:70px}
                                 '<div class="project-gallery">' +
                                     '<div class="project-gallery-viewport">' +
                                         '<picture>' +
-                                            '<source srcset="' + firstWebp + '" type="image/webp">' +
-                                            '<img class="project-gallery-img" src="' + firstImg + '" alt="Дом ' + p.name + '" width="600" height="400" loading="lazy" decoding="async">' +
+                                            '<source srcset="' + firstWebp.replace(/\.webp$/i, '-480.webp') + '" media="(max-width: 768px)" type="image/webp">' +
+                                            '<source srcset="' + firstWebp.replace(/\.webp$/i, '-768.webp') + ' 768w, ' + firstWebp + ' 1200w" sizes="(max-width: 1200px) calc(50vw - 30px), 570px" type="image/webp">' +
+                                            '<img class="project-gallery-img" src="' + firstImg + '" alt="Дом ' + p.name + '" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low">' +
                                         '</picture>' +
                                     '</div>' +
                                     '<button class="project-gallery-arrow arrow-left" onclick="projectGalleryNav(this, -1)" aria-label="Назад">' +
@@ -1277,7 +1276,7 @@ body{padding-top:70px}
                             </button>
                         </div>
                         <div class="msk-offer-media">
-                            <img src="images/catalog-cover.png" alt="Каталог проектов домов из клееного бруса" loading="lazy"
+                            <img src="images/catalog-cover-480.webp" alt="Каталог проектов домов из клееного бруса" loading="lazy" width="480" height="360"
                                 onerror="this.closest('.msk-offer-media').style.display='none'">
                         </div>
                     </div>
@@ -1291,7 +1290,7 @@ body{padding-top:70px}
                             </button>
                         </div>
                         <div class="msk-offer-media">
-                            <img src="images/plan.png" alt="Индивидуальный проект дома" loading="lazy"
+                            <img src="images/plan-480.webp" alt="Индивидуальный проект дома" loading="lazy" width="480" height="805"
                                 onerror="this.closest('.msk-offer-media').style.display='none'">
                         </div>
                     </div>
@@ -3220,7 +3219,7 @@ body{padding-top:70px}
         })();
     </script>
 
-    <script src="app.js?v=20260729-tracking-id-wait" defer charset="utf-8"></script>
+    <script src="app.js?v=20260820-responsive-project-images" defer charset="utf-8"></script>
     <script src="messenger-attribution.js?v=20260723-full" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->

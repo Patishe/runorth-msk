@@ -412,6 +412,21 @@ function initPhoneMasks() {
     });
 }
 
+function hydrateProjectGallerySlide(slide) {
+    if (!slide) return;
+
+    slide.querySelectorAll('source[data-srcset]').forEach((source) => {
+        source.srcset = source.dataset.srcset;
+        source.removeAttribute('data-srcset');
+    });
+
+    const image = slide.querySelector('img[data-src]');
+    if (image) {
+        image.src = image.dataset.src;
+        image.removeAttribute('data-src');
+    }
+}
+
 // Project Gallery Navigation — global function for onclick
 function setProjectGalleryImage(card, targetIndex) {
     const gallery = card.querySelector('.project-gallery');
@@ -428,6 +443,7 @@ function setProjectGalleryImage(card, targetIndex) {
     card.dataset.galleryIndex = nextIndex;
 
     if (track) {
+        hydrateProjectGallerySlide(track.children[nextIndex]);
         track.style.transform = `translateX(-${nextIndex * 100}%)`;
     }
 
@@ -675,8 +691,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const viewport = gallery.querySelector('.project-gallery-viewport');
         const images = JSON.parse(card.dataset.images);
         const dotsContainer = gallery.querySelector('.project-gallery-dots');
+        const firstPicture = viewport.querySelector('picture');
         const firstImg = viewport.querySelector('.project-gallery-img');
-        const firstSource = viewport.querySelector('source[type="image/webp"]');
         const projectTitle = card.querySelector('h3')?.textContent || firstImg?.alt || '';
         card.dataset.galleryIndex = '0';
 
@@ -687,26 +703,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const picture = document.createElement('picture');
             picture.className = 'project-gallery-slide';
 
-            const source = document.createElement('source');
-            if (i === 0 && firstSource?.getAttribute('srcset')) {
-                source.srcset = firstSource.getAttribute('srcset');
-                const sizes = firstSource.getAttribute('sizes');
-                if (sizes) source.sizes = sizes;
+            if (i === 0 && firstPicture) {
+                firstPicture.querySelectorAll('source').forEach((source) => {
+                    picture.appendChild(source.cloneNode(false));
+                });
             } else {
-                source.srcset = src.replace(/\.(jpe?g|png)$/i, '.webp');
+                const source = document.createElement('source');
+                source.dataset.srcset = src.replace(/\.(jpe?g|png)$/i, '.webp');
+                source.type = 'image/webp';
+                picture.appendChild(source);
             }
-            source.type = 'image/webp';
 
-            const img = document.createElement('img');
+            const img = i === 0 && firstImg ? firstImg.cloneNode(false) : document.createElement('img');
             img.className = 'project-gallery-img';
-            img.src = src;
+            if (i === 0) {
+                img.src = src;
+            } else {
+                img.dataset.src = src;
+            }
             img.alt = projectTitle;
             img.width = firstImg?.width || 600;
             img.height = firstImg?.height || 400;
             img.loading = 'lazy';
             img.decoding = 'async';
+            img.fetchPriority = 'low';
 
-            picture.append(source, img);
+            picture.appendChild(img);
             track.appendChild(picture);
         });
 
