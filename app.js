@@ -263,8 +263,14 @@ function triggerHeroAnimations() {
     // Проверяем prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const isMobileHero = window.matchMedia('(max-width: 768px)');
-    if (prefersReducedMotion.matches || isMobileHero.matches) {
-        // Если пользователь предпочитает reduced motion, сразу показываем элементы
+    if (isMobileHero.matches) {
+        // Критический CSS уже показывает hero без анимации на мобильных.
+        // Не трогаем inline-стили после загрузки JS: такая повторная мутация
+        // вызывает позднюю перерисовку LCP-заголовка в Lighthouse.
+        return;
+    }
+    if (prefersReducedMotion.matches) {
+        // Если пользователь предпочитает reduced motion, сразу показываем элементы.
         heroElements.forEach(function (el) {
             el.style.opacity = '1';
             el.style.transform = 'none';

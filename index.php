@@ -3219,7 +3219,7 @@ body{padding-top:70px}
         })();
     </script>
 
-    <script src="app.js?v=20260820-responsive-project-images" defer charset="utf-8"></script>
+    <script src="app.js?v=20260820-mobile-lcp-stable" defer charset="utf-8"></script>
     <script src="messenger-attribution.js?v=20260723-full" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->
