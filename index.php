@@ -1084,6 +1084,11 @@ body{padding-top:70px}
                         function formatPrice(n) {
                             return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
                         }
+                        function escapeHtml(value) {
+                            return String(value == null ? '' : value).replace(/[&<>"']/g, function (char) {
+                                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char];
+                            });
+                        }
                         function webp(path) {
                             return path.replace(/\.(jpe?g|png)$/i, '.webp');
                         }
@@ -1102,11 +1107,14 @@ body{padding-top:70px}
                             var firstWebp = webp(firstImg);
                             var bedWord = decl(p.bedrooms, ['спальня', 'спальни', 'спален']);
                             var bathWord = decl(p.bathrooms, ['санузел', 'санузла', 'санузлов']);
+                            var homeBadge = String(p.homeBadge || '').trim();
                             return '' +
                                 '<div class="project-card' + (hidden ? ' msk-extra-hidden' : '') + '" data-floors="' + p.floors + '"' +
                                 (hidden ? ' data-msk-extra="1"' : '') +
                                 ' data-images=\'' + images + '\'>' +
-                                '<div class="project-card-labels"></div>' +
+                                '<div class="project-card-labels">' +
+                                    (homeBadge ? '<span class="label-hit">' + escapeHtml(homeBadge) + '</span>' : '') +
+                                '</div>' +
                                 '<div class="project-gallery">' +
                                     '<div class="project-gallery-viewport">' +
                                         '<picture>' +
@@ -1145,7 +1153,13 @@ body{padding-top:70px}
                         function renderMskCatalog() {
                             var grid = document.getElementById('mskProjectsGrid');
                             if (grid) {
-                                grid.innerHTML = mskProjects.map(function (p, i) {
+                                // Featured projects are pinned first. If the old data has no
+                                // featured flags yet, preserve the existing catalogue order.
+                                var featured = mskProjects.filter(function (p) { return !!p.featured; });
+                                var projects = featured.length
+                                    ? featured.concat(mskProjects.filter(function (p) { return !p.featured; }))
+                                    : mskProjects;
+                                grid.innerHTML = projects.map(function (p, i) {
                                     return cardHtml(p, i >= INITIAL_VISIBLE);
                                 }).join('');
                                 // These cards are injected after app.js has scanned the page.

@@ -99,6 +99,8 @@ $items = $data['items'];
                 <h3>
                     <?= admin_e($c['name']) ?>
                     <?php if (!empty($c['hidden'])): ?><span class="case-badge case-badge-hidden">скрыт</span><?php endif; ?>
+                    <?php if (!empty($c['featured'])): ?><span class="case-badge" style="background:#fbe8d4;color:#b5743b">в первых на главной</span><?php endif; ?>
+                    <?php if (!empty($c['homeBadge'])): ?><span class="case-badge"><?= admin_e($c['homeBadge']) ?></span><?php endif; ?>
                 </h3>
                 <div class="case-meta">
                     <?= admin_e(data_format_metric($c['area'] ?? '', 'area')) ?> ·

@@ -14,7 +14,8 @@ $isNew = ($idx < 0);
 $item = $isNew ? [
     'id' => '', 'hidden' => false, 'name' => '', 'floors' => '', 'area' => '',
     'price' => '', 'bedrooms' => '', 'bathrooms' => '', 'terrace' => '',
-    'options' => [], 'description' => '', 'url' => '', 'imageBase' => '', 'images' => [],
+    'options' => [], 'featured' => false, 'homeBadge' => '', 'description' => '',
+    'url' => '', 'imageBase' => '', 'images' => [],
 ] : $data['items'][$idx];
 
 $errors = [];
@@ -40,6 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Опции (чекбоксы)
     $opts = $_POST['options'] ?? [];
     $item['options'] = is_array($opts) ? array_values(array_intersect(array_keys($KNOWN_OPTIONS), $opts)) : [];
+
+    // Настройки карточки в блоке проектов на главной.
+    $item['featured'] = !empty($_POST['featured']);
+    $item['homeBadge'] = trim((string)($_POST['homeBadge'] ?? ''));
 
     // id: для нового проекта используем id, под которым уже загружались фото (gallery_id)
     if ($isNew && empty($item['id'])) {
@@ -124,6 +129,15 @@ $priceMonth = $item['price'] !== '' ? catalog_price_month($item['price']) : 0;
                 </label>
                 <label>Санузлы
                     <span class="num-field"><input type="text" inputmode="numeric" name="bathrooms" value="<?= admin_e($item['bathrooms']) ?>" placeholder="2"><span class="num-suffix">шт.</span></span>
+                </label>
+            </div>
+            <div class="admin-card" style="background:#faf7f2;border-color:#ecdcc8">
+                <label style="flex-direction:row;align-items:center;gap:10px;font-weight:700;font-size:15px">
+                    <input type="checkbox" name="featured" value="1" <?= !empty($item['featured']) ? 'checked' : '' ?>>
+                    Закрепить среди первых проектов на главной
+                </label>
+                <label style="margin-top:12px">Плашка на главной (необязательно)
+                    <input type="text" name="homeBadge" value="<?= admin_e($item['homeBadge'] ?? '') ?>" placeholder="например, Хит продаж" style="max-width:280px">
                 </label>
             </div>
             <label>Описание<textarea name="description"><?= admin_e($item['description']) ?></textarea></label>
