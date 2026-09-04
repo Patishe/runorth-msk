@@ -1148,6 +1148,13 @@ body{padding-top:70px}
                                 grid.innerHTML = mskProjects.map(function (p, i) {
                                     return cardHtml(p, i >= INITIAL_VISIBLE);
                                 }).join('');
+                                // These cards are injected after app.js has scanned the page.
+                                // Initialize them now so the first image click opens the lightbox.
+                                grid.querySelectorAll('.project-card').forEach(function (card) {
+                                    if (typeof window.ensureProjectGallery === 'function') {
+                                        window.ensureProjectGallery(card);
+                                    }
+                                });
                             }
                             var moreBtn = document.getElementById('mskShowMoreProjects');
                             if (moreBtn) {
