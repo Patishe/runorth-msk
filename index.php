@@ -546,9 +546,9 @@ body{padding-top:70px}
     </style>
 
     <!-- Async CSS Loading -->
-    <link rel="stylesheet" href="style.css?v=20260904-design-promo" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css?v=20260910-responsive-grid" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="style.css?v=20260904-design-promo">
+        <link rel="stylesheet" href="style.css?v=20260910-responsive-grid">
     </noscript>
     <style>
         :root {
