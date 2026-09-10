@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+<?php
+// Revalidate the document so browsers pick up current versioned CSS after deploys.
+header('Cache-Control: no-cache, max-age=0, must-revalidate');
+header('Expires: Thu, 01 Jan 1970 00:00:00 GMT');
+?>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -546,9 +551,9 @@ body{padding-top:70px}
     </style>
 
     <!-- Async CSS Loading -->
-    <link rel="stylesheet" href="style.css?v=20260910-responsive-grid" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css?v=20260910-case-gallery" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="style.css?v=20260910-responsive-grid">
+        <link rel="stylesheet" href="style.css?v=20260910-case-gallery">
     </noscript>
     <style>
         :root {

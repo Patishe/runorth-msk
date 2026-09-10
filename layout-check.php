@@ -4,6 +4,7 @@ header('Cache-Control: no-store');
 header('X-Robots-Tag: noindex, nofollow');
 ob_start();
 require __DIR__ . '/index.php';
+header('Cache-Control: no-store');
 $page = ob_get_clean();
 ob_start();
 ?>
@@ -42,7 +43,7 @@ ob_start();
             'Отступы слева / справа:',
             'Шапка: ' + gaps('.header-inner'),
             'Карточка: ' + gaps('#projects .project-card'),
-            'Версия: ' + (document.querySelector('link[href*="responsive-grid"]') ? 'новая' : 'другая')
+            'Версия: ' + (document.querySelector('link[href*="20260910-case-gallery"]') ? 'новая' : 'другая')
         ].join('\n');
         panel.style.left = (left + 8) + 'px';
         panel.style.width = Math.min(300, width - 16) + 'px';

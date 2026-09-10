@@ -9147,6 +9147,8 @@ h3 {
 #cases .project-gallery {
     align-self: start;
     height: auto;
+    width: 100%;
+    min-width: 0;
 }
 
 #cases .project-gallery-viewport {
