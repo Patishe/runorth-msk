@@ -868,16 +868,6 @@ body{padding-top:70px}
             </picture>
             <div class="container hero-content-single">
                 <div class="hero-left">
-                    <button type="button" class="hero-event-badge hero-animate hero-animate-delay-1"
-                        data-metrika-goal="design_promo_click" onclick="openDesignPromo()"
-                        aria-label="Получить скидку 25 процентов на проектирование">
-                        <span class="hero-event-badge-chip"><strong>−25%</strong></span>
-                        <span class="hero-event-badge-text">
-                            <span class="hero-event-badge-eyebrow">Акция до 30 сентября</span>
-                            <span class="hero-event-badge-title">Скидка на проектирование · выгода до 50 000 ₽</span>
-                            <span class="hero-event-badge-note">При строительстве с нами — проект бесплатно</span>
-                        </span>
-                    </button>
                     <h1 class="hero-animate hero-animate-delay-1">СТРОИМ ДОМА ИЗ КЛЕЕНОГО БРУСА<br>С СЕВЕРНЫМ ХАРАКТЕРОМ</h1>
                     <div class="hero-cta-row hero-animate hero-animate-delay-2">
                         <p>Строим в Москве и Московской области с учётом реальных условий:
@@ -1465,16 +1455,9 @@ body{padding-top:70px}
                         <div class="msk-offer-body">
                             <h3>Обсудим проект, разработанный под Вас?</h3>
                             <p>Изучим ваши потребности, ознакомимся с участком, создадим концепцию, подберём материалы и рассчитаем стоимость в нескольких вариантах.</p>
-                            <div class="msk-offer-promo" aria-label="Акция на проектирование">
-                                <strong class="msk-offer-promo-value">−25%</strong>
-                                <span class="msk-offer-promo-copy">
-                                    <strong>До 30 сентября · выгода до 50 000 ₽</strong>
-                                    <span>При строительстве с нами проект бесплатно</span>
-                                </span>
-                            </div>
-                            <button class="msk-offer-btn" type="button" data-metrika-goal="design_promo_click"
-                                onclick="openModal('Получить скидку на проектирование')">
-                                <span>Получить скидку 25%</span>
+                            <button class="msk-offer-btn" type="button" data-metrika-goal="custom_project_click"
+                                onclick="openModal('Обсудить индивидуальный проект')">
+                                <span>Обсудить проект</span>
                             </button>
                         </div>
                         <div class="msk-offer-media">
@@ -3059,7 +3042,6 @@ body{padding-top:70px}
             '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A': { subtitle: '\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 \u0438 \u043C\u044B \u043F\u0435\u0440\u0435\u0437\u0432\u043E\u043D\u0438\u043C \u0432\u0430\u043C \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 15 \u043C\u0438\u043D\u0443\u0442', button: '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A' },
             '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C': { subtitle: '\u041F\u043E\u0434\u0431\u0435\u0440\u0435\u043C \u0438 \u043F\u0440\u043E\u0441\u0447\u0438\u0442\u0430\u0435\u043C \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0439 \u043F\u0440\u043E\u0435\u043A\u0442 \u043F\u043E \u0432\u0430\u0448\u0438\u043C \u043F\u043E\u0436\u0435\u043B\u0430\u043D\u0438\u044F\u043C', button: '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C' },
             '\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 PDF': { subtitle: '\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043C\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043C \u0432\u0430\u043C \u043F\u043E\u043B\u043D\u044B\u0439 \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432 \u0432 \u0444\u043E\u0440\u043C\u0430\u0442\u0435 PDF', button: '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433' },
-            'Получить скидку на проектирование': { subtitle: 'Оставьте контакты — архитектор уточнит ваши пожелания и расскажет об условиях акции.', button: 'Получить предложение' },
             '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432': { subtitle: '\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043C\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043C \u0432\u0430\u043C \u043F\u043E\u043B\u043D\u044B\u0439 \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432.', button: '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433' },
             '\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F \u043F\u043E \u0438\u043F\u043E\u0442\u0435\u043A\u0435': { subtitle: '\u041D\u0430\u0448 \u0438\u043F\u043E\u0442\u0435\u0447\u043D\u044B\u0439 \u0431\u0440\u043E\u043A\u0435\u0440 \u043F\u043E\u0434\u0431\u0435\u0440\u0451\u0442 \u043B\u0443\u0447\u0448\u0443\u044E \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0443 \u0438 \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0441 \u043E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u0435\u043C', button: '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044E' },
             '\u0411\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u044D\u043A\u0441\u043A\u0443\u0440\u0441\u0438\u044F \u043D\u0430 \u043E\u0431\u044A\u0435\u043A\u0442': { subtitle: '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0443\u0434\u043E\u0431\u043D\u044B\u0439 \u0434\u0435\u043D\u044C \u2014 \u043C\u044B \u043F\u043E\u043A\u0430\u0436\u0435\u043C \u0432\u0430\u043C \u043D\u0430\u0448\u0438 \u043E\u0431\u044A\u0435\u043A\u0442\u044B \u0432\u0436\u0438\u0432\u0443\u044E \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u043D\u043E \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E', button: '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u044D\u043A\u0441\u043A\u0443\u0440\u0441\u0438\u044E' },
@@ -3072,7 +3054,6 @@ body{padding-top:70px}
                 '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A': '\u041E\u0431\u0440\u0430\u0442\u043D\u044B\u0439 \u0437\u0432\u043E\u043D\u043E\u043A',
                 '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C': '\u0420\u0430\u0441\u0441\u0447\u0435\u0442 \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u0438 \u0434\u043E\u043C\u0430',
                 '\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 PDF': '\u041A\u0430\u0442\u0430\u043B\u043E\u0433 PDF',
-                'Получить скидку на проектирование': 'Акция — проектирование со скидкой 25% (Москва)',
                 '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432': '\u041A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432',
                 '\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044F \u043F\u043E \u0438\u043F\u043E\u0442\u0435\u043A\u0435': '\u0418\u043F\u043E\u0442\u0435\u043A\u0430',
                 '\u0411\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u0430\u044F \u044D\u043A\u0441\u043A\u0443\u0440\u0441\u0438\u044F \u043D\u0430 \u043E\u0431\u044A\u0435\u043A\u0442': '\u042D\u043A\u0441\u043A\u0443\u0440\u0441\u0438\u044F',
@@ -3480,162 +3461,6 @@ body{padding-top:70px}
     </script>
     <!-- Roistat Counter End -->
 
-    <!-- Акция на проектирование — показ после проектов или при попытке выхода -->
-    <template id="designPromoTemplate">
-        <div class="design-promo" id="designPromo" aria-hidden="true" role="dialog" aria-modal="true"
-            aria-labelledby="designPromoTitle">
-            <div class="design-promo-backdrop" id="designPromoBackdrop"></div>
-            <div class="design-promo-card" role="document">
-                <button class="design-promo-close" id="designPromoClose" aria-label="Закрыть">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="design-promo-media">
-                    <img src="images/design-promo-architect.webp"
-                        alt="Архитектор работает над планировкой загородного дома" width="1200" height="900"
-                        loading="lazy" decoding="async">
-                </div>
-                <div class="design-promo-body">
-                    <span class="design-promo-eyebrow">
-                        <span class="design-promo-dot"></span>
-                        Акция до 30 сентября
-                    </span>
-                    <h3 id="designPromoTitle">Проектирование<br><span>со скидкой 25%</span></h3>
-                    <p class="design-promo-lead">Создадим дом под ваш участок, образ жизни и бюджет.</p>
-                    <ul class="design-promo-benefits">
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>
-                            <span>Выгода <strong>до 50 000 ₽</strong></span>
-                        </li>
-                        <li>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>
-                            <span>При строительстве с нами — <strong>проект бесплатно</strong></span>
-                        </li>
-                    </ul>
-                    <button type="button" class="design-promo-btn" id="designPromoCta"
-                        data-metrika-goal="design_promo_click">
-                        Получить скидку
-                    </button>
-                    <button type="button" class="design-promo-skip" id="designPromoSkip">Спасибо, не сейчас</button>
-                </div>
-            </div>
-        </div>
-    </template>
-    <script>
-        (function () {
-            var popup = null;
-            var STORAGE_KEY = 'designPromoDismissed_v1';
-            var forcePreview = new URLSearchParams(window.location.search).get('promo') === '1';
-            var autoDismissed = false;
-            try { autoDismissed = !!sessionStorage.getItem(STORAGE_KEY); } catch (e) { }
-            var shown = false;
-
-            function ensurePopup() {
-                if (popup) return popup;
-                var template = document.getElementById('designPromoTemplate');
-                if (!template) return null;
-                document.body.appendChild(template.content.cloneNode(true));
-                popup = document.getElementById('designPromo');
-                if (!popup) return null;
-
-                var closeBtn = document.getElementById('designPromoClose');
-                var backdrop = document.getElementById('designPromoBackdrop');
-                var skipBtn = document.getElementById('designPromoSkip');
-                var ctaBtn = document.getElementById('designPromoCta');
-                closeBtn && closeBtn.addEventListener('click', dismiss);
-                backdrop && backdrop.addEventListener('click', dismiss);
-                skipBtn && skipBtn.addEventListener('click', dismiss);
-                ctaBtn && ctaBtn.addEventListener('click', function () {
-                    dismiss();
-                    if (typeof openModal === 'function') openModal('Получить скидку на проектирование');
-                });
-                return popup;
-            }
-
-            function show() {
-                if (popup && popup.classList.contains('active')) return;
-                if (!ensurePopup()) return;
-                shown = true;
-                popup.classList.add('active');
-                popup.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function dismiss() {
-                if (!popup) return;
-                popup.classList.remove('active');
-                popup.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-                if (!forcePreview) {
-                    try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) { }
-                }
-            }
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && popup && popup.classList.contains('active')) dismiss();
-            });
-            window.openDesignPromo = show;
-
-            if (autoDismissed && !forcePreview) return;
-
-            var armed = false;
-            function arm() { armed = true; }
-            setTimeout(arm, 4000);
-
-            if (forcePreview) {
-                setTimeout(show, 250);
-                return;
-            }
-
-            var projectsSection = document.getElementById('projects');
-            var projectsViewed = false;
-            function trackProjectsProgress() {
-                if (!projectsSection || shown) return;
-                var rect = projectsSection.getBoundingClientRect();
-                var viewHeight = window.innerHeight || document.documentElement.clientHeight;
-                if (rect.top < viewHeight * 0.7 && rect.bottom > viewHeight * 0.3) {
-                    projectsViewed = true;
-                }
-                if (armed && projectsViewed && rect.bottom <= viewHeight * 0.25) show();
-            }
-            window.addEventListener('scroll', trackProjectsProgress, { passive: true });
-            trackProjectsProgress();
-
-            var hasInPagePointerActivity = false;
-            document.addEventListener('mousemove', function (e) {
-                if (e.clientY > 60) hasInPagePointerActivity = true;
-            }, { passive: true });
-            document.addEventListener('mouseout', function (e) {
-                if (!armed || shown || !hasInPagePointerActivity) return;
-                if (e.clientY > 0) return;
-                if (e.relatedTarget || e.toElement) return;
-                show();
-            });
-
-            var lastY = window.pageYOffset || document.documentElement.scrollTop;
-            var lastT = Date.now();
-            var wentDown = false;
-            window.addEventListener('scroll', function () {
-                if (shown) return;
-                var y = window.pageYOffset || document.documentElement.scrollTop;
-                var now = Date.now();
-                if (y > 600) wentDown = true;
-                var speedUp = (lastY - y) / (now - lastT || 1);
-                if (armed && wentDown && y < 300 && speedUp > 1.5) show();
-                lastY = y;
-                lastT = now;
-            }, { passive: true });
-        })();
-    </script>
 </body>
 
 </html>
