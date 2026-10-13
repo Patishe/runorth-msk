@@ -2,6 +2,7 @@
 // Revalidate the document so browsers pick up current versioned CSS after deploys.
 header('Cache-Control: no-cache, max-age=0, must-revalidate');
 header('Expires: Thu, 01 Jan 1970 00:00:00 GMT');
+require_once __DIR__ . '/partials/glulam-promo.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -726,6 +727,7 @@ body{padding-top:70px}
     <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3769884;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
     <!-- /Top.Mail.Ru counter -->
 
+    <link rel="stylesheet" href="glulam-promo.css?v=20261013-1">
 </head>
 
 <body>
@@ -984,6 +986,8 @@ body{padding-top:70px}
                 </div>
             </div>
         </section>
+
+        <?php runorth_glulam_promo_banner(); ?>
 
         <!-- 5. Popular Projects -->
         <section class="projects section" id="projects">
@@ -1521,6 +1525,7 @@ body{padding-top:70px}
                                         .quiz-messenger-opt.is-checked{ border-color:var(--accent-color); background:rgba(232,167,116,.12); }
                                     </style>
                                     <form id="quizFinalForm" novalidate>
+                                        <?php runorth_glulam_promo_note(); ?>
                                         <div class="quiz-form-row quiz-messenger">
                                             <span class="quiz-messenger-label">Куда отправить подборку — выберите мессенджер:</span>
                                             <div class="quiz-messenger-opts">
@@ -2671,6 +2676,7 @@ body{padding-top:70px}
                         </div>
 
                         <form class="cta-form-enhanced" onsubmit="submitForm(event)">
+                            <?php runorth_glulam_promo_note(); ?>
                             <!-- Hidden fields for Bitrix24 integration -->
                             <input type="hidden" name="form_source" id="formSourceCta"
                                 value="&#1041;&#1086;&#1085;&#1091;&#1089; &#1079;&#1072; &#1074;&#1089;&#1090;&#1088;&#1077;&#1095;&#1091;">
@@ -2905,6 +2911,7 @@ body{padding-top:70px}
             <h3 id="modal-title">Оставьте заявку</h3>
             <p class="modal-subtitle">Заполните форму и мы свяжемся с вами в ближайшее время</p>
             <form class="modal-form" onsubmit="submitForm(event)" id="modalForm">
+                <?php runorth_glulam_promo_note(); ?>
                 <!-- Hidden fields for Bitrix24 integration -->
                 <input type="hidden" name="form_source" id="formSource"
                     value="&#1054;&#1073;&#1097;&#1072;&#1103; &#1079;&#1072;&#1103;&#1074;&#1082;&#1072;">
@@ -3039,6 +3046,7 @@ body{padding-top:70px}
 
         // Critical modal functions for onclick handlers
         const modalDescriptions = {
+            'Получить расчёт со скидкой': { subtitle: 'Подготовим смету с учётом скидки 10% на домокомплект из клеёного бруса.', button: 'Получить расчёт со скидкой' },
             '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A': { subtitle: '\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430 \u0438 \u043C\u044B \u043F\u0435\u0440\u0435\u0437\u0432\u043E\u043D\u0438\u043C \u0432\u0430\u043C \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 15 \u043C\u0438\u043D\u0443\u0442', button: '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A' },
             '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C': { subtitle: '\u041F\u043E\u0434\u0431\u0435\u0440\u0435\u043C \u0438 \u043F\u0440\u043E\u0441\u0447\u0438\u0442\u0430\u0435\u043C \u043F\u043E\u0434\u0445\u043E\u0434\u044F\u0449\u0438\u0439 \u043F\u0440\u043E\u0435\u043A\u0442 \u043F\u043E \u0432\u0430\u0448\u0438\u043C \u043F\u043E\u0436\u0435\u043B\u0430\u043D\u0438\u044F\u043C', button: '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C' },
             '\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 PDF': { subtitle: '\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443 \u0438 \u043C\u044B \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043C \u0432\u0430\u043C \u043F\u043E\u043B\u043D\u044B\u0439 \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u043F\u0440\u043E\u0435\u043A\u0442\u043E\u0432 \u0432 \u0444\u043E\u0440\u043C\u0430\u0442\u0435 PDF', button: '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433' },
@@ -3051,6 +3059,7 @@ body{padding-top:70px}
         const defaultDescription = { subtitle: '\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0444\u043E\u0440\u043C\u0443 \u0438 \u043C\u044B \u0441\u0432\u044F\u0436\u0435\u043C\u0441\u044F \u0432\u0430\u043C\u0438 \u0432 \u0431\u043B\u0438\u0436\u0430\u0439\u0448\u0435\u0435 \u0432\u0440\u0435\u043C\u044F', button: '\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u044F\u0432\u043A\u0443' };
         function resolveFormSourceName(title) {
             const sourceMap = {
+                'Получить расчёт со скидкой': 'Акция — расчёт со скидкой на домокомплект',
                 '\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A': '\u041E\u0431\u0440\u0430\u0442\u043D\u044B\u0439 \u0437\u0432\u043E\u043D\u043E\u043A',
                 '\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C': '\u0420\u0430\u0441\u0441\u0447\u0435\u0442 \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u0438 \u0434\u043E\u043C\u0430',
                 '\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043A\u0430\u0442\u0430\u043B\u043E\u0433 PDF': '\u041A\u0430\u0442\u0430\u043B\u043E\u0433 PDF',
@@ -3427,7 +3436,7 @@ body{padding-top:70px}
         })();
     </script>
 
-    <script src="app.js?v=20260820-mobile-lcp-stable" defer charset="utf-8"></script>
+    <script src="app.js?v=20261013-glulam-promo" defer charset="utf-8"></script>
     <script src="messenger-attribution.js?v=20260723-full" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->

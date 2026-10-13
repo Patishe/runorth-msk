@@ -1547,6 +1547,12 @@ function populateUTMFields() {
     });
 }
 
+// Read the promotion displayed by this landing, including quiz submissions.
+function getGlulamPromotion(now = Date.now()) {
+    const field = document.querySelector('input[name="promotion"]');
+    return field && now < Date.parse('2027-01-01T00:00:00+03:00') ? field.value : '';
+}
+
 // Send lead to Bitrix24
 async function sendToBitrix24(data) {
     if (!BITRIX24_WEBHOOK || BITRIX24_WEBHOOK.includes('YOUR_WEBHOOK')) {
@@ -1595,6 +1601,7 @@ async function sendToBitrix24(data) {
             'fields[UF_CRM_YA_CID]': yaClientId || '',
             'fields[UF_CRM_YCLID]': data.yclid || '',
             'fields[COMMENTS]': [
+                getGlulamPromotion() || null,
                 data.quizAnswers ? `=== \u041E\u0442\u0432\u0435\u0442\u044B \u043A\u0432\u0438\u0437\u0430 ===\n${data.quizAnswers}\n===\n` : null,
                 data.name ? `\u0418\u043C\u044F: ${data.name}` : null,
                 data.messenger ? `\u041A\u0443\u0434\u0430 \u043D\u0430\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442: ${data.messenger}` : null,
