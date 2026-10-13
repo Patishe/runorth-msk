@@ -10,7 +10,6 @@ function runorth_glulam_promo_note(): void
     if (!runorth_glulam_promo_active()) return;
     ?>
     <div class="glulam-promo-note">
-        <span class="glulam-promo-note__badge" aria-hidden="true">−10%</span>
         <div>
             <strong>Скидка 10% на домокомплект из клеёного бруса</strong>
             <p>При заключении договора на строительство до 31.12.2026. <a href="https://nordsrub.ru/skidka-10-na-domokomplekt/" target="_blank" rel="noopener">Условия акции</a></p>

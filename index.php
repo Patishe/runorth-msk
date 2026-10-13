@@ -727,7 +727,7 @@ body{padding-top:70px}
     <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3769884;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
     <!-- /Top.Mail.Ru counter -->
 
-    <link rel="stylesheet" href="glulam-promo.css?v=20261013-1">
+    <link rel="stylesheet" href="glulam-promo.css?v=20261013-2">
 </head>
 
 <body>
@@ -3116,7 +3116,7 @@ body{padding-top:70px}
             // Project/catalog requests: show messenger choice and adjust the subtitle.
             const isProjectRequest = !!title && title.indexOf('Запросить проект') === 0;
             const isCatalogRequest = !!title && title.indexOf('каталог') !== -1;
-            const needsMessenger = isProjectRequest || isCatalogRequest;
+            const needsMessenger = isProjectRequest || isCatalogRequest || title === 'Получить расчёт со скидкой';
             const messengerGroup = document.getElementById('messengerGroup');
             if (messengerGroup) messengerGroup.style.display = needsMessenger ? 'block' : 'none';
             if (isProjectRequest && modalSubtitle) {
