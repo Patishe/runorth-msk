@@ -1554,7 +1554,7 @@ function getGlulamPromotion(now = Date.now()) {
 }
 
 // Send lead to Bitrix24
-async function sendToBitrix24(data) {
+async function sendToBitrix24(data, form) {
     if (!BITRIX24_WEBHOOK || BITRIX24_WEBHOOK.includes('YOUR_WEBHOOK')) {
         console.warn('Bitrix24 webhook not configured. Lead data:', data);
         return { success: true, demo: true };
@@ -1630,31 +1630,8 @@ async function sendToBitrix24(data) {
             delete leadFields['fields[UF_CRM_1705255545]'];
         }
 
-        const formBody = Object.entries(leadFields)
-            .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value || ''))
-            .join('&');
-
-        const response = await fetch(BITRIX24_WEBHOOK + 'crm.lead.add', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-            body: formBody
-        });
-
-        const result = await response.json();
-
-        if (!response.ok || result.error) {
-            return {
-                success: false,
-                error: result.error_description || result.error || `HTTP ${response.status}`,
-                raw: result
-            };
-        }
-
-        return {
-            success: true,
-            leadId: result.result,
-            raw: result
-        };
+        if (!window.RunorthLeadDelivery) throw new Error('lead_delivery_unavailable');
+        return await window.RunorthLeadDelivery.submit(leadFields, data.formSource, form);
     } catch (error) {
         console.error('Bitrix24 error:', error);
         return { success: false, error: error.message };
@@ -1759,7 +1736,7 @@ function submitForm(event) {
     }
 
     // Send to Bitrix24
-    sendToBitrix24(formData).then(result => {
+    sendToBitrix24(formData, form).then(result => {
         if (result.success || result.demo) {
             // Yandex.Metrika goal
             ym(24341083, 'reachGoal', 'form_submit');

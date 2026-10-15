@@ -315,7 +315,7 @@
                 onSuccess();
                 return;
             }
-            const result = await window.sendToBitrix24(formData);
+            const result = await window.sendToBitrix24(formData, form);
             if (result.success || result.demo) {
                 trackQuizGoal('quiz_submit', {
                     step: QUIZ_STEPS.length + 1,

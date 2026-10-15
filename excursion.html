@@ -230,6 +230,7 @@
     <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3769884;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
     <!-- /Top.Mail.Ru counter -->
 
+    <script src="/lead-delivery.js?v=20261015-1" defer></script>
 </head>
 
 <body>
@@ -1690,7 +1691,7 @@
             };
         }
 
-        async function sendExcursionLeadToBitrix24(data) {
+        async function sendExcursionLeadToBitrix24(data, form) {
             const trackingIds = await waitForTrackingIds({
                 roistatVisit: data.roistat_visit,
                 yandexClientId: data.ya_client_id
@@ -1741,44 +1742,8 @@
                 leadFields['fields[UF_CRM_1705255545]'] = data.roistat_visit;
             }
 
-            const body = Object.entries(leadFields)
-                .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value || ''))
-                .join('&');
-
-            const response = await fetch(BITRIX24_WEBHOOK + 'crm.lead.add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-                body
-            });
-            const result = await response.json();
-
-            if (!response.ok || result.error) {
-                throw new Error(result.error_description || result.error || `HTTP ${response.status}`);
-            }
-
-            return result;
-        }
-
-        async function sendExcursionLeadToBackend(data) {
-            const payload = {
-                form_type: 'excursion',
-                phone: data.phone,
-                message: `Выбранный объект: ${data.selectedObject || 'не выбран'}\nУдобная дата экскурсии: ${data.excursionDate || 'не указана'}\nRoistat visit: ${data.roistat_visit || '—'}\nYandex Client ID: ${data.ya_client_id || '—'}`,
-                source_page: data.source_page,
-                referrer: data.referrer,
-                utm_source: data.utm_source,
-                utm_medium: data.utm_medium,
-                utm_campaign: data.utm_campaign,
-                utm_content: data.utm_content,
-                utm_term: data.utm_term,
-                ya_client_id: data.ya_client_id || ''
-            };
-
-            return fetch('/api/public/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            if (!window.RunorthLeadDelivery) throw new Error('lead_delivery_unavailable');
+            return window.RunorthLeadDelivery.submit(leadFields, data.formSource, form, data.selectedObject);
         }
 
         function initExcursionAnalyticsGoals() {
@@ -1832,15 +1797,7 @@
             const payload = buildLeadPayload(form);
 
             try {
-                const results = await Promise.allSettled([
-                    sendExcursionLeadToBitrix24(payload),
-                    sendExcursionLeadToBackend(payload)
-                ]);
-                const bitrixResult = results[0];
-
-                if (bitrixResult.status === 'rejected') {
-                    throw bitrixResult.reason;
-                }
+                await sendExcursionLeadToBitrix24(payload, form);
 
                 reachMetrikaGoal('excursion_form_submit', {
                     form_id: formId,

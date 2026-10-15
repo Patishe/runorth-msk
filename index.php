@@ -657,7 +657,7 @@ body{padding-top:70px}
                 d.head.appendChild(css);
 
                 var js = d.createElement('script');
-                js.src = 'quiz.js?v=20260606-quiz-goals';
+                js.src = 'quiz.js?v=20261015-lead-sync';
                 js.defer = true;
                 js.charset = 'utf-8';
                 d.body ? d.body.appendChild(js) : d.addEventListener('DOMContentLoaded', function () { d.body.appendChild(js); }, { once: true });
@@ -728,6 +728,7 @@ body{padding-top:70px}
     <!-- /Top.Mail.Ru counter -->
 
     <link rel="stylesheet" href="glulam-promo.css?v=20261013-2">
+    <script src="/lead-delivery.js?v=20261015-1" defer></script>
 </head>
 
 <body>
@@ -3436,7 +3437,7 @@ body{padding-top:70px}
         })();
     </script>
 
-    <script src="app.js?v=20261013-glulam-promo" defer charset="utf-8"></script>
+    <script src="app.js?v=20261015-lead-sync" defer charset="utf-8"></script>
     <script src="messenger-attribution.js?v=20260723-full" defer charset="utf-8"></script>
 
     <!-- Roistat visibility hook -->
