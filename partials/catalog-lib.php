@@ -28,6 +28,27 @@ function catalog_load(): array
     if (!isset($data['items']) || !is_array($data['items'])) {
         $data['items'] = [];
     }
+    // Apply this price revision once to the live catalog excluded from FTP deploys.
+    // Persist the marker so later admin price edits remain authoritative.
+    if (($data['settings']['priceRevision'] ?? '') !== '2026-10-21') {
+        $prices = [
+            'cyurih' => 10644579,
+            'fribur' => 9554068,
+            'bruklin' => 11713135,
+            'myunhen' => 13598745,
+            'milan' => 8641534,
+        ];
+        foreach ($data['items'] as &$item) {
+            if (isset($prices[$item['id'] ?? ''])) {
+                $item['price'] = $prices[$item['id']];
+            }
+        }
+        unset($item);
+        $data['settings']['priceRevision'] = '2026-10-21';
+        if (!catalog_save($data)) {
+            throw new RuntimeException('Could not save catalog price revision 2026-10-21');
+        }
+    }
     return $data;
 }
 

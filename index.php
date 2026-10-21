@@ -2038,7 +2038,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 115, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "9284251",
+                            "price": "9554068",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
@@ -2070,7 +2070,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 172, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "11198842",
+                            "price": "11713135",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
