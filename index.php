@@ -3,6 +3,9 @@
 header('Cache-Control: no-cache, max-age=0, must-revalidate');
 header('Expires: Thu, 01 Jan 1970 00:00:00 GMT');
 require_once __DIR__ . '/partials/glulam-promo.php';
+// Apply catalog price revisions before browser cards fetch the live JSON.
+require_once __DIR__ . '/partials/catalog-lib.php';
+catalog_load();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
