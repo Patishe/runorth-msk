@@ -30,13 +30,24 @@ function catalog_load(): array
     }
     // Apply this price revision once to the live catalog excluded from FTP deploys.
     // Persist the marker so later admin price edits remain authoritative.
-    if (($data['settings']['priceRevision'] ?? '') !== '2026-10-21') {
+    if (($data['settings']['priceRevision'] ?? '') !== '2026-10-29') {
         $prices = [
-            'cyurih' => 10644579,
-            'fribur' => 9554068,
-            'bruklin' => 11713135,
-            'myunhen' => 13598745,
-            'milan' => 8641534,
+            'bruklin' => 11712900,
+            'myunhen' => 13597900,
+            'fribur' => 9553900,
+            'arkenston' => 12290900,
+            'davos' => 10359900,
+            'cyurih' => 10643900,
+            'boston' => 10128900,
+            'hedal' => 11661900,
+            'milan' => 8640900,
+            'chikago' => 13906900,
+            'grenobl' => 11632900,
+            'afiny' => 12944900,
+            'sparta' => 10530900,
+            'bergen' => 14404900,
+            'amsterdam' => 20591900,
+            'detroyt' => 12127900,
         ];
         foreach ($data['items'] as &$item) {
             if (isset($prices[$item['id'] ?? ''])) {
@@ -44,9 +55,9 @@ function catalog_load(): array
             }
         }
         unset($item);
-        $data['settings']['priceRevision'] = '2026-10-21';
+        $data['settings']['priceRevision'] = '2026-10-29';
         if (!catalog_save($data)) {
-            throw new RuntimeException('Could not save catalog price revision 2026-10-21');
+            throw new RuntimeException('Could not save catalog price revision 2026-10-29');
         }
     }
     return $data;

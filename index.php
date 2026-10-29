@@ -56,7 +56,7 @@ require_once __DIR__ . '/partials/glulam-promo.php';
     <!-- SEO Meta Tags -->
     <title>Дома из клееного бруса под ключ в Москве и МО — СК «Русский Север»</title>
     <meta name="description"
-        content="Строительство домов из клееного бруса под ключ в Москве и Московской области. Собственные бригады, гарантия 25 лет, ставки по ипотеке от 6%. Проекты от 9 284 251 ₽.">
+        content="Строительство домов из клееного бруса под ключ в Москве и Московской области. Собственные бригады, гарантия 25 лет, ставки по ипотеке от 6%. Проекты от 8 640 900 ₽.">
     <meta name="keywords"
         content="дома из клееного бруса, строительство домов, клееный брус, дома под ключ, строительная компания, Москва, Московская область, ипотека на строительство">
     <meta name="author" content="ООО СК Русский Север">
@@ -2022,7 +2022,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 130, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "10339000",
+                            "price": "10359900",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
@@ -2038,7 +2038,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 115, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "9554068",
+                            "price": "9553900",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
@@ -2054,7 +2054,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 139, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "11989000",
+                            "price": "12290900",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
@@ -2070,7 +2070,7 @@ body{padding-top:70px}
                         "floorSize": {"@type": "QuantitativeValue", "value": 172, "unitCode": "MTK"},
                         "offers": {
                             "@type": "Offer",
-                            "price": "11713135",
+                            "price": "11712900",
                             "priceCurrency": "RUB",
                             "availability": "https://schema.org/InStock"
                         }
