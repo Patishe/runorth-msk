@@ -208,6 +208,8 @@ FileETag None
 
     # Запрет доступа к скрытым файлам (.git, .env, .htaccess и т.д.)
     RewriteCond %{REQUEST_URI} (^\.|/\.) [NC]
+    # Allow only public ACME token files used to issue and renew HTTPS certificates.
+    RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[A-Za-z0-9_-]+$ [NC]
     RewriteRule .* - [F,L]
 
     # Защита от SQL-инъекций в URL
