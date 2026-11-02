@@ -1,4 +1,6 @@
-name: Deploy Moscow subdomain
+# Production moved to NIC.ru. Publication is performed separately over SSH.
+# See https://github.com/Patishe/runorth/blob/main/DEPLOY-NIC.md
+name: Validate Moscow site for NIC.ru
 
 on:
   push:
@@ -7,48 +9,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Sync msk.runorth.ru to Beget via FTP
+  validate:
+    name: Validate Moscow public site
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.BEGET_FTP_HOST || secrets.BEGET_HOST }}
-          username: ${{ secrets.BEGET_FTP_USERNAME || secrets.BEGET_USERNAME || secrets.FTP_USERNAME || secrets.FTP_USER || secrets.BEGET_FTP_LOGIN }}
-          password: ${{ secrets.BEGET_FTP_PASSWORD || secrets.BEGET_PASSWORD || secrets.FTP_PASSWORD || secrets.FTP_PASS }}
-          server-dir: ${{ secrets.BEGET_FTP_PATH || './' }}
-          local-dir: ./
-          protocol: ftp
-          dangerous-clean-slate: false
-          log-level: standard
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/.claude/**
-            **/.qwen/**
-            backend/**
-            *.md
-            *.ps1
-            *.py
-            router.php
-            data/cases.json
-            data/catalog.json
-            data/backups/**
-            uploads/**
-            admin/shared/config.php
-            .htaccess_bak
-            package.json
-            package-lock.json
-            compress-images.js
-            convert-boston-webp.js
-            generate-direct-visuals.js
-            optimize-images.js
-            optimize.js
+      - name: Validate PHP sources
+        run: find admin api partials -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Validate homepage PHP
+        run: php -l index.php
+      - name: Validate browser scripts
+        run: |
+          node --check app.js
+          node --check quiz.js
