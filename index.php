@@ -1086,6 +1086,16 @@ body{padding-top:70px}
 
                         var INITIAL_VISIBLE = 8;
 
+                        document.getElementById('mskProjectsGrid').addEventListener('error', function (event) {
+                            var image = event.target;
+                            if (!(image instanceof HTMLImageElement)) return;
+                            var picture = image.closest('picture');
+                            if (!picture || image.currentSrc === image.src) return;
+
+                            // A failed WebP source does not automatically fall back to the original.
+                            picture.querySelectorAll('source').forEach(function (source) { source.remove(); });
+                        }, true);
+
                         function formatPrice(n) {
                             return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
                         }
@@ -1123,8 +1133,7 @@ body{padding-top:70px}
                                 '<div class="project-gallery">' +
                                     '<div class="project-gallery-viewport">' +
                                         '<picture>' +
-                                            '<source srcset="' + firstWebp.replace(/\.webp$/i, '-480.webp') + '" media="(max-width: 768px)" type="image/webp">' +
-                                            '<source srcset="' + firstWebp.replace(/\.webp$/i, '-768.webp') + ' 768w, ' + firstWebp + ' 1200w" sizes="(max-width: 1200px) calc(50vw - 30px), 570px" type="image/webp">' +
+                                            '<source srcset="' + firstWebp + '" type="image/webp">' +
                                             '<img class="project-gallery-img" src="' + firstImg + '" alt="Дом ' + p.name + '" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low">' +
                                         '</picture>' +
                                     '</div>' +
