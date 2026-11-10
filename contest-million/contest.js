@@ -90,13 +90,6 @@
   header.prepend(promo);
   document.body.append(overlay);
 
-  const trustStrip = document.querySelector("#hero + .trust-strip");
-  if (trustStrip && typeof ResizeObserver === "function") {
-    new ResizeObserver(([entry]) => {
-      document.body.style.setProperty("--runorth-contest-trust-height", Math.ceil(entry.target.getBoundingClientRect().height) + "px");
-    }).observe(trustStrip);
-  }
-
   const trigger = promo.querySelector(".home-contest-trigger");
   const closeButton = overlay.querySelector(".home-contest__close");
   const image = overlay.querySelector(".home-contest__banner");

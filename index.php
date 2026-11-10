@@ -732,8 +732,8 @@ body{padding-top:70px}
 
     <link rel="stylesheet" href="glulam-promo.css?v=20261013-2">
     <script src="/lead-delivery.js?v=20261015-1" defer></script>
-    <link rel="stylesheet" href="/contest-million/contest.css?v=20261110">
-    <script src="/contest-million/contest.js?v=20261110" defer></script>
+    <link rel="stylesheet" href="/contest-million/contest.css?v=20261110-fullscreen-2">
+    <script src="/contest-million/contest.js?v=20261110-fullscreen" defer></script>
 </head>
 
 <body>
