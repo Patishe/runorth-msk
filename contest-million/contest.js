@@ -10,6 +10,7 @@
   const formSource = "Заявка на конкурс «Миллион»";
   const sessionKey = "runorth_contest_shown_2026";
   const dismissedKey = "runorth_contest_dismissed_2026";
+  let shownInCurrentVisit = false;
   const applyParameter = "million-contest";
   const gift = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16v10H4zM3 7h18v4H3zM12 7v14M12 7H8.5A2.5 2.5 0 1 1 11 4.5L12 7Zm0 0h3.5A2.5 2.5 0 1 0 13 4.5L12 7Z"/></svg>';
   const cross = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
@@ -31,13 +32,24 @@
   }
 
   function wasShown() {
-    return document.cookie.split(";").some(cookie => cookie.trim() === sessionKey + "=1") || readSession(sessionKey);
+    if (shownInCurrentVisit) return true;
+    try {
+      if (document.cookie.split(";").some(cookie => cookie.trim() === sessionKey + "=1")) return true;
+    } catch {
+      // Private browsers can deny access to cookies.
+    }
+    return readSession(sessionKey);
   }
 
   function rememberDisplay() {
+    shownInCurrentVisit = true;
     const domain = /^(?:(?:www\.)?(?:msk\.)?)runorth\.ru$/.test(location.hostname) ? "; Domain=runorth.ru" : "";
     const secure = location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = sessionKey + "=1; Path=/; SameSite=Lax" + domain + secure;
+    try {
+      document.cookie = sessionKey + "=1; Path=/; SameSite=Lax" + domain + secure;
+    } catch {
+      // Memory and session storage still record this display.
+    }
     writeSession(sessionKey);
   }
 
@@ -95,8 +107,10 @@
   const image = overlay.querySelector(".home-contest__banner");
   let previousOverflow = "";
   let timer;
+  let automaticDisplayStopped = false;
 
   function stopTimer() {
+    automaticDisplayStopped = true;
     clearTimeout(timer);
     document.removeEventListener("visibilitychange", schedule);
   }
@@ -115,6 +129,7 @@
   }
 
   function closeContest() {
+    stopTimer();
     if (overlay.hidden) return;
     overlay.hidden = true;
     document.body.style.overflow = previousOverflow;
@@ -145,7 +160,7 @@
   }
 
   function showOnce() {
-    if (document.hidden) return;
+    if (automaticDisplayStopped || document.hidden) return;
     if (wasShown()) {
       stopTimer();
       if (promo.dataset.mobileDisplay === "pending") promo.dataset.mobileDisplay = "minimized";
@@ -155,7 +170,7 @@
   }
 
   function showWhenAvailable() {
-    if (document.hidden) return;
+    if (automaticDisplayStopped || document.hidden) return;
     const otherDialog = Array.from(document.querySelectorAll('.modal, [aria-modal="true"]')).some(element =>
       !overlay.contains(element) && element.getClientRects().length && !element.closest('[aria-hidden="true"], [hidden]') &&
       getComputedStyle(element).visibility !== "hidden"
@@ -164,18 +179,23 @@
       timer = setTimeout(showWhenAvailable, 1200);
       return;
     }
-    if (navigator.locks) navigator.locks.request(sessionKey, showOnce).catch(showOnce);
-    else showOnce();
+    try {
+      if (navigator.locks) navigator.locks.request(sessionKey, { ifAvailable: true }, showOnce).catch(showOnce);
+      else showOnce();
+    } catch {
+      showOnce();
+    }
   }
 
   function schedule() {
     clearTimeout(timer);
-    if (!document.hidden) timer = setTimeout(showWhenAvailable, 10000);
+    if (!automaticDisplayStopped && !document.hidden) timer = setTimeout(showWhenAvailable, 10000);
   }
 
   trigger.addEventListener("click", openContest);
   closeButton.addEventListener("click", closeContest);
   promo.querySelector(".home-contest-promo__dismiss").addEventListener("click", () => {
+    stopTimer();
     promo.dataset.mobileDisplay = "dismissed";
     writeSession(dismissedKey);
     header.querySelector("a")?.focus({preventScroll: true});
