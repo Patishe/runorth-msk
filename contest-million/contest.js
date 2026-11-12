@@ -13,6 +13,7 @@
   let shownInCurrentVisit = false;
   const applyParameter = "million-contest";
   const gift = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16v10H4zM3 7h18v4H3zM12 7v14M12 7H8.5A2.5 2.5 0 1 1 11 4.5L12 7Zm0 0h3.5A2.5 2.5 0 1 0 13 4.5L12 7Z"/></svg>';
+  const coloredGift = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M31 21C12 24 8 9 17 7c8-2 13 7 15 14C35 6 44 3 49 9c7 9-7 14-18 12" fill="#f04457" stroke="#c92e40" stroke-width="2.5"/><rect x="9" y="26" width="46" height="33" rx="4" fill="#ffbd38"/><path d="M10 29h44v7H10z" fill="#e99c1c"/><rect x="5" y="21" width="54" height="13" rx="3" fill="#ffda63"/><path d="M27 21h10v38H27z" fill="#ef4557"/><path d="M29 23h3v34h-3z" fill="#ff7080"/></svg>';
   const cross = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
 
   function readSession(key) {
@@ -59,13 +60,14 @@
   promo.dataset.mobileDisplay = readSession(dismissedKey) ? "dismissed" : wasShown() ? "minimized" : "pending";
   promo.innerHTML = `
     <div class="home-contest-promo__actions">
+      <span class="home-contest-trigger__gift">${coloredGift}</span>
       <button class="home-contest-trigger" type="button" aria-haspopup="dialog" aria-expanded="false">
         <span class="home-contest-trigger__desktop home-contest-promo__copy">
           ${gift}<strong>${title}</strong>
           <span>Получи <strong class="home-contest-promo__amount">1 000 000 ₽</strong> на строительство дома до конца года</span>
         </span>
         <span class="home-contest-trigger__desktop home-contest-trigger__cta">Узнать больше <span aria-hidden="true">→</span></span>
-        <span class="home-contest-trigger__mobile">${gift}${title}</span>
+        <span class="home-contest-trigger__mobile">МИЛЛИОН<br>НА СТРОЙКУ</span>
       </button>
       <button class="home-contest-promo__dismiss" type="button" aria-label="Убрать плашку акции">${cross}</button>
     </div>`;

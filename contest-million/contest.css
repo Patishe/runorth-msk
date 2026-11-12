@@ -731,3 +731,24 @@
     margin-top: 2px;
   }
 }
+
+
+/* Shared mobile campaign chip matching Nordsrub. */
+.home-contest-trigger__gift { display:none; }
+
+@media (max-width:900px) {
+  .home-contest-promo .home-contest-trigger { color:#fff; }
+  .home-contest-trigger__mobile { display:block; line-height:1.15; text-align:center; }
+  .home-contest-trigger__gift {
+    position:absolute;
+    z-index:2;
+    top:-13px;
+    left:-10px;
+    display:block;
+    width:32px;
+    height:32px;
+    pointer-events:none;
+    filter:drop-shadow(0 2px 2px rgba(37,52,61,.2));
+  }
+  .home-contest-trigger__gift svg { display:block; width:100%; height:100%; }
+}
